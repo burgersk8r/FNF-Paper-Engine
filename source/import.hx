@@ -34,6 +34,7 @@ import funkin.backend.assets.BaseStage;
 import funkin.backend.system.Difficulty;
 import funkin.backend.assets.Mods;
 import funkin.backend.assets.BaseStage;
+import funkin.backend.system.Main;
 
 import funkin.objects.Alphabet;
 import funkin.objects.BGSprite;

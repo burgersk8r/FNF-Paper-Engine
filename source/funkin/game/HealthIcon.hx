@@ -27,7 +27,7 @@ class HealthIcon extends FlxSprite
 	private var iconOffsets:Array<Float> = [0, 0];
 	public function changeIcon(char:String, ?allowGPU:Bool = true) {
 		if(this.char != char) {
-			var name:String = 'icons/' + char;
+			var name:String = 'icons/ui/' + char;
 			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'ui/icons/icon-' + char; //Older versions of psych engine's support
 			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'ui/icons/icon-face'; //Prevents crash from missing icon
 			
