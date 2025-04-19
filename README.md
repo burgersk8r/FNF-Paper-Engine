@@ -34,6 +34,9 @@ If you're on Mac or Linux, follow these steps here:
 
 * Once it's done compiling, the game will launch and now you can start modding!
 
+# Downloading The Engine
+[You can download the engine/latest version of the engine by clicking here](https://github.com/paigefnf/FNF-Paper-Engine/actions)
+
 # Credits
 - PaigeFNF (Creator of the engine)
 
