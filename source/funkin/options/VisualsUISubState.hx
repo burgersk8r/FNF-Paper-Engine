@@ -125,7 +125,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		#if !mobile
 		var option:Option = new Option('Show Debug Info',
-			'If unchecked, hides the following: FPS & Memory Counter, Engine & FNF watermarks.',
+			'If unchecked, hides the FPS & Memory Counter.',
 			'showFPS',
 			'bool');
 		addOption(option);

@@ -22,11 +22,10 @@ class FlashingState extends MusicBeatState
 		add(bg);
 
 		warnText = new FlxText(0, 0, FlxG.width,
-		"WARNING!\n
+"WARNING!\n
 			This engine is still in an Alpha state!\n
-			Also this game has flashing lights,\n
-			feel free to disable them in\n
-			the options menu!\n
+			Also this game has flashing lights,feel free to disable 
+			them in the options menu!\n
 			Press ENTER or ESC to proceed.",
 			32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
