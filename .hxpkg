@@ -7,7 +7,7 @@
 {"name":"hxcpp","version":"4.3.2"},
 {"name":"hxCodec","link":"https://github.com/polybiusproxy/hxCodec.git"},
 {"name":"tjson","version":"1.4.0"},
-{"name":"hxdiscord_rpc","link":"https://github.com/MAJigsaw77/hxdiscord_rpc"},
+{"name":"hxdiscord_rpc","version":"1.2.4"},
 {"name":"flxanimate","link":"https://github.com/ShadowMario/flxanimate","branch":"dev"},
 {"name":"linc_luajit","link":"https://github.com/superpowers04/linc_luajit"}
 ]
