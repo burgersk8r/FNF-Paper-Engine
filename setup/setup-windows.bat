@@ -4,14 +4,14 @@ cd ..
 @echo on
 echo Installing dependencies.
 haxelib install lime 8.0.1
-haxelib install openfl 9.3.2
+haxelib install openfl
 haxelib install flixel 5.5.0
 haxelib install flixel-addons 3.2.1
 haxelib install flixel-ui 2.5.0
 haxelib install flixel-tools
 haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git
 haxelib install hxcpp 4.3.2
-haxlib install hxcpp-debug-server 1.2.4
+haxelib install hxcpp-debug-server 1.2.4
 haxelib install tjson 1.4.0
 haxelib install SScript-7,0,0.zip
 haxelib git flxanimate https://github.com/ShadowMario/flxanimate dev

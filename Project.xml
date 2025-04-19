@@ -72,7 +72,7 @@
 	<assets path="assets/songs" library="songs" exclude="*.mp3" unless="web" />
 
 	<section if="MODS_ALLOWED">
-		<assets path='content' rename='content' embed='false' />
+		<assets path='content' embed='false' />
 	</section>
 
 .
