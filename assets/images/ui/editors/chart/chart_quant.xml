@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="chart_quant.png" width="260" height="22">
+	<SubTexture name="chart_quant0000" x="1" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+	<SubTexture name="chart_quant0001" x="30" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+	<SubTexture name="chart_quant0002" x="59" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+	<SubTexture name="chart_quant0003" x="88" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+	<SubTexture name="chart_quant0004" x="117" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+	<SubTexture name="chart_quant0005" x="146" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+	<SubTexture name="chart_quant0006" x="175" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+	<SubTexture name="chart_quant0007" x="204" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+	<SubTexture name="chart_quant0008" x="233" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+	<SubTexture name="chart_quant0009" x="117" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+	<SubTexture name="chart_quant0010" x="117" y="1" width="26" height="20" frameX="-0" frameY="-0" frameWidth="26" frameHeight="20"/>
+</TextureAtlas>

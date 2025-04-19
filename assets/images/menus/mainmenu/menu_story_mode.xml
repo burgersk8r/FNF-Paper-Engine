@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="menu_story_mode.png" width="797" height="913">
+	<SubTexture name="story_mode basic0001" x="1" y="540" width="615" height="122" frameX="-0" frameY="-0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story_mode basic0002" x="1" y="540" width="615" height="122" frameX="-0" frameY="-0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story_mode basic0003" x="1" y="540" width="615" height="122" frameX="-0" frameY="-0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story_mode basic0004" x="1" y="665" width="615" height="122" frameX="-0" frameY="-0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story_mode basic0005" x="1" y="665" width="615" height="122" frameX="-0" frameY="-0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story_mode basic0006" x="1" y="665" width="615" height="122" frameX="-0" frameY="-0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story_mode basic0007" x="1" y="790" width="615" height="122" frameX="-0" frameY="-0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story_mode basic0008" x="1" y="790" width="615" height="122" frameX="-0" frameY="-0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story_mode basic0009" x="1" y="790" width="615" height="122" frameX="-0" frameY="-0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story_mode white0001" x="1" y="1" width="795" height="174" frameX="-0" frameY="-2" frameWidth="795" frameHeight="181"/>
+	<SubTexture name="story_mode white0002" x="1" y="178" width="794" height="175" frameX="-1" frameY="-1" frameWidth="795" frameHeight="181"/>
+	<SubTexture name="story_mode white0003" x="1" y="356" width="794" height="181" frameX="-0" frameY="-0" frameWidth="795" frameHeight="181"/>
+</TextureAtlas>

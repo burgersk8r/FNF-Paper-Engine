@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="Menu_Mom.png" width="2665" height="179">
+	<SubTexture name="M Mom Idle0000" x="1530" y="1" width="378" height="177" rotated="true" frameX="-1" frameY="-1" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0001" x="1530" y="1" width="378" height="177" rotated="true" frameX="-1" frameY="-1" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0002" x="1911" y="1" width="373" height="177" rotated="true" frameX="-1" frameY="-6" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0003" x="1911" y="1" width="373" height="177" rotated="true" frameX="-1" frameY="-6" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0004" x="2287" y="1" width="377" height="177" rotated="true" frameX="-0" frameY="-3" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0005" x="2287" y="1" width="377" height="177" rotated="true" frameX="-0" frameY="-3" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0006" x="1" y="1" width="378" height="176" rotated="true" frameX="-0" frameY="-2" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0007" x="1" y="1" width="378" height="176" rotated="true" frameX="-0" frameY="-2" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0008" x="382" y="1" width="379" height="176" rotated="true" frameX="-0" frameY="-1" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0009" x="382" y="1" width="379" height="176" rotated="true" frameX="-0" frameY="-1" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0010" x="764" y="1" width="380" height="176" rotated="true" frameX="-0" frameY="-0" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0011" x="764" y="1" width="380" height="176" rotated="true" frameX="-0" frameY="-0" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0012" x="1147" y="1" width="380" height="176" rotated="true" frameX="-0" frameY="-0" frameWidth="178" frameHeight="380"/>
+	<SubTexture name="M Mom Idle0013" x="1147" y="1" width="380" height="176" rotated="true" frameX="-0" frameY="-0" frameWidth="178" frameHeight="380"/>
+</TextureAtlas>

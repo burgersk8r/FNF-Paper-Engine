@@ -1,0 +1,26 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "Test",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"Test",
+			"bf-pixel",
+			[
+				123,
+				214,
+				246
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "Test"
+}
