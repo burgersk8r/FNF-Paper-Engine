@@ -81,7 +81,7 @@ class Limo extends BaseStage
 		addBehindGF(fastCar);
 		
 		var limo:BGSprite = new BGSprite('stages/week4/limo/limoDrive', -120, 550, 1, 1, ['Limo stage'], true);
-		addBehindGF(limo); //Shitty layering but whatev it works LOL
+		addBehindGF(limo); //I fucking hate this layering, why ShadowMario
 	}
 
 	var limoSpeed:Float = 0;

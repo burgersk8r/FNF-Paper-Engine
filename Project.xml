@@ -65,8 +65,14 @@
 	<assets path="assets/videos" library="videos" if="VIDEOS_ALLOWED" />
 
 	<library name="songs" preload="true" />
+	<library name="fonts" preload="true" />
+	<library name="music" preload="true" />
+	<library name="scripts" preload="true" />
+	<library name="sounds" preload="true" />
+	<library name="stages" preload="true" />
 	<library name="images" preload="true" />
 	<library name="videos" preload="true" if="VIDEOS_ALLOWED" />
+	<library name="weeks" preload="true" />
 
 	<assets path="assets/songs" library="songs" exclude="*.ogg" if="web" />
 	<assets path="assets/songs" library="songs" exclude="*.mp3" unless="web" />

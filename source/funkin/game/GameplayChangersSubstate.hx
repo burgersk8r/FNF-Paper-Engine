@@ -62,8 +62,8 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		option.displayFormat = '%vX';
 		optionsArray.push(option);
 
-		optionsArray.push(new GameplayOption('Extreme Mode', 'instakill', 'bool', false));
-		optionsArray.push(new GameplayOption('No Lose', 'practice', 'bool', false));
+		optionsArray.push(new GameplayOption('Instant Death', 'instakill', 'bool', false));
+		optionsArray.push(new GameplayOption('Practice Mode', 'practice', 'bool', false));
 		optionsArray.push(new GameplayOption('Botplay', 'botplay', 'bool', false));
 	}
 

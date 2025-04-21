@@ -1,7 +1,7 @@
 # Friday Night Funkin': Paper Engine
 A Psych Engine 0.7.3 fork focusing mostly on optimizing! Inspired by: [Codename Engine](https://github.com/CodenameCrew/CodenameEngine) & [NightmareVision Engine](https://github.com/DuskieWhy/NightmareVision)
 
-Originally used for [FCR Alternate Timelines (Github page currently private)](https://github.com/paigefnf/FCR-Alternate-Timelines-Source)
+Originally created for [FCR Alternate Timelines (Github page currently private)](https://github.com/paigefnf/FCR-Alternate-Timelines-Source)
 
 # Building The Engine
 

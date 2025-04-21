@@ -37,7 +37,7 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: linuxBuild
+          name: PaperEngine-linuxBuild
           path: "export/release/linux/bin"
   buildWindows:
     runs-on: windows-latest
@@ -66,7 +66,7 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: windowsBuild
+          name: PaperEngine-windowsBuild
           path: export/release/windows/bin
   buildMac:
     runs-on: macos-13
@@ -93,5 +93,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: macBuild
+          name: PaperEngine-macBuild
           path: export/release/macos/bin
