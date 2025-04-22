@@ -25,7 +25,7 @@ import funkin.backend.system.Main;
 	public var cacheOnGPU:Bool = #if !switch false #else true #end; //From Stilic
 	public var framerate:Int = 60;
 	public var camZooms:Bool = true;
-	public var missSounds:Bool = true; // re-added miss sounds to psych engine - paigeva
+	public var missSounds:Bool = true; // re-added miss sounds to psych engine - paigefnf
 	public var hideHud:Bool = false;
 	public var noteOffset:Int = 0;
 	public var arrowRGB:Array<Array<FlxColor>> = [
@@ -34,17 +34,16 @@ import funkin.backend.system.Main;
 		[0xFF12FA05, 0xFFFFFFFF, 0xFF0A4447],
 		[0xFFF9393F, 0xFFFFFFFF, 0xFF651038]];
 	public var arrowRGBPixel:Array<Array<FlxColor>> = [
-		[0xFFE276FF, 0xFFFFF9FF, 0xFF3C1F56],
-		[0xFF3DCAFF, 0xFFF4FFFF, 0xFF1542B7],
-		[0xFF71E300, 0xFFF6FFE6, 0xFF0A4447],
-		[0xFFFF884E, 0xFFFFFAF5, 0xFF651038]];
+		[0xFFC24B99, 0xFFFFFFFF, 0xFF3C1F56],
+		[0xFF00FFFF, 0xFFFFFFFF, 0xFF1542B7],
+		[0xFF12FA05, 0xFFFFFFFF, 0xFF0A4447],
+		[0xFFF9393F, 0xFFFFFFFF, 0xFF651038]];
 
 	public var ghostTapping:Bool = true;
 	public var timeBarType:String = 'Time Left';
 	public var scoreZoom:Bool = false;
 	public var noReset:Bool = false;
 	public var healthBarAlpha:Float = 1;
-	public var oldHold:Bool = false;
 	public var hitsoundVolume:Float = 0;
 	public var pauseMusic:String = 'Breakfast';
 	public var checkForUpdates:Bool = false;

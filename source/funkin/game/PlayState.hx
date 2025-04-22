@@ -1401,7 +1401,7 @@ class PlayState extends MusicBeatState
 				final susLength:Float = swagNote.sustainLength / Conductor.stepCrochet;
 				final floorSus:Int = Math.floor(susLength);
 
-				if(floorSus > 0) { // VSlice Note Hold Animation Fix
+				if(floorSus > 0) {
 					for (susNote in 0...floorSus + 1)
 					{
 						oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
@@ -1441,7 +1441,7 @@ class PlayState extends MusicBeatState
 							if(daNoteData > 1) //Up and Right
 								sustainNote.x += FlxG.width / 2 + 25;
 						}
-						sustainNote.noAnimation = (!ClientPrefs.data.oldHold);
+						//sustainNote.noAnimation = true; temporarily removing this
 					}
 				}
 
