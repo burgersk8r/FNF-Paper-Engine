@@ -348,9 +348,6 @@ class PlayState extends MusicBeatState
 		persistentUpdate = true;
 		persistentDraw = true;
 
-		if (SONG == null)
-			SONG = Song.loadFromJson('tutorial');
-
 		Conductor.mapBPMChanges(SONG);
 		Conductor.bpm = SONG.bpm;
 
@@ -519,7 +516,7 @@ class PlayState extends MusicBeatState
 		timeTxt.borderSize = 2;
 		timeTxt.visible = updateTime = showTime;
 		if(ClientPrefs.data.downScroll) timeTxt.y = FlxG.height - 44;
-		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = "- " + SONG.song + " [" + Difficulty.getString().toUpperCase() + "] " + "-"; // formatted it like Forever Engine - PaigeFNF
+		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = "- " + SONG.song + " [" + Difficulty.getString().toUpperCase() + "] " + "-"; // formatted like Forever Engine - PaigeFNF
 
 		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'ui/bars/time/timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
