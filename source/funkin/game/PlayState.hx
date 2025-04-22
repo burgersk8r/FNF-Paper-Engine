@@ -1267,7 +1267,7 @@ class PlayState extends MusicBeatState
 		@:privateAccess
 		FlxG.sound.playMusic(inst._sound, 1, false);
 		#if FLX_PITCH FlxG.sound.music.pitch = playbackRate; #end
-		FlxG.sound.music.onComplete = finishSong.bind();
+		FlxG.sound.music.onComplete = finishSong.bind(false);
 		vocals.play();
 		opponentVocals.play();
 
@@ -2616,7 +2616,7 @@ class PlayState extends MusicBeatState
 				{
 					numScore.destroy();
 				},
-				startDelay: Conductor.crochet * 0.002 / playbackRate
+				startDelay: Conductor.songPosition * 0.002 / playbackRate
 			});
 
 			daLoop++;
@@ -2624,7 +2624,7 @@ class PlayState extends MusicBeatState
 		}
 		comboSpr.x = xThing + 50;
 		FlxTween.tween(rating, {alpha: 0}, 0.2 / playbackRate, {
-			startDelay: Conductor.crochet * 0.001 / playbackRate
+			startDelay: Conductor.songPosition * 0.001 / playbackRate
 		});
 
 		FlxTween.tween(comboSpr, {alpha: 0}, 0.2 / playbackRate, {
@@ -2633,7 +2633,7 @@ class PlayState extends MusicBeatState
 				comboSpr.destroy();
 				rating.destroy();
 			},
-			startDelay: Conductor.crochet * 0.002 / playbackRate
+			startDelay: Conductor.songPosition * 0.002 / playbackRate
 		});
 	}
 	public var strumsBlocked:Array<Bool> = [];
