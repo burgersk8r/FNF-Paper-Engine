@@ -3483,7 +3483,7 @@ class PlayState extends MusicBeatState
 
 		if(spr != null) {
 			spr.playAnim('confirm', true);
-			spr.resetAnim = time;
+			spr.resetAnim = 0.40; // base game style
 		}
 	}
 
