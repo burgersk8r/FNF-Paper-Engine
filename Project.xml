@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Paper Engine" file="Paper Engine" packageName="com.paigefnf.paper-engine" package="com.paigefnf.paper-engine" main="funkin.backend.system.Main" version="0.6.2" company="PaigeFNF" />
+	<app title="Friday Night Funkin': Paper Engine" file="Paper Engine" packageName="com.paigefnf.paper-engine" package="com.paigefnf.paper-engine" main="funkin.backend.system.Main" version="0.6.3" company="PaigeFNF" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
