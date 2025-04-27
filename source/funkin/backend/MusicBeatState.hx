@@ -5,6 +5,8 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.FlxState;
 import funkin.game.PsychCamera;
 
+import flixel.FlxBasic;
+
 class MusicBeatState extends FlxUIState
 {
 	private var curSection:Int = 0;
@@ -16,6 +18,7 @@ class MusicBeatState extends FlxUIState
 	private var curDecStep:Float = 0;
 	private var curDecBeat:Float = 0;
 	public var controls(get, never):Controls;
+	private var assets:Array<FlxBasic> = [];
 	private function get_controls()
 	{
 		return Controls.instance;

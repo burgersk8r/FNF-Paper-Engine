@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Paper Engine" file="Paper Engine" packageName="com.paigefnf.paper-engine" package="com.paigefnf.paper-engine" main="funkin.backend.system.Main" version="0.6.3" company="PaigeFNF" />
+	<app title="Friday Night Funkin' - Paper Engine" file="Paper Engine" packageName="com.paigefnf.paper-engine" package="com.paigefnf.paper-engine" main="funkin.backend.system.Main" version="0.6.3" company="PaigeFNF" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -27,6 +27,7 @@
 	<define name="VIDEOS_ALLOWED" if="windows || linux || android" unless="32bits"/>
 	<define name="ACHIEVEMENTS_ALLOWED" />
 	<define name="CUSTOM_SHADERS_ALLOWED" if="LUA_ALLOWED"/>
+	<define name="DARK_MODE_WINDOW" if="windows" />
 
 	<!-- ____________________________ Window Settings ___________________________ -->
 

@@ -30,6 +30,10 @@ import haxe.CallStack;
 import haxe.io.Path;
 #end
 
+#if DARK_MODE_WINDOW
+import funkin.backend.system.windows.DarkMode;
+#end
+
 #if linux
 @:cppInclude('./external/gamemode_client.h')
 @:cppFileCode('
@@ -56,6 +60,10 @@ class Main extends Sprite
 
 	public static function main():Void
 	{
+		#if DARK_MODE_WINDOW
+		DarkMode.setDarkMode(Lib.current.stage.application.window.title, true); // changing the window color to dark if dark mode is enabled through the users windows settings
+		#end
+
 		Lib.current.addChild(new Main());
 	}
 
