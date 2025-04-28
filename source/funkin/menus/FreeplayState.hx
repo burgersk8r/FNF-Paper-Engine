@@ -4,7 +4,7 @@ import funkin.data.WeekData;
 import funkin.data.Highscore;
 import funkin.backend.Song;
 
-import funkin.game.FreeplayIcon;
+import funkin.objects.FreeplayIcon;
 import funkin.objects.MusicPlayer;
 
 import funkin.game.GameplayChangersSubstate;

@@ -19,7 +19,7 @@ import flash.net.FileFilter;
 import lime.system.Clipboard;
 import haxe.Json;
 
-import funkin.game.FreeplayIcon;
+import funkin.objects.FreeplayIcon;
 import funkin.objects.MenuCharacter;
 import funkin.objects.MenuItem;
 import funkin.objects.Alphabet;

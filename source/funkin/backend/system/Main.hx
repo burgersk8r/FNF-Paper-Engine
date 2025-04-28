@@ -5,7 +5,6 @@ import android.content.Context;
 #end
 
 import funkin.backend.system.framerate.FPSCounter;
-import funkin.backend.system.FunkinSoundTray;
 
 import flixel.graphics.FlxGraphic;
 import flixel.FlxGame;
