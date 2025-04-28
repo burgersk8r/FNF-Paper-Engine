@@ -28,10 +28,9 @@ jobs:
         run: echo 'oy9:showMacroty8:loopCosti25y10:includeAllfg' >> ~/settings.cocoa
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
-      - name: Install SScript from Archive
+      - name: Install SScript
         run: |
-          wget https://github.com/CobaltBar/SScript-Archive/raw/main/archives/SScript-7,0,0.zip -O SScript.zip
-          haxelib install --never SScript.zip
+          haxelib git https://github.com/paigefnf/SScript-7.0.0
       - name: Compile
         run: haxelib run lime build Project.xml linux --app-version="4.0.0-${{ github.run_id}}"
       - name: Publish Artifact
@@ -59,8 +58,7 @@ jobs:
         run: echo "${{github.run_id}}" > VERSION
       - name: Install SScript from Archive
         run: |
-          curl -Lo SScript.zip https://github.com/CobaltBar/SScript-Archive/raw/main/archives/SScript-7,0,0.zip
-          haxelib install --never SScript.zip
+          haxelib git https://github.com/paigefnf/SScript-7.0.0
       - name: Compile
         run: haxelib run lime build windows --app-version="4.0.0-${{ github.run_id}}"
       - name: Publish Artifact
@@ -86,8 +84,7 @@ jobs:
         run: echo "${{github.run_id}}" > VERSION
       - name: Install SScript from Archive
         run: |
-          wget https://github.com/CobaltBar/SScript-Archive/raw/main/archives/SScript-7,0,0.zip -O SScript.zip
-          haxelib install --never SScript.zip
+          haxelib git https://github.com/paigefnf/SScript-7.0.0
       - name: Compile
         run: haxelib run lime build mac --app-version="4.0.0-${{ github.run_id}}"
       - name: Publish Artifact

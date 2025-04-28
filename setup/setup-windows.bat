@@ -13,7 +13,7 @@ haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git
 haxelib install hxcpp 4.3.2
 haxelib install hxcpp-debug-server 1.2.4
 haxelib install tjson 1.4.0
-haxelib install SScript-7,0,0.zip
+haxelib git SScript https://github.com/paigefnf/SScript-7.0.0
 haxelib git flxanimate https://github.com/ShadowMario/flxanimate dev
 haxelib git linc_luajit https://github.com/superpowers04/linc_luajit
 haxelib git hxdiscord_rpc https://github.com/MAJigsaw77/hxdiscord_rpc
