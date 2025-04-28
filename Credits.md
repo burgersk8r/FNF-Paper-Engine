@@ -8,3 +8,5 @@
 - Dakr (Originally made the "Epic" rating image, modified by PaigeFNF (me)) (https://gamebanana.com/mods/55569)
 
 - Rozebud (Composed the options menu theme for FPS Plus)
+
+- nul4h9 (Made the Dark Mode code)

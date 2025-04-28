@@ -27,9 +27,9 @@ class HealthIcon extends FlxSprite
 	private var iconOffsets:Array<Float> = [0, 0];
 	public function changeIcon(char:String, ?allowGPU:Bool = true) {
 		if(this.char != char) {
-			var name:String = 'ui/icons/$char/' + 'icon'; //formatted like how codename has it
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'ui/icons/$char/' + 'icon';
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'ui/icons/face/icon';
+			var name:String = 'characters/$char/icon'; //formatted like.. fuck it bruh, I'm formatting it how I want to format it
+			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'characters/$char/icon';
+			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'characters/face/icon'; // since "face" only has an icon, the icons folder is being kept
 			
 			var graphic = Paths.image(name, allowGPU);
 			loadGraphic(graphic, true, Math.floor(graphic.width / 2), Math.floor(graphic.height));
@@ -40,11 +40,7 @@ class HealthIcon extends FlxSprite
 			animation.add(char, [0, 1], 0, false, isPlayer);
 			animation.play(char);
 			this.char = char;
-
-			if(char.endsWith('-pixel'))
-				antialiasing = false;
-			else
-				antialiasing = ClientPrefs.data.antialiasing;
+			antialiasing = ClientPrefs.data.antialiasing;
 		}
 	}
 
@@ -58,62 +54,4 @@ class HealthIcon extends FlxSprite
 	public function getCharacter():String {
 		return char;
 	}
-
-	/* backup code incase something goes wrong
-		public var sprTracker:FlxSprite;
-	private var isOldIcon:Bool = false;
-	private var isPlayer:Bool = false;
-	private var char:String = '';
-
-	public function new(char:String = 'bf', isPlayer:Bool = false, ?allowGPU:Bool = true)
-	{
-		super();
-		isOldIcon = (char == 'bf-old');
-		this.isPlayer = isPlayer;
-		changeIcon(char, allowGPU);
-		scrollFactor.set();
-	}
-
-	override function update(elapsed:Float)
-	{
-		super.update(elapsed);
-
-		if (sprTracker != null)
-			setPosition(sprTracker.x + sprTracker.width + 12, sprTracker.y - 30);
-	}
-
-	private var iconOffsets:Array<Float> = [0, 0];
-	public function changeIcon(char:String, ?allowGPU:Bool = true) {
-		if(this.char != char) {
-			var name:String = 'icons/ui/' + char;
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'ui/icons/icon-' + char; //Older versions of psych engine's support
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'ui/icons/icon-face'; //Prevents crash from missing icon
-			
-			var graphic = Paths.image(name, allowGPU);
-			loadGraphic(graphic, true, Math.floor(graphic.width / 2), Math.floor(graphic.height));
-			iconOffsets[0] = (width - 150) / 2;
-			iconOffsets[1] = (height - 150) / 2;
-			updateHitbox();
-
-			animation.add(char, [0, 1], 0, false, isPlayer);
-			animation.play(char);
-			this.char = char;
-
-			if(char.endsWith('-pixel'))
-				antialiasing = false;
-			else
-				antialiasing = ClientPrefs.data.antialiasing;
-		}
-	}
-
-	override function updateHitbox()
-	{
-		super.updateHitbox();
-		offset.x = iconOffsets[0];
-		offset.y = iconOffsets[1];
-	}
-
-	public function getCharacter():String {
-		return char;
-	}*/
 }

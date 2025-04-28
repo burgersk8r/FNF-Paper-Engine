@@ -106,7 +106,7 @@
 		80,
 		480
 	],
-	"healthicon": "bf-pixel",
+	"healthicon": "week6/bf",
 	"flip_x": true,
 	"healthbar_colors": [
 		123,

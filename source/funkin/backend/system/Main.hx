@@ -18,6 +18,7 @@ import openfl.events.Event;
 import openfl.display.StageScaleMode;
 import lime.app.Application;
 import funkin.menus.TitleState;
+import funkin.data.Highscore;
 
 #if linux
 import lime.graphics.Image;
@@ -44,7 +45,7 @@ import funkin.backend.system.windows.DarkMode;
 class Main extends Sprite
 {
 	
-	var game = {
+	public static final game = {
 		width: 1280, // WINDOW width
 		height: 720, // WINDOW height
 		initialState: TitleState, // initial game state
@@ -117,9 +118,9 @@ class Main extends Sprite
 		ClientPrefs.loadDefaultKeys();
 		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
 
-		var funkinSoundTray = new FunkinSoundTray();
-		addChild(funkinSoundTray);
-		
+		FlxG.save.bind('paper-engine', CoolUtil.getSavePath());
+		Highscore.load();
+ 
 		#if !mobile
 		fpsVar = new FPSCounter(10, 3, 0xFFFFFF);
 		addChild(fpsVar);

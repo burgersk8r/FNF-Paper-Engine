@@ -128,7 +128,7 @@
 		0,
 		240
 	],
-	"healthicon": "tankman",
+	"healthicon": "week7/tankman",
 	"flip_x": true,
 	"healthbar_colors": [
 		225,

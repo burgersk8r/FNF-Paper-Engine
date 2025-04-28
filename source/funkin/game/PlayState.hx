@@ -205,7 +205,7 @@ class PlayState extends MusicBeatState
 
 	public var camZooming:Bool = false;
 	public var camZoomingMult:Float = 1;
-	public var camZoomingDecay:Float = 1; //note to self: change it back to 8 if you want instant zooming back
+	public var camZoomingDecay:Float = 1;
 	private var curSong:String = "";
 
 	public var gfSpeed:Int = 1;
@@ -442,7 +442,7 @@ class PlayState extends MusicBeatState
 
 		// "GLOBAL" SCRIPTS
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
-		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'scripts/'))
+		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'data/scripts/'))
 			for (file in FileSystem.readDirectory(folder))
 			{
 				#if LUA_ALLOWED
@@ -1204,7 +1204,7 @@ class PlayState extends MusicBeatState
 			else if (perfects > 0) ratingFC = 'P';
 		}
 		else {
-			if (songMisses < 10) ratingFC = 'CB';
+			if (songMisses < 10) ratingFC = '';
 			else ratingFC = '';
 		}
 	}
@@ -2580,7 +2580,7 @@ class PlayState extends MusicBeatState
 		var seperatedScore:Array<Int> = [];
 
 		if(combo >= 1000) {
-			seperatedScore.push(Math.floor(combo / 1000) % 10);
+		seperatedScore.push(Math.floor(combo / 1000) % 10);
 		}
 		seperatedScore.push(Math.floor(combo / 100) % 10);
 		seperatedScore.push(Math.floor(combo / 10) % 10);

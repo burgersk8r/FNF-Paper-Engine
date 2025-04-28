@@ -19,7 +19,7 @@ import flash.net.FileFilter;
 import lime.system.Clipboard;
 import haxe.Json;
 
-import funkin.game.HealthIcon;
+import funkin.game.FreeplayIcon;
 import funkin.objects.MenuCharacter;
 import funkin.objects.MenuItem;
 import funkin.objects.Alphabet;
@@ -587,7 +587,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 
 	var bg:FlxSprite;
 	private var grpSongs:FlxTypedGroup<Alphabet>;
-	private var iconArray:Array<HealthIcon> = [];
+	private var iconArray:Array<FreeplayIcon> = [];
 
 	var curSelected = 0;
 
@@ -609,7 +609,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 			songText.scaleX = Math.min(1, 980 / songText.width);
 			songText.snapToPosition();
 
-			var icon:HealthIcon = new HealthIcon(weekFile.songs[i][1]);
+			var icon:FreeplayIcon = new FreeplayIcon(weekFile.songs[i][1]);
 			icon.sprTracker = songText;
 
 			iconArray.push(icon);

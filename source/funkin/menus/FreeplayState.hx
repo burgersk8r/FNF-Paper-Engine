@@ -4,7 +4,7 @@ import funkin.data.WeekData;
 import funkin.data.Highscore;
 import funkin.backend.Song;
 
-import funkin.game.HealthIcon;
+import funkin.game.FreeplayIcon;
 import funkin.objects.MusicPlayer;
 
 import funkin.game.GameplayChangersSubstate;
@@ -33,7 +33,7 @@ class FreeplayState extends MusicBeatState
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
-	private var iconArray:Array<HealthIcon> = [];
+	private var iconArray:Array<FreeplayIcon> = [];
 
 	var bg:FlxSprite;
 	var intendedColor:Int;
@@ -115,7 +115,7 @@ class FreeplayState extends MusicBeatState
 			songText.snapToPosition();
 
 			Mods.currentModDirectory = songs[i].folder;
-			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
+			var icon:FreeplayIcon = new FreeplayIcon(songs[i].songCharacter);
 			icon.sprTracker = songText;
 
 			
@@ -551,7 +551,7 @@ class FreeplayState extends MusicBeatState
 			item.x = ((item.targetY - lerpSelected) * item.distancePerItem.x) + item.startPosition.x;
 			item.y = ((item.targetY - lerpSelected) * 1.3 * item.distancePerItem.y) + item.startPosition.y;
 
-			var icon:HealthIcon = iconArray[i];
+			var icon:FreeplayIcon = iconArray[i];
 			icon.visible = icon.active = true;
 			_lastVisibles.push(i);
 		}

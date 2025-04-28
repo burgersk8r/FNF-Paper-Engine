@@ -111,7 +111,7 @@
 		120,
 		-125
 	],
-	"healthicon": "pico",
+	"healthicon": "wee3/pico",
 	"flip_x": false,
 	"healthbar_colors": [
 		183,
