@@ -1,6 +1,6 @@
 [{"name":"lime","version":"8.0.1"},
 {"name":"openfl"},
-{"name":"flixel","version":"5.5.0"},
+{"name":"flixel","link":"https://github.com/paigefnf/paper-flixel"},
 {"name":"flixel-addons","version":"3.2.1"},
 {"name":"flixel-ui","version":"2.5.0"},
 {"name":"flixel-tools"},

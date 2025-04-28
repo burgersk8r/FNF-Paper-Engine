@@ -29,7 +29,7 @@ class HealthIcon extends FlxSprite
 		if(this.char != char) {
 			var name:String = 'characters/$char/icon'; //formatted like.. fuck it bruh, I'm formatting it how I want to format it
 			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'characters/$char/icon';
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'characters/face/icon'; // since "face" only has an icon, the icons folder is being kept
+			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'characters/face/icon'; // since "face" only has an icon
 			
 			var graphic = Paths.image(name, allowGPU);
 			loadGraphic(graphic, true, Math.floor(graphic.width / 2), Math.floor(graphic.height));
