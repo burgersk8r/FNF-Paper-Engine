@@ -1,4 +1,4 @@
-package funkin.game;
+package funkin.options.gameplay;
 
 import funkin.objects.AttachedText;
 import funkin.objects.CheckboxThingie;

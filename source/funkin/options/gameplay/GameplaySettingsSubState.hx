@@ -127,7 +127,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			"If checked, Hold Notes can't be pressed if you miss,\nand count as a single Hit/Miss.\nUncheck this if you prefer the old Input System.",
 			'guitarHeroSustains',
 			'bool');
-
+		addOption(option);
 		super();
 	}
 

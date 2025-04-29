@@ -7,7 +7,7 @@ import funkin.backend.Song;
 import funkin.objects.FreeplayIcon;
 import funkin.objects.MusicPlayer;
 
-import funkin.game.GameplayChangersSubstate;
+import funkin.options.gameplay.GameplayChangersSubstate;
 import funkin.data.ResetScoreSubState;
 
 import flixel.math.FlxMath;

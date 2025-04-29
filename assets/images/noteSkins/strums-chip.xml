@@ -2,7 +2,7 @@
 <!--
 Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
 -->
-<TextureAtlas imagePath="Strumline_Notes-chip.png" width="576" height="469">
+<TextureAtlas imagePath="strums-chip.png" width="576" height="469">
 	<SubTexture name="arrowDOWN" x="0" y="215" width="152" height="152" frameX="-0" frameY="-0" frameWidth="152" frameHeight="152"/>
 	<SubTexture name="arrowLEFT" x="0" y="215" width="152" height="152" frameX="-0" frameY="-0" frameWidth="152" frameHeight="152"/>
 	<SubTexture name="arrowRIGHT" x="0" y="215" width="152" height="152" frameX="-0" frameY="-0" frameWidth="152" frameHeight="152"/>

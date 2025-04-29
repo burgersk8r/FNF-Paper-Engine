@@ -1,4 +1,4 @@
-package funkin.options.gameplay;
+package funkin.options.visuals;
 
 import funkin.game.Character;
 

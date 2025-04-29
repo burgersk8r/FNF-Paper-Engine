@@ -10,7 +10,7 @@ import flixel.graphics.FlxGraphic;
 import funkin.objects.MenuItem;
 import funkin.objects.MenuCharacter;
 
-import funkin.game.GameplayChangersSubstate;
+import funkin.options.gameplay.GameplayChangersSubstate;
 import funkin.data.ResetScoreSubState;
 
 class StoryMenuState extends MusicBeatState

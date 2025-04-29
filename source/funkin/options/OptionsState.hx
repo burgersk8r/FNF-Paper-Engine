@@ -5,8 +5,8 @@ import funkin.data.StageData;
 
 import funkin.options.notes.NotesSubState;
 import funkin.options.ControlsSubState;
-import funkin.options.gameplay.GraphicsSettingsSubState;
-import funkin.options.VisualsUISubState;
+import funkin.options.visuals.GraphicsSettingsSubState;
+import funkin.options.visuals.VisualsUISubState;
 import funkin.options.gameplay.GameplaySettingsSubState;
 import funkin.options.notes.NoteOffsetState;
 

@@ -1,4 +1,4 @@
-package funkin.options;
+package funkin.options.visuals;
 
 import funkin.game.Note;
 import funkin.game.StrumNote;
