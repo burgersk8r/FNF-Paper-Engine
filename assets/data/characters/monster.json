@@ -137,7 +137,7 @@
 		0,
 		100
 	],
-	"healthicon": "week2/monster",
+	"healthicon": "monster",
 	"flip_x": false,
 	"healthbar_colors": [
 		243,

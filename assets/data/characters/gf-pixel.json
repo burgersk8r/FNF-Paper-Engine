@@ -73,7 +73,7 @@
 		0,
 		0
 	],
-	"healthicon": "default/gf",
+	"healthicon": "gf",
 	"flip_x": false,
 	"healthbar_colors": [
 		165,

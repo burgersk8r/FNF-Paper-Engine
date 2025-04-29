@@ -5,9 +5,9 @@ Originally created for [FCR Alternate Timelines (Github page currently private)]
 
 # Building The Engine
 
-NOTE: YOU NEED TO INSTALL HAXE 4.3.2 IN ORDER TO INSTALL THE HAXE LIBRARIES!!!!
+NOTE: YOU NEED TO INSTALL HAXE 4.3.4 IN ORDER TO INSTALL THE HAXE LIBRARIES!!!!
 
-[Haxe 4.3.2 download](https://haxe.org/download/version/4.3.2/)
+[Haxe 4.3.2 download](https://haxe.org/download/version/4.3.4/)
 
 Open the "setup" folder and you should see the .bat files and a SH file
 

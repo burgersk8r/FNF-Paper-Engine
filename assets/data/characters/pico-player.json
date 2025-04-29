@@ -106,7 +106,7 @@
 		0,
 		300
 	],
-	"healthicon": "week3/pico",
+	"healthicon": "pico",
 	"flip_x": true,
 	"healthbar_colors": [
 		183,
