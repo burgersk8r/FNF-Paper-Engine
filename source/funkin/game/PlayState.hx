@@ -459,11 +459,11 @@ class PlayState extends MusicBeatState
 
 		// STAGE SCRIPTS
 		#if LUA_ALLOWED
-		startLuasNamed('stages/' + curStage + '.lua');
+		startLuasNamed('data/levels/stages/' + curStage + '.lua');
 		#end
 
 		#if HSCRIPT_ALLOWED
-		startHScriptsNamed('stages/' + curStage + '.hx');
+		startHScriptsNamed('data/levels/stages/' + curStage + '.hx');
 		#end
 
 		if (!stageData.hide_girlfriend)
@@ -522,7 +522,7 @@ class PlayState extends MusicBeatState
 		timeBar.scrollFactor.set();
 		timeBar.screenCenter(X);
 		timeBar.alpha = 0;
-		if(ClientPrefs.data.timeBarType == 'Song Name')
+		if(ClientPrefs.data.timeBarType == 'Song Name' || ClientPrefs.data.timeBarType == 'Disabled')
 		{
 			timeBar.visible = false;
 		}
@@ -1105,7 +1105,7 @@ class PlayState extends MusicBeatState
 			onComplete: function(twn:FlxTween)
 			{
 				remove(spr);
-				spr.destroy();
+				spr.kill();
 			}
 		});
 		return spr;
@@ -1137,7 +1137,7 @@ class PlayState extends MusicBeatState
 
 				daNote.kill();
 				unspawnNotes.remove(daNote);
-				daNote.destroy();
+				daNote.kill();
 			}
 			--i;
 		}
@@ -2490,7 +2490,7 @@ class PlayState extends MusicBeatState
 
 		if (!ClientPrefs.data.comboStacking && comboGroup.members.length > 0) {
 			for (spr in comboGroup) {
-				spr.destroy();
+				spr.kill();
 				comboGroup.remove(spr);
 			}
 		}
@@ -2614,7 +2614,7 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(numScore, {alpha: 0}, 0.2 / playbackRate, {
 				onComplete: function(tween:FlxTween)
 				{
-					numScore.destroy();
+					numScore.kill();
 				},
 				startDelay: Conductor.stepCrochet * 0.002 / playbackRate
 			});
@@ -2630,8 +2630,8 @@ class PlayState extends MusicBeatState
 		FlxTween.tween(comboSpr, {alpha: 0}, 0.2 / playbackRate, {
 			onComplete: function(tween:FlxTween)
 			{
-				comboSpr.destroy();
-				rating.destroy();
+				comboSpr.kill();
+				rating.kill();
 			},
 			startDelay: Conductor.stepCrochet * 0.002 / playbackRate
 		});
@@ -3074,7 +3074,7 @@ class PlayState extends MusicBeatState
 	public function invalidateNote(note:Note):Void {
 		note.kill();
 		notes.remove(note, true);
-		note.destroy();
+		note.kill();
 	}
 
 	public function spawnHoldSplashOnNote(note:Note) {
@@ -3145,7 +3145,7 @@ class PlayState extends MusicBeatState
 		Note.globalRgbShaders = [];
 		NoteTypesConfig.clearNoteTypesData();
 		instance = null;
-		super.destroy();
+		super.kill();
 	}
 
 	var lastStepHit:Int = -1;

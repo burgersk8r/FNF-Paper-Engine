@@ -76,10 +76,9 @@
 	<library name="music" preload="true" />
 	<library name="scripts" preload="true" />
 	<library name="sounds" preload="true" />
-	<library name="stages" preload="true" />
+	<library name="data" preload="true" />
 	<library name="images" preload="true" />
 	<library name="videos" preload="true" if="VIDEOS_ALLOWED" />
-	<library name="weeks" preload="true" />
 
 	<assets path="assets/songs" library="songs" exclude="*.ogg" if="web" />
 	<assets path="assets/songs" library="songs" exclude="*.mp3" unless="web" />
@@ -142,10 +141,10 @@
 
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
 
-	<assets path='art/iconOG.png' rename='icon.png' if="linux" />
+	<assets path='art/icons/iconOG.png' rename='icon.png' if="linux" />
 	
-	<icon path="art/icon16.png" size='16'/>
-	<icon path="art/icon32.png" size='32'/>
-	<icon path="art/icon64.png" size='64'/>
-	<icon path="art/iconOG.png" />
+	<icon path="art/icons/icon16.png" size='16'/>
+	<icon path="art/icons/icon32.png" size='32'/>
+	<icon path="art/icons/icon64.png" size='64'/>
+	<icon path="art/icons/iconOG.png" />
 </project>

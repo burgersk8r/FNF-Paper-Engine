@@ -540,10 +540,10 @@ class ChartingState extends MusicBeatState
 		for(mod in Mods.getGlobalMods())
 			directories.push(Paths.mods(mod + '/stages/'));
 		#else
-		var directories:Array<String> = [Paths.getSharedPath('stages/')];
+		var directories:Array<String> = [Paths.getSharedPath('data/levels/stages/')];
 		#end
 
-		var stageFile:Array<String> = Mods.mergeAllTextsNamed('data/stageList.txt', Paths.getSharedPath());
+		var stageFile:Array<String> = Mods.mergeAllTextsNamed('data/levels/stages/stageList.txt', Paths.getSharedPath());
 		var stages:Array<String> = [];
 		for (stage in stageFile) {
 			if(stage.trim().length > 0) {
