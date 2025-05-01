@@ -77,6 +77,8 @@ import funkin.game.stages.School;
 import funkin.game.stages.SchoolEvil;
 import funkin.game.stages.Tank;
 import funkin.game.stages.Template;
+//import funkin.game.stages.PhillyStreets;
+//import funkin.game.stages.PhillyBlazin;
 
 /* ============================= */
 
@@ -424,6 +426,8 @@ class PlayState extends MusicBeatState
 			case 'school': new School(); //Week 6 - Senpai, Roses
 			case 'schoolEvil': new SchoolEvil(); //Week 6 - Thorns
 			case 'tank': new Tank(); //Week 7 - Ugh, Guns, Stress
+			//case 'phillyStreets': new PhillyStreets(); //Weekend1 - Darnell, Lit Up, 2Hot
+			//case 'phillyBlazin': new PhillyBlazin(); // Weekend1 - Blazin
 		}
 
 		if(isPixelStage) {
@@ -1267,7 +1271,7 @@ class PlayState extends MusicBeatState
 		@:privateAccess
 		FlxG.sound.playMusic(inst._sound, 1, false);
 		#if FLX_PITCH FlxG.sound.music.pitch = playbackRate; #end
-		FlxG.sound.music.onComplete = finishSong.bind(false);
+		FlxG.sound.music.onComplete = finishSong.bind();
 		vocals.play();
 		opponentVocals.play();
 
