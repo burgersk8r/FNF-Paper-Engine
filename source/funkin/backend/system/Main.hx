@@ -43,7 +43,7 @@ import funkin.backend.system.windows.DarkMode;
 
 class Main extends Sprite
 {
-	var game = {
+	public static final game = {
 		width: 1280, // WINDOW width
 		height: 720, // WINDOW height
 		initialState: TitleState, // initial game state
@@ -66,7 +66,10 @@ class Main extends Sprite
 	{
 		super();
 
-		// Credits to MAJigsaw77 (he's the og author for this code)
+		#if DARK_MODE_WINDOW
+		DarkMode.setDarkMode(Lib.current.stage.application.window.title, true); // changing the window color to dark if dark mode is enabled through the users windows settings
+		#end
+
 		#if android
 		Sys.setCwd(Path.addTrailingSlash(Context.getExternalFilesDir()));
 		#elseif ios
@@ -110,6 +113,9 @@ class Main extends Sprite
 		#if LUA_ALLOWED Lua.set_callbacks_function(cpp.Callable.fromStaticFunction(funkin.backend.lua.CallbackHandler.call)); #end
 		Controls.instance = new Controls();
 		ClientPrefs.loadDefaultKeys();
+
+		FlxG.save.bind('paper-engine', CoolUtil.getSavePath());
+		Highscore.load();
 
 		var game:FlxGame = new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
 		@:privateAccess
