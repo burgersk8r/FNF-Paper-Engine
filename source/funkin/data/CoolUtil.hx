@@ -143,6 +143,13 @@ class CoolUtil
 		// #end
 	}
 
+	public static function coolLerp(base:Float, target:Float, ratio:Float):Float
+		return base + cameraLerp(ratio) * (target - base);
+
+	public static function cameraLerp(lerp:Float):Float
+		return lerp * (FlxG.elapsed / (1 / 60));
+
+
 	public static function setTextBorderFromString(text:FlxText, border:String)
 	{
 		switch(border.toLowerCase().trim())

@@ -5,7 +5,7 @@ import android.content.Context;
 #end
 
 import funkin.backend.system.framerate.FPSCounter;
-
+import funkin.backend.system.FunkinSoundTray;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxGame;
 import flixel.FlxState;
@@ -43,8 +43,7 @@ import funkin.backend.system.windows.DarkMode;
 
 class Main extends Sprite
 {
-	
-	public static final game = {
+	var game = {
 		width: 1280, // WINDOW width
 		height: 720, // WINDOW height
 		initialState: TitleState, // initial game state
@@ -60,10 +59,6 @@ class Main extends Sprite
 
 	public static function main():Void
 	{
-		#if DARK_MODE_WINDOW
-		DarkMode.setDarkMode(Lib.current.stage.application.window.title, true); // changing the window color to dark if dark mode is enabled through the users windows settings
-		#end
-
 		Lib.current.addChild(new Main());
 	}
 
@@ -115,11 +110,12 @@ class Main extends Sprite
 		#if LUA_ALLOWED Lua.set_callbacks_function(cpp.Callable.fromStaticFunction(funkin.backend.lua.CallbackHandler.call)); #end
 		Controls.instance = new Controls();
 		ClientPrefs.loadDefaultKeys();
-		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
 
-		FlxG.save.bind('paper-engine', CoolUtil.getSavePath());
-		Highscore.load();
- 
+		var game:FlxGame = new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
+		@:privateAccess
+		game._customSoundTray = FunkinSoundTray;
+		addChild(game);
+
 		#if !mobile
 		fpsVar = new FPSCounter(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
