@@ -7,7 +7,7 @@
 	 packageName="com.paigefnf.paper-engine" 
 	 package="com.paigefnf.paper-engine" 
 	 main="funkin.backend.system.Main" 
-	 version="0.6.3" 
+	 version="0.6.4" 
 	 company="PaigeFNF" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
