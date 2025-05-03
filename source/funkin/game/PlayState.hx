@@ -306,7 +306,6 @@ class PlayState extends MusicBeatState
 	{
 		//trace('Playback Rate: ' + playbackRate);
 		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
 
 		startCallback = startCountdown;
 		endCallback = endSong;
@@ -1208,7 +1207,7 @@ class PlayState extends MusicBeatState
 			else if (perfects > 0) ratingFC = 'P';
 		}
 		else {
-			if (songMisses < 10) ratingFC = '';
+			if (songMisses < 10) ratingFC = 'CB';
 			else ratingFC = '';
 		}
 	}
@@ -1442,7 +1441,7 @@ class PlayState extends MusicBeatState
 							if(daNoteData > 1) //Up and Right
 								sustainNote.x += FlxG.width / 2 + 25;
 						}
-						//sustainNote.noAnimation = true; temporarily removing this
+						//sustainNote.noAnimation = true;
 					}
 				}
 
@@ -1680,6 +1679,9 @@ class PlayState extends MusicBeatState
 	var canPause:Bool = true;
 	var freezeCamera:Bool = false;
 	var allowDebugKeys:Bool = true;
+	var isForced:Bool = false;
+	var check:Bool = false;
+	var anims:String = '';
 
 	override public function update(elapsed:Float)
 	{
@@ -1710,6 +1712,17 @@ class PlayState extends MusicBeatState
 			if(ret != LuaUtils.Function_Stop) {
 				openPauseMenu();
 			}
+		}
+
+		if (isForced && !check)
+		{
+			if (boyfriend.animation.finished && boyfriend.animation.name == anims) {
+				updateAnims(false, boyfriend);
+			} else if (dad.animation.finished && dad.animation.name == anims) {
+				updateAnims(false, dad);
+			} else if (gf.animation.finished && gf.animation.name == anims) {
+				updateAnims(false, gf);
+			}	
 		}
 
 		if(!endingSong && !inCutscene && allowDebugKeys)
@@ -2256,6 +2269,16 @@ class PlayState extends MusicBeatState
 
 		stagesFunc(function(stage:BaseStage) stage.eventCalled(eventName, value1, value2, flValue1, flValue2, strumTime));
 		callOnScripts('onEvent', [eventName, value1, value2, strumTime]);
+	}
+
+	function updateAnims(enabled:Bool, character:Character) {
+		character.skipDance = enabled;
+		for (note in notes) {
+			note.noAnimation = enabled;
+		}
+		for (notes in unspawnNotes) {
+			notes.noAnimation = enabled;
+		}
 	}
 
 	function moveCameraSection(?sec:Null<Int>):Void {
@@ -3217,7 +3240,7 @@ class PlayState extends MusicBeatState
 	public function playerDance():Void
 	{
 		var anim:String = boyfriend.getAnimationName();
-		if(boyfriend.holdTimer > Conductor.stepCrochet * (0.0020 #if FLX_PITCH / FlxG.sound.music.pitch #end) * boyfriend.singDuration && anim.startsWith('sing') && !anim.endsWith('miss'))
+		if(boyfriend.holdTimer > Conductor.stepCrochet * (0.0011 #if FLX_PITCH / FlxG.sound.music.pitch #end) * boyfriend.singDuration && anim.startsWith('sing') && !anim.endsWith('miss'))
 			boyfriend.dance();
 	}
 
