@@ -11,5 +11,5 @@
 {"name":"flxanimate","link":"https://github.com/ShadowMario/flxanimate","branch":"dev"},
 {"name":"linc_luajit","link":"https://github.com/superpowers04/linc_luajit"},
 {"name":"funkin.vis","link":"https://github.com/FunkinCrew/funkVis"},
-{"name":"grig.audio","link":"https://gitlab.com/haxe-grig/grig.audio.git cbf91e2180fd2e374924fe74844086aab7891666"}
+{"name":"grig.audio","link":"https://gitlab.com/haxe-grig/grig.audio.git"}
 ]
