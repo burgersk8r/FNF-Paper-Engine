@@ -352,9 +352,9 @@ class WeekEditorState extends MusicBeatState
 		
 		var isMissing:Bool = true;
 		if(assetName != null && assetName.length > 0) {
-			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('menus/storymenu/' + assetName)) || #end
-			Assets.exists(Paths.getPath('images/menus/storymenu/' + assetName + '.png', IMAGE), IMAGE)) {
-				weekThing.loadGraphic(Paths.image('menus/storymenu/' + assetName));
+			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('menus/storymenu/weekNames/' + assetName)) || #end
+			Assets.exists(Paths.getPath('images/menus/storymenu/weekNames/' + assetName + '.png', IMAGE), IMAGE)) {
+				weekThing.loadGraphic(Paths.image('menus/storymenu/weekNames/' + assetName));
 				isMissing = false;
 			}
 		}
@@ -362,7 +362,7 @@ class WeekEditorState extends MusicBeatState
 		if(isMissing) {
 			weekThing.visible = false;
 			missingFileText.visible = true;
-			missingFileText.text = 'MISSING FILE: images/menus/storymenu/' + assetName + '.png';
+			missingFileText.text = 'MISSING FILE: images/menus/storymenu/weekNames/' + assetName + '.png';
 		}
 		recalculateStuffPosition();
 

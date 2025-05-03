@@ -105,13 +105,17 @@
 
 	<!-- Disable Discord IO Thread -->
 	<haxedef name="DISCORD_DISABLE_IO_THREAD" if="hxdiscord_rpc" />
-	<haxedef name="NO_PRECOMPILED_HEADERS" if="linux" />
+	<haxedef name="NO_PRECOMPILED_HEADERS" if="linux"/>
 
 	<!-- Enables a terminal log prompt on debug builds -->
 	<haxelib name="hxcpp-debug-server" if="debug"/>
 	<haxedef name="HXC_LIBVLC_LOGGING" if="VIDEOS_ALLOWED debug" />
-	
+
+	<haxelib name="funkin.vis"/>
+	<haxelib name="grig.audio" />
+
 	<!-- ______________________________ Haxedefines _____________________________ -->
+
 
 	<!--Disable the Flixel core focus lost screen-->
 	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
@@ -129,6 +133,7 @@
 	<haxedef name="HXCPP_CHECK_POINTER" if="CRASH_HANDLER" />
 	<haxedef name="HXCPP_STACK_LINE" if="CRASH_HANDLER" />
 	<haxedef name="HXCPP_STACK_TRACE" if="CRASH_HANDLER" />
+	<haxedef name="HXCPP_GC_BIG_BLOCKS"/>
 	
 	<!--Disable deprecated warnings-->
 	<haxedef name='no-deprecation-warnings' />
@@ -136,6 +141,7 @@
 	<!--Macro fixes-->
 	<haxeflag name="--macro" value="allowPackage('flash')" />
 	<haxeflag name="--macro" value="include('my.pack')" />
+
 
 	<!-- _________________________________ Custom _______________________________ -->
 

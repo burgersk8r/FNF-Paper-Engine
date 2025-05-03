@@ -23,14 +23,16 @@ class GameOverSubstate extends MusicBeatSubstate
 	public static var deathSoundName:String = 'gameover/fnf_loss_sfx';
 	public static var loopSoundName:String = 'gameover/gameOver';
 	public static var endSoundName:String = 'gameover/gameOverEnd';
+	public static var deathDelay:Float = 0;
 
 	public static var instance:GameOverSubstate;
 
 	public static function resetVariables() {
 		characterName = 'bf-dead';
-		deathSoundName = 'gameover/fnf_loss_sfx';
-		loopSoundName = 'gameover/gameOver';
-		endSoundName = 'gameover/gameOverEnd';
+		deathSoundName = 'fnf_loss_sfx';
+		loopSoundName = 'gameOver';
+		endSoundName = 'gameOverEnd';
+		deathDelay = 0;
 
 		var _song = PlayState.SONG;
 		if(_song != null)
@@ -44,7 +46,6 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	var charX:Float = 0;
 	var charY:Float = 0;
-
 	override function create()
 	{
 		instance = this;
@@ -62,8 +63,9 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		boyfriend.playAnim('firstDeath');
 
-		camFollow.setPosition(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
-		FlxG.camera.focusOn(FlxPoint.weak(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2)));
+		camFollow = new FlxObject(0, 0, 1, 1);
+		camFollow.setPosition(boyfriend.getGraphicMidpoint().x + boyfriend.cameraPosition[0], boyfriend.getGraphicMidpoint().y + boyfriend.cameraPosition[1]);
+		FlxG.camera.focusOn(new FlxPoint(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2)));
 		add(camFollow);
 		
 		PlayState.instance.setOnScripts('inGameOver', true);
@@ -73,7 +75,6 @@ class GameOverSubstate extends MusicBeatSubstate
 	}
 
 	public var startedDeath:Bool = false;
-
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
@@ -99,7 +100,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			else
 				MusicBeatState.switchState(new FreeplayState());
 
-			FlxG.sound.playMusic(Paths.music('menus/freakyMenu'));
+			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			PlayState.instance.callOnScripts('onGameOverConfirm', [false]);
 		}
 		
@@ -111,10 +112,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			if(boyfriend.animation.curAnim.name == 'firstDeath')
 			{
 				if(boyfriend.animation.curAnim.curFrame >= 12 && !moveCamera)
-					{
-						FlxG.camera.follow(camFollow, LOCKON, 0.6);
-						moveCamera = true;
-					}	
+				{
+					FlxG.camera.follow(camFollow, LOCKON, 0.6);
+					moveCamera = true;
+				}
 
 				if (boyfriend.animation.curAnim.finished && !playingDeathSound)
 				{
@@ -169,7 +170,6 @@ class GameOverSubstate extends MusicBeatSubstate
 				});
 			});
 			PlayState.instance.callOnScripts('onGameOverConfirm', [true]);
-			
 		}
 	}
 
