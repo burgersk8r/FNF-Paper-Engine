@@ -1880,11 +1880,11 @@ class PlayState extends MusicBeatState
 	// Health icon updaters
 	public dynamic function updateIconsScale(elapsed:Float)
 	{
-		var mult:Float = FlxMath.lerp(1, iconP1.scale.x, Math.exp(-elapsed * 1 * playbackRate)); //sexy icon bounce (note to self: set number back to 1 if it's awful)
+		var mult:Float = FlxMath.lerp(1, iconP1.scale.x, Math.exp(-elapsed * 50 * playbackRate)); //sexy icon bounce (note to self: set number back to 1 if it's awful)
 		iconP1.scale.set(mult, mult);
 		iconP1.updateHitbox();
 
-		var mult:Float = FlxMath.lerp(1, iconP2.scale.x, Math.exp(-elapsed * 1 * playbackRate)); //sexy icon bounce (note to self: set number back to 1 if it's awful)
+		var mult:Float = FlxMath.lerp(1, iconP2.scale.x, Math.exp(-elapsed * 50 * playbackRate)); //sexy icon bounce (note to self: set number back to 1 if it's awful)
 		iconP2.scale.set(mult, mult);
 		iconP2.updateHitbox();
 	}
