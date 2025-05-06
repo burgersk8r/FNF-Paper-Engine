@@ -32,9 +32,6 @@ class DialogueEditorState extends MusicBeatState
 	var dialogueFile:DialogueFile = null;
 
 	override function create() {
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
-
 		var cursor:FlxSprite;
 
 		cursor = new FlxSprite();

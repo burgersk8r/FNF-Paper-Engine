@@ -68,7 +68,6 @@ class CharacterEditorState extends MusicBeatState
 	override function create()
 	{
 		if(ClientPrefs.data.cacheOnGPU) Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
 
 		var cursor:FlxSprite;
 

@@ -25,9 +25,6 @@ class CreditsState extends MusicBeatState
 		DiscordClient.changePresence("Credits Menu", null);
 		#end
 
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
-
 		persistentUpdate = true;
 		bg = new FlxSprite().loadGraphic(Paths.image('menus/creditsmenu/menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;

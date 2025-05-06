@@ -73,9 +73,6 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
-
 		#if LUA_ALLOWED
 		Mods.pushGlobalMods();
 		#end
@@ -192,7 +189,6 @@ class TitleState extends MusicBeatState
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		logoBl.frames = Paths.getSparrowAtlas('menus/titlemenu/logoBumpin');
 		logoBl.antialiasing = ClientPrefs.data.antialiasing;
-		logoBl.setGraphicSize(Std.int(logoBl.width * 0.6)); 
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();

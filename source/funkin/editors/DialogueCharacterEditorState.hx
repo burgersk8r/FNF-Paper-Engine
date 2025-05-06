@@ -60,9 +60,6 @@ class DialogueCharacterEditorState extends MusicBeatState
 	var curAnim:Int = 0;
 
 	override function create() {
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
-
 		var cursor:FlxSprite;
 
 		cursor = new FlxSprite();

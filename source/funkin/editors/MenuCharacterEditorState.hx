@@ -35,10 +35,7 @@ class MenuCharacterEditorState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Menu Character Editor", "Editting: " + characterFile.image);
 		#end
-
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
-
+		
 		var cursor:FlxSprite;
 
 		cursor = new FlxSprite();

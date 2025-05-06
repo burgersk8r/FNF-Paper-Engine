@@ -33,9 +33,6 @@ class MasterEditorMenu extends MusicBeatState
 		DiscordClient.changePresence("Editors Main Menu", null);
 		#end
 
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
-
 		var cursor:FlxSprite;
 
 		cursor = new FlxSprite();

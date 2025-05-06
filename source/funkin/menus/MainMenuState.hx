@@ -9,7 +9,7 @@ import funkin.options.OptionsState;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.7.3c';
+	public static var psychEngineVersion:String = '0.7.3';
 	public static var paperEngineVersion:String = '0.1.0';
 	public static var curSelected:Int = 0;
 
@@ -38,9 +38,6 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Main Menu", null);
 		#end
-
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
 
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;

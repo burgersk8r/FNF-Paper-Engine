@@ -35,9 +35,6 @@ class NoteSplashDebugState extends MusicBeatState
 
 	override function create()
 	{
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
-
 		var cursor:FlxSprite;
 
 		cursor = new FlxSprite();

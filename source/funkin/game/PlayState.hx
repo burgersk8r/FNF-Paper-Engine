@@ -304,9 +304,6 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-		//trace('Playback Rate: ' + playbackRate);
-		Paths.clearStoredMemory();
-
 		startCallback = startCountdown;
 		endCallback = endSong;
 
@@ -1880,13 +1877,19 @@ class PlayState extends MusicBeatState
 	// Health icon updaters
 	public dynamic function updateIconsScale(elapsed:Float)
 	{
-		var mult:Float = FlxMath.lerp(1, iconP1.scale.x, Math.exp(-elapsed * 50 * playbackRate)); //sexy icon bounce (note to self: set number back to 1 if it's awful)
+		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, CoolUtil.boundTo(1 - (elapsed * 30 * playbackRate), 0, 1))));
+		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, CoolUtil.boundTo(1 - (elapsed * 30 * playbackRate), 0, 1))));
+
+		iconP1.updateHitbox();
+		iconP2.updateHitbox();
+
+		/*var mult:Float = FlxMath.lerp(1, iconP1.scale.x, Math.exp(-elapsed * 50 * playbackRate));
 		iconP1.scale.set(mult, mult);
 		iconP1.updateHitbox();
 
-		var mult:Float = FlxMath.lerp(1, iconP2.scale.x, Math.exp(-elapsed * 50 * playbackRate)); //sexy icon bounce (note to self: set number back to 1 if it's awful)
+		var mult:Float = FlxMath.lerp(1, iconP2.scale.x, Math.exp(-elapsed * 50 * playbackRate));
 		iconP2.scale.set(mult, mult);
-		iconP2.updateHitbox();
+		iconP2.updateHitbox();*/
 	}
 
 	public dynamic function updateIconsPosition()
@@ -3210,10 +3213,12 @@ class PlayState extends MusicBeatState
 		}
 
 		if (generatedMusic)
+		{	
 			notes.sort(FlxSort.byY, ClientPrefs.data.downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
+		}
 
-		iconP1.scale.set(1.1, 1.1);
-		iconP2.scale.set(1.1, 1.1);
+		iconP1.setGraphicSize(Std.int(iconP1.width + 30));
+		iconP2.setGraphicSize(Std.int(iconP2.width + 30));
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();

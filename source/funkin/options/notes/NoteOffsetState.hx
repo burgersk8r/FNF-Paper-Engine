@@ -43,9 +43,6 @@ class NoteOffsetState extends MusicBeatState
 		DiscordClient.changePresence("Ajust Note Offset Menu", null);
 		#end
 
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
-
 		// Cameras
 		camGame = initPsychCamera();
 

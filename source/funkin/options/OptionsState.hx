@@ -42,10 +42,7 @@ class OptionsState extends MusicBeatState
 		#if DISCORD_ALLOWED
 		DiscordClient.changePresence("Options Menu", null);
 		#end
-
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
-
+		
 		FlxG.sound.playMusic(Paths.music('options/optionsMenu'), 1);
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menus/options/menuDesat'));
