@@ -29,9 +29,9 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public static function resetVariables() {
 		characterName = 'bf-dead';
-		deathSoundName = 'fnf_loss_sfx';
-		loopSoundName = 'gameOver';
-		endSoundName = 'gameOverEnd';
+		deathSoundName = 'gameover/fnf_loss_sfx';
+		loopSoundName = 'gameover/gameOver';
+		endSoundName = 'gameover/gameOverEnd';
 		deathDelay = 0;
 
 		var _song = PlayState.SONG;
@@ -100,7 +100,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			else
 				MusicBeatState.switchState(new FreeplayState());
 
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			FlxG.sound.playMusic(Paths.music('menus/freakyMenu'));
 			PlayState.instance.callOnScripts('onGameOverConfirm', [false]);
 		}
 		
