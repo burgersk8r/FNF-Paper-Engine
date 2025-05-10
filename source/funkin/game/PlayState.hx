@@ -349,6 +349,8 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.bpm = SONG.bpm;
 
+		FlxG.mouse.visible = false;
+
 
 		#if DISCORD_ALLOWED
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
@@ -1438,7 +1440,7 @@ class PlayState extends MusicBeatState
 							if(daNoteData > 1) //Up and Right
 								sustainNote.x += FlxG.width / 2 + 25;
 						}
-						//sustainNote.noAnimation = true;
+						sustainNote.noAnimation = true;
 					}
 				}
 
@@ -2972,6 +2974,9 @@ class PlayState extends MusicBeatState
 		var result:Dynamic = callOnLuas('opponentNoteHitPre', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
 		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('opponentNoteHitPre', [note]);
 
+		var char = note.gfNote ? gf : dad;
+		char.holdTimer = 0;
+
 		if (songName != 'tutorial')
 			camZooming = true;
 
@@ -2986,7 +2991,6 @@ class PlayState extends MusicBeatState
 				if (SONG.notes[curSection].altAnim && !SONG.notes[curSection].gfSection)
 					altAnim = '-alt';
 
-			var char:Character = dad;
 			var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length-1, note.noteData)))] + altAnim;
 			if(note.gfNote) char = gf;
 
@@ -3023,6 +3027,9 @@ class PlayState extends MusicBeatState
 			var isSus:Bool = note.isSustainNote; //GET OUT OF MY HEAD, GET OUT OF MY HEAD, GET OUT OF MY HEAD
 			var leData:Int = Math.round(Math.abs(note.noteData));
 			var leType:String = note.noteType;
+
+			var char = note.gfNote ? gf : boyfriend;
+			char.holdTimer = 0;
 	
 			var result:Dynamic = callOnLuas('goodNoteHitPre', [notes.members.indexOf(note), leData, leType, isSus]);
 			if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('goodNoteHitPre', [note]);
@@ -3036,10 +3043,10 @@ class PlayState extends MusicBeatState
 				if(!note.noMissAnimation) {
 					switch(note.noteType) {
 						case 'Hurt Note': //Hurt note
-							//if(boyfriend.animOffsets.exists('hurt')) 
+							if(boyfriend.animOffsets.exists('hurt')) 
 							{
-							//	boyfriend.playAnim('hurt', true);
-							//	boyfriend.specialAnim = true;
+								boyfriend.playAnim('hurt', true);
+								boyfriend.specialAnim = true;
 							}
 					}
 				}
@@ -3052,8 +3059,7 @@ class PlayState extends MusicBeatState
 	
 			if(!note.noAnimation) {
 				var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length-1, note.noteData)))];
-	
-				var char:Character = boyfriend;
+
 				var animCheck:String = 'hey';
 				if(note.gfNote)
 				{
