@@ -602,7 +602,7 @@ class PlayState extends MusicBeatState
 		iconP2.alpha = ClientPrefs.data.healthBarAlpha;
 		uiGroup.add(iconP2);
 
-		if(ClientPrefs.data.scoreTxtType == 'Psych')
+		if(ClientPrefs.data.scoreTxtType == 'Psych' || ClientPrefs.data.scoreTxtType == 'Paper')
 		{
 			scoreTxt = new FlxText(0, healthBar.y + 40, FlxG.width, "", 16);
 			scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -615,8 +615,8 @@ class PlayState extends MusicBeatState
 			scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			scoreTxt.scrollFactor.set();
 			scoreTxt.borderSize = 1.25;
-
 		}
+
 		scoreTxt.visible = !ClientPrefs.data.hideHud;
 		updateScore(false);
 		uiGroup.add(scoreTxt);
@@ -1186,21 +1186,23 @@ class PlayState extends MusicBeatState
 			str += '${percent}% - ${ratingFC}';
 		}
 		
-		
-		if(ClientPrefs.data.scoreTxtType == 'Psych')
-		{
-			var commaSeparated:Bool = true;
-			scoreTxt.text = (!instakillOnMiss ? 'Accuracy: ${str}' + ' • ' + 'Combo Breaks:${songMisses}' : "") + ' • ' + 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\n';
-		}
-		else if(ClientPrefs.data.scoreTxtType == 'Vanilla')
+		// "\n" here prevents the text from being cut off by beat zooms
+		// different score text formats
+		if(ClientPrefs.data.scoreTxtType == 'Vanilla')
 		{
 			var commaSeparated:Bool = true;
 			scoreTxt.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\n';
 		}
-
-		// "tempScore" variable is used to prevent another memory leak, just in case
-		// "\n" here prevents the text from being cut off by beat zooms
-		
+		else if(ClientPrefs.data.scoreTxtType == 'Paper')
+		{
+			var commaSeparated:Bool = true;
+			scoreTxt.text = (!instakillOnMiss ? 'Accuracy: ${str}' + ' • ' + 'Combo Breaks:${songMisses}' : "") + ' • ' + 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\n';
+		}
+		else if (ClientPrefs.data.scoreTxtType == 'Psych')
+		{
+			var commaSeparated:Bool = true;
+			scoreTxt.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}' + ' | ' + (!instakillOnMiss ? 'Misses: ${songMisses}' : "") + ' | ' + 'Rating: ${str}\n';
+		}
 
 		if (!miss && !cpuControlled)
 			doScoreBop();

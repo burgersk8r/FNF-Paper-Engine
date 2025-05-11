@@ -111,9 +111,8 @@ class VisualsUISubState extends BaseOptionsMenu
 			"Select which score text format you want to use",
 			'scoreTxtType',
 			'string',
-			['Vanilla', 'Psych']);
+			['Vanilla', 'Paper', 'Psych']);
 		addOption(option);
-
 
 		var option:Option = new Option('Score Text Zoom on Hit',
 			"If unchecked, disables the Score text zooming\neverytime you hit a note.",

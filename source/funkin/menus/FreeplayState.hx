@@ -11,6 +11,7 @@ import funkin.options.gameplay.GameplayChangersSubstate;
 import funkin.data.ResetScoreSubState;
 
 import flixel.math.FlxMath;
+import flixel.util.FlxStringUtil;
 
 class FreeplayState extends MusicBeatState
 {
@@ -123,10 +124,6 @@ class FreeplayState extends MusicBeatState
 			// using a FlxGroup is too much fuss!
 			iconArray.push(icon);
 			add(icon);
-
-			// songText.x += 40;
-			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
 		}
 		WeekData.setDirectoryFromWeek();
 
@@ -229,7 +226,8 @@ class FreeplayState extends MusicBeatState
 
 		if (!player.playingMusic)
 		{
-			scoreText.text = 'HIGHSCORE: ' + lerpScore + ' CLEARED:(' + ratingSplit.join('.') + '%)';
+			var commaSeparated:Bool = true;
+			scoreText.text = 'HIGHSCORE: ' + '${FlxStringUtil.formatMoney(lerpScore, false, commaSeparated)}' + ' CLEARED:(' + ratingSplit.join('.') + '%)';
 			positionHighscore();
 			
 			if(songs.length > 1)
@@ -269,7 +267,7 @@ class FreeplayState extends MusicBeatState
 
 				if(FlxG.mouse.wheel != 0)
 				{
-					FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.2);
+					FlxG.sound.play(Paths.sound('menus/scrollMenu'), 0.2);
 					changeSelection(-shiftMult * FlxG.mouse.wheel, false);
 				}
 			}
