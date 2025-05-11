@@ -39,6 +39,14 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		addOption(option);
 		option.onChange = onChangeAutoPause;
 
+		var option:Option = new Option('Pause Screen Song:',
+			"What song do you prefer for the Pause Screen?",
+			'pauseMusic',
+			'string',
+			['Breakfast', 'Breakfast Pico', 'None']);
+		addOption(option);
+		option.onChange = onChangePauseMusic;
+
 		var option:Option = new Option('Disable Reset Button',
 			"If checked, pressing Reset won't do anything.",
 			'noReset',
@@ -130,6 +138,24 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		addOption(option);
 		super();
 	}
+
+	var changedMusic:Bool = false;
+	
+	function onChangePauseMusic()
+	{
+		if(ClientPrefs.data.pauseMusic == 'None')
+			FlxG.sound.music.volume = 0;
+		else
+			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)));
+
+		changedMusic = true;
+	}
+
+	override function destroy()
+		{
+			if(changedMusic && !OptionsState.onPlayState) FlxG.sound.playMusic(Paths.music('menus/freakyMenu'), 1, true);
+			super.destroy();
+		}
 
 	function onChangeHitsoundVolume()
 		FlxG.sound.play(Paths.sound('game/hitsound'), ClientPrefs.data.hitsoundVolume);

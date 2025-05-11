@@ -6,7 +6,8 @@ import openfl.text.TextFormat;
 import openfl.system.System;
 import funkin.menus.MainMenuState;
 import funkin.backend.system.framerate.Memory;
-
+import funkin.backend.assets.Paths;
+import funkin.backend.system.macros.BuildNumber;
 /**
 	The FPS class provides an easy-to-use monitor to display
 	the current frame rate of an OpenFL project
@@ -66,7 +67,8 @@ class FPSCounter extends TextField
 		public dynamic function updateText():Void { // so people can override it in hscript
 			text = '${currentFPS} FPS'
 			+ '\n${flixel.util.FlxStringUtil.formatBytes(Memory.getProcessMemory())} / ${flixel.util.FlxStringUtil.formatBytes(Memory.getGCMemory())}'
-			+'\nPaper Engine Alpha v${MainMenuState.paperEngineVersion}';
+			+'\nPaper Engine v${MainMenuState.paperEngineVersion} [ALPHA]'
+			+'\nBuild: ${BuildNumber.getBuildNumber()}';
 	
 			textColor = 0xFFFFFFFF;
 			if (currentFPS < FlxG.drawFramerate * 0.5)

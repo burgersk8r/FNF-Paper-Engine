@@ -90,10 +90,10 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 		
 		var option:Option = new Option('Time:',
-			"What should the Time Bar display?",
+			"Choose whether you want a time bar or display the song name.",
 			'timeBarType',
 			'string',
-			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
+			['Disabled', 'Time Left', 'Time Elapsed', 'Song Name']);
 		addOption(option);
 
 		var option:Option = new Option('Flashing Lights',
@@ -106,6 +106,14 @@ class VisualsUISubState extends BaseOptionsMenu
 			"If unchecked, the camera won't zoom in on a beat hit.",
 			'camZooms',
 			'bool');
+
+		var option:Option = new Option('Score Text Display:',
+			"Select which score text format you want to use",
+			'scoreTxtType',
+			'string',
+			['Vanilla', 'Psych']);
+		addOption(option);
+
 
 		var option:Option = new Option('Score Text Zoom on Hit',
 			"If unchecked, disables the Score text zooming\neverytime you hit a note.",
@@ -131,14 +139,6 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 		option.onChange = onChangeFPSCounter;
 		#end
-		
-		var option:Option = new Option('Pause Screen Song:',
-			"What song do you prefer for the Pause Screen?",
-			'pauseMusic',
-			'string',
-			['None', 'Breakfast', 'Breakfast Pico']);
-		addOption(option);
-		option.onChange = onChangePauseMusic;
 		
 		#if CHECK_FOR_UPDATES
 		var option:Option = new Option('Check for Updates',
@@ -181,17 +181,6 @@ class VisualsUISubState extends BaseOptionsMenu
 		}
 	}
 
-	var changedMusic:Bool = false;
-	function onChangePauseMusic()
-	{
-		if(ClientPrefs.data.pauseMusic == 'None')
-			FlxG.sound.music.volume = 0;
-		else
-			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)));
-
-		changedMusic = true;
-	}
-
 	function onChangeNoteSkin()
 	{
 		notes.forEachAlive(function(note:StrumNote) {
@@ -210,12 +199,6 @@ class VisualsUISubState extends BaseOptionsMenu
 		note.texture = skin; //Load texture and anims
 		note.reloadNote();
 		note.playAnim('static');
-	}
-
-	override function destroy()
-	{
-		if(changedMusic && !OptionsState.onPlayState) FlxG.sound.playMusic(Paths.music('menus/freakyMenu'), 1, true);
-		super.destroy();
 	}
 
 	#if !mobile

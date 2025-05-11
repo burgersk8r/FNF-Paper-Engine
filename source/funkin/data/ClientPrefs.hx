@@ -40,7 +40,8 @@ import funkin.backend.system.Main;
 		[0xFFF9393F, 0xFFFFFFFF, 0xFF651038]];
 
 	public var ghostTapping:Bool = true;
-	public var timeBarType:String = 'Time Left';
+	public var timeBarType:String = 'Disabled';
+	public var scoreTxtType:String = 'Vanilla';
 	public var scoreZoom:Bool = false;
 	public var noReset:Bool = false;
 	public var healthBarAlpha:Float = 1;

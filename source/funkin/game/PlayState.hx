@@ -602,10 +602,21 @@ class PlayState extends MusicBeatState
 		iconP2.alpha = ClientPrefs.data.healthBarAlpha;
 		uiGroup.add(iconP2);
 
-		scoreTxt = new FlxText(0, healthBar.y + 40, FlxG.width, "", 16);
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		scoreTxt.scrollFactor.set();
-		scoreTxt.borderSize = 1.25;
+		if(ClientPrefs.data.scoreTxtType == 'Psych')
+		{
+			scoreTxt = new FlxText(0, healthBar.y + 40, FlxG.width, "", 16);
+			scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			scoreTxt.scrollFactor.set();
+			scoreTxt.borderSize = 1.25;
+		}
+		else if(ClientPrefs.data.scoreTxtType == 'Vanilla')
+		{
+			scoreTxt = new FlxText(healthBar.x + healthBar.width - 190, healthBar.y + 30, 0, '', 20);
+			scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			scoreTxt.scrollFactor.set();
+			scoreTxt.borderSize = 1.25;
+
+		}
 		scoreTxt.visible = !ClientPrefs.data.hideHud;
 		updateScore(false);
 		uiGroup.add(scoreTxt);
@@ -1175,13 +1186,21 @@ class PlayState extends MusicBeatState
 			str += '${percent}% - ${ratingFC}';
 		}
 		
-		// var tempScore:String = ' Points:${songScore}' + (!instakillOnMiss ? '                          Combo Breaks:${songMisses}' : "") + '                         Grade:${str}';
-
-		var tempScore:String = (!instakillOnMiss ? 'Accuracy: ${str}' + ' • ' + 'Combo Breaks:${songMisses}' : "") + ' • ' + 'Score:${songScore}';
+		
+		if(ClientPrefs.data.scoreTxtType == 'Psych')
+		{
+			var commaSeparated:Bool = true;
+			scoreTxt.text = (!instakillOnMiss ? 'Accuracy: ${str}' + ' • ' + 'Combo Breaks:${songMisses}' : "") + ' • ' + 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\n';
+		}
+		else if(ClientPrefs.data.scoreTxtType == 'Vanilla')
+		{
+			var commaSeparated:Bool = true;
+			scoreTxt.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\n';
+		}
 
 		// "tempScore" variable is used to prevent another memory leak, just in case
 		// "\n" here prevents the text from being cut off by beat zooms
-		scoreTxt.text = '${tempScore}\n';
+		
 
 		if (!miss && !cpuControlled)
 			doScoreBop();
@@ -3521,7 +3540,8 @@ class PlayState extends MusicBeatState
 
 		if(spr != null) {
 			spr.playAnim('confirm', true);
-			spr.resetAnim = 0.40; // base game style
+			spr.resetAnim = 0.25; // base game style
+			//spr.resetAnim = 0.40; // old base game style
 		}
 	}
 
