@@ -2,17 +2,17 @@
 <!--
 Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
 -->
-<TextureAtlas imagePath="menu_credits.png" width="3382" height="174">
-	<SubTexture name="credits basic0000" x="1953" y="1" width="474" height="126" frameX="-0" frameY="-0" frameWidth="474" frameHeight="126"/>
-	<SubTexture name="credits basic0001" x="1953" y="1" width="474" height="126" frameX="-0" frameY="-0" frameWidth="474" frameHeight="126"/>
-	<SubTexture name="credits basic0002" x="1953" y="1" width="474" height="126" frameX="-0" frameY="-0" frameWidth="474" frameHeight="126"/>
-	<SubTexture name="credits basic0003" x="2430" y="1" width="474" height="126" frameX="-0" frameY="-0" frameWidth="474" frameHeight="126"/>
-	<SubTexture name="credits basic0004" x="2430" y="1" width="474" height="126" frameX="-0" frameY="-0" frameWidth="474" frameHeight="126"/>
-	<SubTexture name="credits basic0005" x="2430" y="1" width="474" height="126" frameX="-0" frameY="-0" frameWidth="474" frameHeight="126"/>
-	<SubTexture name="credits basic0006" x="2907" y="1" width="474" height="126" frameX="-0" frameY="-0" frameWidth="474" frameHeight="126"/>
-	<SubTexture name="credits basic0007" x="2907" y="1" width="474" height="126" frameX="-0" frameY="-0" frameWidth="474" frameHeight="126"/>
-	<SubTexture name="credits basic0008" x="2907" y="1" width="474" height="126" frameX="-0" frameY="-0" frameWidth="474" frameHeight="126"/>
-	<SubTexture name="credits white0000" x="1" y="1" width="650" height="172" frameX="-0" frameY="-0" frameWidth="652" frameHeight="172"/>
-	<SubTexture name="credits white0001" x="1307" y="1" width="643" height="171" frameX="-0" frameY="-0" frameWidth="652" frameHeight="172"/>
-	<SubTexture name="credits white0002" x="654" y="1" width="650" height="171" frameX="-1" frameY="-0" frameWidth="652" frameHeight="172"/>
+<TextureAtlas imagePath="menu_credits.png" width="766" height="744">
+	<SubTexture name="credits idle0000" x="0" y="502" width="474" height="121" frameX="-0" frameY="-0" frameWidth="474" frameHeight="121"/>
+	<SubTexture name="credits idle0001" x="0" y="502" width="474" height="121" frameX="-0" frameY="-0" frameWidth="474" frameHeight="121"/>
+	<SubTexture name="credits idle0002" x="0" y="502" width="474" height="121" frameX="-0" frameY="-0" frameWidth="474" frameHeight="121"/>
+	<SubTexture name="credits idle0003" x="0" y="623" width="474" height="121" frameX="-0" frameY="-0" frameWidth="474" frameHeight="121"/>
+	<SubTexture name="credits idle0004" x="0" y="623" width="474" height="121" frameX="-0" frameY="-0" frameWidth="474" frameHeight="121"/>
+	<SubTexture name="credits idle0005" x="0" y="623" width="474" height="121" frameX="-0" frameY="-0" frameWidth="474" frameHeight="121"/>
+	<SubTexture name="credits idle0006" x="645" y="171" width="121" height="474" rotated="true" frameX="-0" frameY="-0" frameWidth="474" frameHeight="121"/>
+	<SubTexture name="credits idle0007" x="645" y="171" width="121" height="474" rotated="true" frameX="-0" frameY="-0" frameWidth="474" frameHeight="121"/>
+	<SubTexture name="credits idle0008" x="645" y="171" width="121" height="474" rotated="true" frameX="-0" frameY="-0" frameWidth="474" frameHeight="121"/>
+	<SubTexture name="credits selected0000" x="0" y="171" width="645" height="167" frameX="-0" frameY="-5" frameWidth="652" frameHeight="172"/>
+	<SubTexture name="credits selected0001" x="0" y="338" width="643" height="164" frameX="-0" frameY="-4" frameWidth="652" frameHeight="172"/>
+	<SubTexture name="credits selected0002" x="0" y="0" width="650" height="171" frameX="-1" frameY="-0" frameWidth="652" frameHeight="172"/>
 </TextureAtlas>

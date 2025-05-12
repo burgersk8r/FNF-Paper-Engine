@@ -84,6 +84,8 @@ class TitleState extends MusicBeatState
 
 		super.create();
 
+		FlxG.mouse.visible = false;
+
 		FlxG.save.bind('paper-engine', CoolUtil.getSavePath());
 
 		ClientPrefs.loadPrefs();
@@ -124,16 +126,6 @@ class TitleState extends MusicBeatState
 		{
 			StoryMenuState.weekCompleted = FlxG.save.data.weekCompleted;
 		}
-
-		var cursor:FlxSprite;
-
-		cursor = new FlxSprite();
-
-		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
-
-		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
-		FlxG.mouse.load(cursor.pixels);
-
 		
 		#if FREEPLAY
 		MusicBeatState.switchState(new FreeplayState());

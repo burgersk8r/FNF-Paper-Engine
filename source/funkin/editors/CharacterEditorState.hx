@@ -69,16 +69,7 @@ class CharacterEditorState extends MusicBeatState
 	{
 		if(ClientPrefs.data.cacheOnGPU) Paths.clearStoredMemory();
 
-		var cursor:FlxSprite;
-
-		cursor = new FlxSprite();
-
-		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
-
-		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
-		FlxG.mouse.load(cursor.pixels);
-
-		FlxG.sound.playMusic(Paths.music('misc/tea-time'), 1);
+		FlxG.sound.playMusic(Paths.music('editors/charEditor'), 1);
 
 		camEditor = initPsychCamera();
 		
@@ -166,6 +157,13 @@ class CharacterEditorState extends MusicBeatState
 		character.finishAnimation();
 
 		if(ClientPrefs.data.cacheOnGPU) Paths.clearUnusedMemory();
+
+		var cursor:FlxSprite;
+		cursor = new FlxSprite();
+		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
+		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
+		FlxG.mouse.load(cursor.pixels);
+		FlxG.mouse.visible = true;
 
 		super.create();
 	}
@@ -923,7 +921,7 @@ class CharacterEditorState extends MusicBeatState
 			}
 		}
 		else holdingArrowsTime = 0;
-
+		
 		if(FlxG.mouse.pressedRight && (FlxG.mouse.deltaScreenX != 0 || FlxG.mouse.deltaScreenY != 0))
 		{
 			character.offset.x -= FlxG.mouse.deltaScreenX;
