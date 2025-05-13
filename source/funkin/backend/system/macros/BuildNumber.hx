@@ -12,7 +12,7 @@ class BuildNumber {
     // non functional
     public static macro function getBuildNumber():haxe.macro.Expr.ExprOf<Int> {
         #if !display
-        var buildNum:Int = Std.parseInt(File.getContent("assets/data/buildNum.txt"));
+        var buildNum:Int = Std.parseInt(File.getContent("buildNum.txt"));
         return macro $v{buildNum};
         #else
         return macro $v{0};

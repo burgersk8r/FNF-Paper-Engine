@@ -374,7 +374,7 @@ class NotesSubState extends MusicBeatSubstate
 						curSelectedMode = note.ID;
 						onModeColumn = true;
 						updateNotes();
-						FlxG.sound.play(Paths.sound('meuns/scrollMenu'), 0.6);
+						FlxG.sound.play(Paths.sound('menus/scrollMenu'), 0.6);
 					}
 				});
 			}
