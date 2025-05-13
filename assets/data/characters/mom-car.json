@@ -30,7 +30,7 @@
 			"loop": false,
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "Mom Pose Left",
+			"name": "Mom Right Pose",
 			"indices": []
 		},
 		{
@@ -117,7 +117,7 @@
 			"fps": 24,
 			"anim": "singRIGHT-loop",
 			"loop": true,
-			"name": "Mom Pose Left"
+			"name": "Mom Right Pose"
 		},
 		{
 			"offsets": [

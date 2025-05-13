@@ -84,7 +84,11 @@ class TitleState extends MusicBeatState
 
 		super.create();
 
-		FlxG.mouse.visible = false;
+		var cursor:FlxSprite;
+		cursor = new FlxSprite();
+		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
+		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
+		FlxG.mouse.load(cursor.pixels);
 
 		FlxG.save.bind('paper-engine', CoolUtil.getSavePath());
 

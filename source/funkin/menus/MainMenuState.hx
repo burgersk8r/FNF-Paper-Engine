@@ -28,9 +28,9 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
+		'merch',
 		'credits',
 		#if MODS_ALLOWED 'mods' #end
-		
 	];
 
 	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
@@ -138,7 +138,7 @@ class MainMenuState extends MusicBeatState
 	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
 		{
 			var menuItem:FlxSprite = new FlxSprite(x, y);
-			menuItem.frames = Paths.getSparrowAtlas('menus/mainmenu/menu_$name');
+			menuItem.frames = Paths.getSparrowAtlas('menus/mainmenu/$name');
 			menuItem.animation.addByPrefix('idle', '$name idle', 24, true);
 			menuItem.animation.addByPrefix('selected', '$name selected', 24, true);
 			menuItem.animation.play('idle');
@@ -271,7 +271,6 @@ class MainMenuState extends MusicBeatState
 			if (controls.BACK)
 			{
 				selectedSomethin = true;
-				FlxG.mouse.visible = false;
 				FlxG.sound.play(Paths.sound('menus/cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
 			}
@@ -279,9 +278,9 @@ class MainMenuState extends MusicBeatState
 			if (controls.ACCEPT || (FlxG.mouse.justPressed && allowMouse))
 			{
 				FlxG.sound.play(Paths.sound('menus/confirmMenu'));
-				if (optionShit[curSelected] == 'donate')
+				if (optionShit[curSelected] == 'merch')
 				{
-					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
+					CoolUtil.browserLoad('https://needlejuicerecords.com/pages/friday-night-funkin');
 				}
 				else
 				{
@@ -338,8 +337,8 @@ class MainMenuState extends MusicBeatState
 										PlayState.SONG.splashSkin = null;
 										PlayState.stageUI = 'normal';
 									}
-								case 'donate':
-									CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
+								case 'merch':
+									CoolUtil.browserLoad('https://needlejuicerecords.com/pages/friday-night-funkin');
 									selectedSomethin = false;
 									item.visible = true;
 								default:
