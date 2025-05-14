@@ -1,4 +1,4 @@
-note splash
+psych splash
 22 26
 -58 -55
 -58 -55
