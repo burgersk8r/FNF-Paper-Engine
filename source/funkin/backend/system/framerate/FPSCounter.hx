@@ -65,8 +65,8 @@ class FPSCounter extends TextField
 		}
 	
 		public dynamic function updateText():Void { // so people can override it in hscript
-			text = '${currentFPS} FPS'
-			+ '\n${flixel.util.FlxStringUtil.formatBytes(Memory.getProcessMemory())} / ${flixel.util.FlxStringUtil.formatBytes(Memory.getGCMemory())}'
+			text = 'FPS: ${currentFPS}'
+			+ '\nRAM: ${flixel.util.FlxStringUtil.formatBytes(Memory.getProcessMemory())} / ${flixel.util.FlxStringUtil.formatBytes(Memory.getGCMemory())}'
 			+'\nPaper Engine v${MainMenuState.paperEngineVersion} [ALPHA]'
 			+'\nBuild: ${BuildNumber.getBuildNumber()}';
 	

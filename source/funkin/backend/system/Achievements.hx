@@ -6,7 +6,7 @@ import haxe.Exception;
 import haxe.Json;
 
 #if LUA_ALLOWED
-import funkin.backend.lua.FunkinLua;
+import funkin.backend.scripting.lua.FunkinLua;
 #end
 
 typedef Achievement =

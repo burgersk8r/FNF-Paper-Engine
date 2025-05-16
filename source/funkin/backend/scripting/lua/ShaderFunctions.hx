@@ -1,4 +1,4 @@
-package funkin.backend.lua;
+package funkin.backend.scripting.lua;
 
 #if (!flash && sys)
 import flixel.addons.display.FlxRuntimeShader;

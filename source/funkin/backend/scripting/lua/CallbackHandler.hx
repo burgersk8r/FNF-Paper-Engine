@@ -1,5 +1,5 @@
 #if LUA_ALLOWED
-package funkin.backend.lua;
+package funkin.backend.scripting.lua;
 
 class CallbackHandler
 {

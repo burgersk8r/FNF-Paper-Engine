@@ -1,4 +1,4 @@
-package funkin.backend.lua;
+package funkin.backend.scripting.lua;
 
 import funkin.data.WeekData;
 import funkin.game.Character;

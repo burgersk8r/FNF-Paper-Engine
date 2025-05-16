@@ -1,15 +1,15 @@
-package hscript;
+package funkin.backend.scripting.hscript;
 
 import flixel.FlxBasic;
 import funkin.game.Character;
-import funkin.backend.lua.LuaUtils;
-import funkin.backend.lua.CustomSubstate;
+import funkin.backend.scripting.lua.LuaUtils;
+import funkin.backend.scripting.lua.CustomSubstate;
 import funkin.game.PsychCamera;
 import funkin.backend.assets.BaseStage;
 import funkin.game.Note;
 
 #if LUA_ALLOWED
-import funkin.backend.lua.FunkinLua;
+import funkin.backend.scripting.lua.FunkinLua;
 #end
 
 #if HSCRIPT_ALLOWED

@@ -1,5 +1,5 @@
 #if LUA_ALLOWED
-package funkin.backend.lua;
+package funkin.backend.scripting.lua;
 
 import funkin.data.WeekData;
 import funkin.data.Highscore;
@@ -30,13 +30,13 @@ import funkin.menus.FreeplayState;
 import funkin.game.PauseSubState;
 import funkin.game.GameOverSubstate;
 
-import funkin.backend.lua.LuaUtils;
-import funkin.backend.lua.LuaUtils.LuaTweenOptions;
+import funkin.backend.scripting.lua.LuaUtils;
+import funkin.backend.scripting.lua.LuaUtils.LuaTweenOptions;
 #if SScript
-import hscript.HScript;
+import funkin.backend.scripting.hscript.HScript;
 #end
-import funkin.backend.lua.DebugLuaText;
-import funkin.backend.lua.ModchartSprite;
+import funkin.backend.scripting.lua.DebugLuaText;
+import funkin.backend.scripting.lua.ModchartSprite;
 
 import flixel.input.keyboard.FlxKey;
 import flixel.input.gamepad.FlxGamepadInputID;
@@ -51,7 +51,7 @@ class FunkinLua {
 	public var closed:Bool = false;
 
 	#if HSCRIPT_ALLOWED
-	public var hscript:HScript = null;
+	public var hscript:funkin.backend.scripting.hscript.HScript = null;
 	#end
 
 	public var callbacks:Map<String, Dynamic> = new Map<String, Dynamic>();

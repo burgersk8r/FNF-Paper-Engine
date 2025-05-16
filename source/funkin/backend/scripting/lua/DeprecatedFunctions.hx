@@ -1,4 +1,4 @@
-package funkin.backend.lua;
+package funkin.backend.scripting.lua;
 
 //
 // This is simply where i store deprecated functions for it to be more organized.

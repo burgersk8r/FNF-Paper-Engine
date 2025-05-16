@@ -51,14 +51,14 @@ import funkin.objects.*;
 import funkin.game.stages.objects.*;
 
 #if LUA_ALLOWED
-import funkin.backend.lua.*;
+import funkin.backend.scripting.lua.*;
 #else
-import funkin.backend.lua.LuaUtils;
+import funkin.backend.scripting.lua.LuaUtils;
 
 #end
 
 #if HSCRIPT_ALLOWED
-import hscript.HScript;
+import funkin.backend.scripting.hscript.HScript;
 #end
 
 #if SScript
@@ -103,30 +103,17 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
-	/*public static var ratingStuff:Array<Dynamic> = [
-		['You Suck!', 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
-		['Bad', 0.5], //From 40% to 49%
-		['Bruh', 0.6], //From 50% to 59%
-		['Meh', 0.69], //From 60% to 68%
-		['Nice', 0.7], //69%
-		['Good', 0.8], //From 70% to 79%
-		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!', 1] //The value on this one isn't used actually, since Perfect is always "1"
-	];*/
-
 	public static var ratingStuff:Array<Dynamic> = [
-		['', 0.2], //From 0% to 19%
-		['', 0.4], //From 20% to 39%
-		['', 0.5], //From 40% to 49%
-		['', 0.6], //From 50% to 59%
-		['', 0.69], //From 60% to 68%
-		['', 0.7], //69%
-		['', 0.8], //From 70% to 79%
-		['', 0.9], //From 80% to 89%
-		['', 1], //From 90% to 99%
-		['', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['F- • ', 0.2], //From 0% to 19%
+		['F • ', 0.4], //From 20% to 39%
+		['F • ', 0.5], //From 40% to 49%
+		['F • ', 0.6], //From 50% to 59%
+		['D • ', 0.69], //From 60% to 68%
+		['D • ', 0.7], //69%
+		['C • ', 0.8], //From 70% to 79%
+		['B • ', 0.9], //From 80% to 89%
+		['S • ', 1], //From 90% to 99%
+		['P • ', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
 	//event variables
@@ -138,7 +125,7 @@ class PlayState extends MusicBeatState
 	public var variables:Map<String, Dynamic> = new Map<String, Dynamic>();
 
 	#if HSCRIPT_ALLOWED
-	public var hscriptArray:Array<hscript.HScript> = [];
+	public var hscriptArray:Array<HScript> = [];
 	public var instancesExclude:Array<String> = [];
 	#end
 
@@ -205,7 +192,7 @@ class PlayState extends MusicBeatState
 	public var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
 	public var grpHoldSplashes:FlxTypedGroup<SustainSplash>;
 
-	public var camZooming:Bool = false;
+	public var camZooming:Bool = true;
 	public var camZoomingMult:Float = 1;
 	public var camZoomingDecay:Float = 1;
 	private var curSong:String = "";
@@ -290,7 +277,7 @@ class PlayState extends MusicBeatState
 	#if LUA_ALLOWED public var luaArray:Array<FunkinLua> = []; #end
 
 	#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
-	private var luaDebugGroup:FlxTypedGroup<funkin.backend.lua.DebugLuaText>;
+	private var luaDebugGroup:FlxTypedGroup<funkin.backend.scripting.lua.DebugLuaText>;
 	#end
 	public var introSoundsSuffix:String = '';
 
@@ -437,7 +424,7 @@ class PlayState extends MusicBeatState
 		add(boyfriendGroup);
 
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
-		luaDebugGroup = new FlxTypedGroup<funkin.backend.lua.DebugLuaText>();
+		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
 		luaDebugGroup.cameras = [camOther];
 		add(luaDebugGroup);
 		#end
@@ -602,10 +589,17 @@ class PlayState extends MusicBeatState
 		iconP2.alpha = ClientPrefs.data.healthBarAlpha;
 		uiGroup.add(iconP2);
 
-		if(ClientPrefs.data.scoreTxtType == 'Psych' || ClientPrefs.data.scoreTxtType == 'Paper')
+		if(ClientPrefs.data.scoreTxtType == 'Psych')
 		{
 			scoreTxt = new FlxText(0, healthBar.y + 40, FlxG.width, "", 16);
 			scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			scoreTxt.scrollFactor.set();
+			scoreTxt.borderSize = 1.25;
+		}
+		if(ClientPrefs.data.scoreTxtType == 'Paper')
+		{
+			scoreTxt = new FlxText(0, healthBar.y + 40, FlxG.width, "", 16);
+			scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			scoreTxt.scrollFactor.set();
 			scoreTxt.borderSize = 1.25;
 		}
@@ -747,14 +741,14 @@ class PlayState extends MusicBeatState
 
 	#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 	public function addTextToDebug(text:String, color:FlxColor) {
-		var newText:funkin.backend.lua.DebugLuaText = luaDebugGroup.recycle(funkin.backend.lua.DebugLuaText);
+		var newText:DebugLuaText = luaDebugGroup.recycle(DebugLuaText);
 		newText.text = text;
 		newText.color = color;
 		newText.disableTime = 6;
 		newText.alpha = 1;
 		newText.setPosition(10, 8 - newText.height);
 
-		luaDebugGroup.forEachAlive(function(spr:funkin.backend.lua.DebugLuaText) {
+		luaDebugGroup.forEachAlive(function(spr:DebugLuaText) {
 			spr.y += newText.height + 2;
 		});
 		luaDebugGroup.add(newText);
@@ -1183,7 +1177,7 @@ class PlayState extends MusicBeatState
 		if(totalPlayed != 0)
 		{
 			var percent:Float = CoolUtil.floorDecimal(ratingPercent * 100, 2);
-			str += '${percent}% - ${ratingFC}';
+			str += '${percent}%';
 		}
 		
 		// "\n" here prevents the text from being cut off by beat zooms
@@ -1196,7 +1190,7 @@ class PlayState extends MusicBeatState
 		else if(ClientPrefs.data.scoreTxtType == 'Paper')
 		{
 			var commaSeparated:Bool = true;
-			scoreTxt.text = (!instakillOnMiss ? 'Accuracy: ${str}' + ' • ' + 'Combo Breaks:${songMisses}' : "") + ' • ' + 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\n';
+			scoreTxt.text = (!instakillOnMiss ? 'Accuracy: ${str}' + ' / ' + 'Combo Breaks:${songMisses}' : "") + ' / ' + 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\n';
 		}
 		else if (ClientPrefs.data.scoreTxtType == 'Psych')
 		{
@@ -1221,13 +1215,13 @@ class PlayState extends MusicBeatState
 		ratingFC = "";
 		if(songMisses == 0)
 		{
-			if (bads > 0 || shits > 0) ratingFC = 'FC';
-			else if (goods > 0) ratingFC = 'GFC';
-			else if (sicks > 0) ratingFC = 'SFC';
-			else if (perfects > 0) ratingFC = 'P';
+			if (bads > 0 || shits > 0) ratingFC = '';
+			else if (goods > 0) ratingFC = '';
+			else if (sicks > 0) ratingFC = '';
+			else if (perfects > 0) ratingFC = '';
 		}
 		else {
-			if (songMisses < 10) ratingFC = 'CB';
+			if (songMisses < 10) ratingFC = '';
 			else ratingFC = '';
 		}
 	}
@@ -2318,7 +2312,6 @@ class PlayState extends MusicBeatState
 			camFollow.setPosition(gf.getMidpoint().x, gf.getMidpoint().y);
 			camFollow.x += gf.cameraPosition[0] + girlfriendCameraOffset[0];
 			camFollow.y += gf.cameraPosition[1] + girlfriendCameraOffset[1];
-			tweenCamIn();
 			callOnScripts('onMoveCamera', ['gf']);
 			return;
 		}
@@ -2336,33 +2329,12 @@ class PlayState extends MusicBeatState
 			camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
 			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
 			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
-			tweenCamIn();
 		}
 		else
 		{
 			camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
-
-			if (songName == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1)
-			{
-				cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
-					function (twn:FlxTween)
-					{
-						cameraTwn = null;
-					}
-				});
-			}
-		}
-	}
-
-	public function tweenCamIn() {
-		if (songName == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1.3) {
-			cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1.3}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
-				function (twn:FlxTween) {
-					cameraTwn = null;
-				}
-			});
 		}
 	}
 
@@ -2997,9 +2969,6 @@ class PlayState extends MusicBeatState
 
 		var char = note.gfNote ? gf : dad;
 		char.holdTimer = 0;
-
-		if (songName != 'tutorial')
-			camZooming = true;
 
 		if(note.noteType == 'Hey!' && dad.animOffsets.exists('hey')) {
 			dad.playAnim('hey', true);
