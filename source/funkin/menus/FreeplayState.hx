@@ -59,6 +59,8 @@ class FreeplayState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Freeplay Menu", null);
 		#end
+
+		Paths.clearStoredMemory();
 		
 		var cursor:FlxSprite;
 

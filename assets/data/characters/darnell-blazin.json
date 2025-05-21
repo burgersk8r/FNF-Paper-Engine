@@ -142,7 +142,6 @@
 	"position": [400, 650],
 	"healthicon": "darnell",
 	"flip_x": false,
-	"healthbar_colors": [115, 94, 176],
 	"camera_position": [-150, 100],
 	"sing_duration": 8.0,
 	"scale": 1.75,

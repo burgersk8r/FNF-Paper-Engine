@@ -167,7 +167,6 @@
 	"position": [-290, 680],
 	"healthicon": "pico",
 	"flip_x": true,
-	"healthbar_colors": [183, 216, 85],
 	"camera_position": [0, -500],
 	"sing_duration": 999,
 	"scale": 1.75,

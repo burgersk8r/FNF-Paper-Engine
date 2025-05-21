@@ -112,8 +112,8 @@ class PlayState extends MusicBeatState
 		['D • ', 0.7], //69%
 		['C • ', 0.8], //From 70% to 79%
 		['B • ', 0.9], //From 80% to 89%
-		['S • ', 1], //From 90% to 99%
-		['P • ', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['A • ', 1], //From 90% to 99%
+		['S • ', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
 	//event variables
@@ -574,7 +574,8 @@ class PlayState extends MusicBeatState
 		healthBar.scrollFactor.set();
 		healthBar.visible = !ClientPrefs.data.hideHud;
 		healthBar.alpha = ClientPrefs.data.healthBarAlpha;
-		reloadHealthBarColors();
+		//healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
+		//reloadHealthBarColors();
 		uiGroup.add(healthBar);
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
@@ -757,10 +758,10 @@ class PlayState extends MusicBeatState
 	}
 	#end
 
-	public function reloadHealthBarColors() {
+	/*public function reloadHealthBarColors() {
 		healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]),
 			FlxColor.fromRGB(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]));
-	}
+	}*/
 
 	public function addCharacterToList(newCharacter:String, type:Int) {
 		switch(type) {
@@ -2233,7 +2234,7 @@ class PlayState extends MusicBeatState
 							setOnScripts('gfName', gf.curCharacter);
 						}
 				}
-				reloadHealthBarColors();
+				//reloadHealthBarColors();
 
 			case 'Change Scroll Speed':
 				if (songSpeedType != "constant")
