@@ -206,6 +206,8 @@ class ClientPrefs {
 		if (FlxG.save.data.mute != null)
 			FlxG.sound.muted = FlxG.save.data.mute;
 
+		FlxSprite.defaultAntialiasing = data.antialiasing; //Makes Antialiasing a global thing. Remove this line if you are making a mod which is mainly pixel-sprite based.
+
 		#if DISCORD_ALLOWED
 		DiscordClient.check();
 		#end
