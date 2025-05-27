@@ -41,7 +41,6 @@ class AchievementsMenuState extends MusicBeatState
 		add(camFollow);
 
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menus/achievementsmenu/menuBGBlue'));
-		menuBG.antialiasing = ClientPrefs.data.antialiasing;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
@@ -54,7 +53,6 @@ class AchievementsMenuState extends MusicBeatState
 		options.sort(sortByID);
 		for (option in options)
 		{
-			var hasAntialias:Bool = ClientPrefs.data.antialiasing;
 			var graphic = null;
 			if(option.unlocked)
 			{
@@ -63,7 +61,6 @@ class AchievementsMenuState extends MusicBeatState
 				if(Paths.fileExists('images/$image-pixel.png', IMAGE))
 				{
 					graphic = Paths.image('$image-pixel');
-					hasAntialias = false;
 				}
 				else graphic = Paths.image(image);
 
@@ -76,7 +73,6 @@ class AchievementsMenuState extends MusicBeatState
 			spr.screenCenter(X);
 			spr.x += 180 * ((grpOptions.members.length % MAX_PER_ROW) - MAX_PER_ROW/2) + spr.width / 2 + 15;
 			spr.ID = grpOptions.members.length;
-			spr.antialiasing = hasAntialias;
 			grpOptions.add(spr);
 		}
 		#if MODS_ALLOWED Mods.loadTopMod(); #end
@@ -323,7 +319,6 @@ class ResetAchievementSubstate extends MusicBeatSubstate
 				option.name = state.nameText.text = '???';
 				if(option.maxProgress > 0) state.progressTxt.text = '0 / ' + option.maxProgress;
 				state.grpOptions.members[state.curSelected].loadGraphic(Paths.image('menus/achievementsmenu/icons/lockedachievement'));
-				state.grpOptions.members[state.curSelected].antialiasing = ClientPrefs.data.antialiasing;
 
 				if(state.progressBar.visible)
 				{
