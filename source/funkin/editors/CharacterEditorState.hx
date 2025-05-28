@@ -19,7 +19,7 @@ import lime.system.Clipboard;
 import funkin.editors.MasterEditorMenu;
 import funkin.game.Character;
 import funkin.game.HealthIcon;
-import funkin.objects.Bar;
+import funkin.objects.HealthBar;
 
 class CharacterEditorState extends MusicBeatState
 {
@@ -39,7 +39,7 @@ class CharacterEditorState extends MusicBeatState
 	var cameraZoomText:FlxText;
 	var frameAdvanceText:FlxText;
 
-	var healthBar:Bar;
+	var healthBar:HealthBar;
 	var healthIcon:HealthIcon;
 
 	var copiedOffset:Array<Float> = [0, 0];
@@ -109,10 +109,10 @@ class CharacterEditorState extends MusicBeatState
 		cameraFollowPointer.updateHitbox();
 		add(cameraFollowPointer);
 
-		/*healthBar = new Bar(30, FlxG.height - 75);
+		healthBar = new HealthBar(30, FlxG.height - 75);
 		healthBar.scrollFactor.set();
 		add(healthBar);
-		healthBar.cameras = [camHUD];*/
+		healthBar.cameras = [camHUD];
 
 		healthIcon = new HealthIcon(character.healthIcon, false, false);
 		healthIcon.y = FlxG.height - 150;
@@ -153,7 +153,7 @@ class CharacterEditorState extends MusicBeatState
 		makeUIMenu();
 
 		updatePointerPos();
-		//updateHealthBar();
+		updateHealthBar();
 		character.finishAnimation();
 
 		if(ClientPrefs.data.cacheOnGPU) Paths.clearUnusedMemory();
@@ -244,7 +244,7 @@ class CharacterEditorState extends MusicBeatState
 		else add(character);
 		updateCharacterPositions();
 		reloadAnimList();
-		//if(healthBar != null && healthIcon != null) updateHealthBar();
+		if(healthBar != null && healthIcon != null) updateHealthBar();
 	}
 
 	function makeUIMenu()
@@ -437,7 +437,7 @@ class CharacterEditorState extends MusicBeatState
 			updateCharacterPositions();
 			updatePointerPos();
 			reloadCharacterDropDown();
-			//updateHealthBar();
+			updateHealthBar();
 		});
 		templateCharacter.color = FlxColor.RED;
 		templateCharacter.label.color = FlxColor.WHITE;
@@ -831,7 +831,7 @@ class CharacterEditorState extends MusicBeatState
 		positionCameraXStepper.value = character.cameraPosition[0];
 		positionCameraYStepper.value = character.cameraPosition[1];
 		reloadAnimationDropDown();
-		//updateHealthBar();
+		updateHealthBar();
 	}
 
 	var holdingArrowsTime:Float = 0;
@@ -1087,15 +1087,15 @@ class CharacterEditorState extends MusicBeatState
 		}
 	}
 
-	/*inline function updateHealthBar()
+	inline function updateHealthBar()
 	{
-		healthColorStepperR.value = character.healthColorArray[0];
+		/*healthColorStepperR.value = character.healthColorArray[0];
 		healthColorStepperG.value = character.healthColorArray[1];
 		healthColorStepperB.value = character.healthColorArray[2];
-		healthBar.leftBar.color = healthBar.rightBar.color = FlxColor.fromRGB(character.healthColorArray[0], character.healthColorArray[1], character.healthColorArray[2]);
+		healthBar.leftBar.color = healthBar.rightBar.color = FlxColor.fromRGB(character.healthColorArray[0], character.healthColorArray[1], character.healthColorArray[2]);*/
 		healthIcon.changeIcon(character.healthIcon, false);
 		updatePresence();
-	}*/
+	}
 
 	inline function updatePresence() {
 		#if DISCORD_ALLOWED

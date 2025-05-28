@@ -129,7 +129,7 @@ class StageData {
 			case 'pico' | 'blammed' | 'philly' | 'philly-nice':
 				return 'philly';
 
-			case 'milf' | 'satin-panties' | 'high':
+			case 'milf' | 'satin panties' | 'high':
 				return 'limo';
 
 			case 'cocoa' | 'eggnog':
@@ -147,7 +147,7 @@ class StageData {
 			case 'ugh' | 'guns' | 'stress':
 				return 'tank';
 
-			case 'darnell' | 'lit-up' | '2hot':
+			case 'darnell' | 'lit up' | '2hot':
 				return 'phillyStreets';
 
 			case 'blazin':

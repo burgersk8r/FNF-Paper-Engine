@@ -214,7 +214,7 @@ class ClientPrefs {
 
 		// controls on a separate save file
 		var save:FlxSave = new FlxSave();
-		save.bind('fcr', CoolUtil.getSavePath());
+		save.bind('paper-engine', CoolUtil.getSavePath());
 		if(save != null)
 		{
 			if(save.data.keyboard != null)

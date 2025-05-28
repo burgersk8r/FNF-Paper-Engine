@@ -2,6 +2,7 @@ package funkin.game.stages.objects;
 
 import funkin.game.Note;
 import funkin.game.Character;
+import funkin.game.PlayState;
 
 class DarnellBlazinHandler
 {

@@ -67,7 +67,7 @@ class FPSCounter extends TextField
 		public dynamic function updateText():Void { // so people can override it in hscript
 			text = 'FPS: ${currentFPS}'
 			+ '\nRAM: ${flixel.util.FlxStringUtil.formatBytes(Memory.getProcessMemory())} / ${flixel.util.FlxStringUtil.formatBytes(Memory.getGCMemory())}'
-			+'\nPaper Engine v${MainMenuState.paperEngineVersion} [ALPHA]'
+			+'\nPaper Engine v${MainMenuState.paperEngineVersion} [${Main.releaseCycle}]'
 			+'\nBuild: ${BuildNumber.getBuildNumber()}';
 	
 			textColor = 0xFFFFFFFF;

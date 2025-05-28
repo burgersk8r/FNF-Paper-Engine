@@ -143,13 +143,8 @@ class Paths
 	}
 
 	inline public static function getCharJSONPath(file:String = '')
-		{
-			return 'assets/shared/data/$file';
-		}
-
-	inline public static function getSongPath(file:String = '')
 	{
-		return 'assets/songs/$file';
+		return 'assets/shared/data/$file';
 	}
 
 	inline static public function txt(key:String, ?library:String)
@@ -159,7 +154,7 @@ class Paths
 
 	inline static public function dialogueTxt(key:String, ?library:String)
 	{
-		return getPath('songs/$key.txt', TEXT, library);
+		return getPath('data/$key.txt', TEXT, library);
 	}
 
 	inline static public function xml(key:String, ?library:String)
@@ -169,7 +164,7 @@ class Paths
 
 	inline static public function json(key:String, ?library:String)
 		{
-		return getPath('songs/$key.json', TEXT, library);
+		return getPath('data/$key.json', TEXT, library);
 	}
 
 	inline static public function shaderFragment(key:String, ?library:String)
@@ -215,19 +210,19 @@ class Paths
 
 	inline static public function voices(song:String, postfix:String = null):Any
 	{
-		var songKey:String = '${formatToSongPath(song)}/audio/Voices';
+		var songKey:String = 'music/songs/${formatToSongPath(song)}/Voices';
 		if(postfix != null) songKey += '-' + postfix;
-		//trace('songKey test: $songKey');
-		var voices = returnSound(null, songKey, 'songs');
+		var voices = returnSound(null, songKey, null);
 		return voices;
 	}
-
+		
 	inline static public function inst(song:String):Any
 	{
-		var songKey:String = '${formatToSongPath(song)}/audio/Inst';
-		var inst = returnSound(null, songKey, 'songs');
+		var songKey:String = 'music/songs/${formatToSongPath(song)}/Inst';
+		var inst = returnSound(null, songKey, null);
 		return inst;
 	}
+	
 
 	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
 	static public function image(key:String, ?library:String = null, ?allowGPU:Bool = true):FlxGraphic
@@ -390,6 +385,25 @@ class Paths
 		return getPackerAtlas(key, library);
 	}
 
+	static public function getMultiAtlas(keys:Array<String>, ?parentFolder:String = null, ?allowGPU:Bool = true):FlxAtlasFrames
+		{
+			
+			var parentFrames:FlxAtlasFrames = Paths.getAtlas(keys[0].trim());
+			if(keys.length > 1)
+			{
+				var original:FlxAtlasFrames = parentFrames;
+				parentFrames = new FlxAtlasFrames(parentFrames.parent);
+				parentFrames.addAtlas(original, true);
+				for (i in 1...keys.length)
+				{
+					var extraFrames:FlxAtlasFrames = Paths.getAtlas(keys[i].trim(), parentFolder, allowGPU);
+					if(extraFrames != null)
+						parentFrames.addAtlas(extraFrames, true);
+				}
+			}
+			return parentFrames;
+		}
+
 	inline static public function getSparrowAtlas(key:String, ?library:String = null, ?allowGPU:Bool = true):FlxAtlasFrames
 	{
 		var imageLoaded:FlxGraphic = image(key, library, allowGPU);
@@ -439,7 +453,7 @@ class Paths
 		var invalidChars = ~/[~&\\;:<>#]/;
 		var hideChars = ~/[.,'"%?!]/;
 
-		var path = invalidChars.split(path.replace(' ', '-')).join("-");
+		var path = invalidChars.split(path.replace(' ', ' ')).join(" ");
 		return hideChars.split(path).join("").toLowerCase();
 	}
 
@@ -455,7 +469,6 @@ class Paths
 			if(!currentTrackedSounds.exists(file))
 			{
 				currentTrackedSounds.set(file, Sound.fromFile(file));
-				//trace('precached mod sound: $file');
 			}
 			localTrackedAssets.push(file);
 			return currentTrackedSounds.get(file);
@@ -496,11 +509,11 @@ class Paths
 	}
 
 	inline static public function modsChartJson(key:String) {
-		return modFolders('songs/' + key + '.json');
+		return modFolders('levels/' + key + '.json');
 	}
 
 	inline static public function modsEventJson(key:String) {
-		return modFolders('songs/' + key + '.json');
+		return modFolders('levels/' + key + '.json');
 	}
 
 

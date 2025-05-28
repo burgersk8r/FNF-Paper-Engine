@@ -2,7 +2,7 @@ package funkin.options.notes;
 
 import funkin.data.StageData;
 import funkin.game.Character;
-import funkin.objects.Bar;
+import funkin.objects.HealthBar;
 import flixel.addons.display.shapes.FlxShapeCircle;
 import funkin.options.OptionsState;
 
@@ -27,7 +27,7 @@ class NoteOffsetState extends MusicBeatState
 	var barPercent:Float = 0;
 	var delayMin:Int = -500;
 	var delayMax:Int = 500;
-	var timeBar:Bar;
+	var timeBar:HealthBar;
 	var timeTxt:FlxText;
 	var beatText:Alphabet;
 	var beatTween:FlxTween;
@@ -134,7 +134,7 @@ class NoteOffsetState extends MusicBeatState
 		barPercent = ClientPrefs.data.noteOffset;
 		updateNoteDelay();
 		
-		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 3), 'ui/bars/health/healthBar', function() return barPercent, delayMin, delayMax);
+		timeBar = new HealthBar(0, timeTxt.y + (timeTxt.height / 3), 'ui/bars/health/healthBar', function() return barPercent, delayMin, delayMax);
 		timeBar.scrollFactor.set();
 		timeBar.screenCenter(X);
 		timeBar.visible = false;

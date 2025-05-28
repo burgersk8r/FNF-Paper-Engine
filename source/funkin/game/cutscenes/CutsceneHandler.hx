@@ -5,6 +5,9 @@ import flixel.util.FlxSort;
 import flixel.util.FlxDestroyUtil;
 import flixel.addons.display.FlxPieDial;
 
+import funkin.game.PlayState;
+import funkin.backend.assets.Paths;
+
 typedef CutsceneEvent = {
 	var time:Float;
 	var func:Void->Void;

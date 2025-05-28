@@ -2,6 +2,7 @@ package funkin.game;
 
 import funkin.backend.animation.PsychAnimationController;
 
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.FlxSort;
 import flixel.util.FlxDestroyUtil;
 
@@ -132,6 +133,8 @@ class Character extends FlxSprite
 				skipDance = true;
 				loadMappedAnims();
 				playAnim("shoot1");
+			case 'pico-blazin', 'darnell-blazin':
+				skipDance = true;
 		}
 	}
 
@@ -297,11 +300,12 @@ class Character extends FlxSprite
 	inline public function isAnimationNull():Bool
 		return !isAnimateAtlas ? (animation.curAnim == null) : (atlas.anim.curSymbol == null);
 
+	var _lastPlayedAnimation:String;
 	inline public function getAnimationName():String
 	{
 		var name:String = '';
 		@:privateAccess
-		if(!isAnimationNull()) name = !isAnimateAtlas ? animation.curAnim.name : atlas.anim.lastPlayedAnim;
+		if(!isAnimationNull()) name = !isAnimateAtlas ? animation.curAnim.name : _lastPlayedAnimation;
 		return (name != null) ? name : '';
 	}
 

@@ -2,7 +2,7 @@ package funkin.menus;
 
 import flixel.FlxObject;
 import flixel.util.FlxSort;
-import funkin.objects.Bar;
+import funkin.objects.HealthBar;
 
 #if ACHIEVEMENTS_ALLOWED
 class AchievementsMenuState extends MusicBeatState
@@ -14,7 +14,7 @@ class AchievementsMenuState extends MusicBeatState
 	public var nameText:FlxText;
 	public var descText:FlxText;
 	public var progressTxt:FlxText;
-	public var progressBar:Bar;
+	public var progressBar:HealthBar;
 
 	var camFollow:FlxObject;
 
@@ -101,7 +101,7 @@ class AchievementsMenuState extends MusicBeatState
 		descText.setFormat(Paths.font("vcr.ttf"), 24, FlxColor.WHITE, CENTER);
 		descText.scrollFactor.set();
 
-		progressBar = new Bar(0, descText.y + 52);
+		progressBar = new HealthBar(0, descText.y + 52);
 		progressBar.screenCenter(X);
 		progressBar.scrollFactor.set();
 		progressBar.enabled = false;

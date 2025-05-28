@@ -553,7 +553,7 @@ class EditorPlayState extends MusicBeatSubstate
 			RecalculateRating(false);
 		}
 
-		var pixelShitPart1:String = "ui/combos/normal/";
+		var pixelShitPart1:String = "ui/combos/";
 		var pixelShitPart2:String = '';
 
 		rating.loadGraphic(Paths.image(pixelShitPart1 + daRating.image + pixelShitPart2));

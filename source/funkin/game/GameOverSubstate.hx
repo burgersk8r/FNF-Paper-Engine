@@ -44,17 +44,25 @@ class GameOverSubstate extends MusicBeatSubstate
 		}
 	}
 
+
 	var charX:Float = 0;
 	var charY:Float = 0;
+
+	var overlay:FlxSprite;
+	var overlayConfirmOffsets:FlxPoint = FlxPoint.get();
 	override function create()
 	{
 		instance = this;
 
 		Conductor.songPosition = 0;
 
-		boyfriend = new Character(PlayState.instance.boyfriend.getScreenPosition().x, PlayState.instance.boyfriend.getScreenPosition().y, characterName, true);
-		boyfriend.x += boyfriend.positionArray[0] - PlayState.instance.boyfriend.positionArray[0];
-		boyfriend.y += boyfriend.positionArray[1] - PlayState.instance.boyfriend.positionArray[1];
+		if(boyfriend == null)
+		{
+			boyfriend = new Character(PlayState.instance.boyfriend.getScreenPosition().x, PlayState.instance.boyfriend.getScreenPosition().y, characterName, true);
+			boyfriend.x += boyfriend.positionArray[0] - PlayState.instance.boyfriend.positionArray[0];
+			boyfriend.y += boyfriend.positionArray[1] - PlayState.instance.boyfriend.positionArray[1];
+		}
+		boyfriend.skipDance = true;
 		add(boyfriend);
 
 		FlxG.sound.play(Paths.sound(deathSoundName));
@@ -66,10 +74,55 @@ class GameOverSubstate extends MusicBeatSubstate
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollow.setPosition(boyfriend.getGraphicMidpoint().x + boyfriend.cameraPosition[0], boyfriend.getGraphicMidpoint().y + boyfriend.cameraPosition[1]);
 		FlxG.camera.focusOn(new FlxPoint(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2)));
+		FlxG.camera.follow(camFollow, LOCKON, 0.01);
 		add(camFollow);
 		
 		PlayState.instance.setOnScripts('inGameOver', true);
 		PlayState.instance.callOnScripts('onGameOverStart', []);
+		FlxG.sound.music.loadEmbedded(Paths.music(loopSoundName), true);
+
+		if(characterName == 'pico-dead')
+		{
+			overlay = new FlxSprite(boyfriend.x + 205, boyfriend.y - 80);
+			overlay.frames = Paths.getSparrowAtlas('stages/weekend1/Pico_Death_Retry');
+			overlay.animation.addByPrefix('deathLoop', 'Retry Text Loop0', 24, true);
+			overlay.animation.addByPrefix('deathConfirm', 'Retry Text Confirm0', 24, false);
+			overlay.antialiasing = ClientPrefs.data.antialiasing;
+			overlayConfirmOffsets.set(250, 200);
+			overlay.visible = false;
+			add(overlay);
+
+			boyfriend.animation.callback = function(name:String, frameNumber:Int, frameIndex:Int)
+			{
+				switch(name)
+				{
+					case 'firstDeath':
+						if(frameNumber >= 36 - 1)
+						{
+							overlay.visible = true;
+							overlay.animation.play('deathLoop');
+							boyfriend.animation.callback = null;
+						}
+					default:
+						boyfriend.animation.callback = null;
+				}
+			}
+
+			if(PlayState.instance.gf != null && PlayState.instance.gf.curCharacter == 'nene')
+			{
+				var neneKnife:FlxSprite = new FlxSprite(boyfriend.x - 450, boyfriend.y - 250);
+				neneKnife.frames = Paths.getSparrowAtlas('stages/weekend1/NeneKnifeToss');
+				neneKnife.animation.addByPrefix('anim', 'knife toss', 24, false);
+				neneKnife.antialiasing = ClientPrefs.data.antialiasing;
+				neneKnife.animation.finishCallback = function(_)
+				{
+					remove(neneKnife);
+					neneKnife.destroy();
+				}
+				insert(0, neneKnife);
+				neneKnife.animation.play('anim', true);
+			}
+		}
 
 		super.create();
 	}

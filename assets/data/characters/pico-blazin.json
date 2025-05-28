@@ -167,7 +167,7 @@
 	"position": [-290, 680],
 	"healthicon": "pico",
 	"flip_x": true,
-	"camera_position": [0, -500],
+	"camera_position": [-150, 100],
 	"sing_duration": 999,
 	"scale": 1.75,
 	"_editor_isPlayer": true

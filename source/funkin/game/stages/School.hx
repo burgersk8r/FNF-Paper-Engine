@@ -128,7 +128,7 @@ class School extends BaseStage
 	var doof:DialogueBox = null;
 	function initDoof()
 	{
-		var file:String = Paths.dialogueTxt(songName + '/dialogue/' + songName + 'Dialogue');
+		var file:String = Paths.dialogueTxt('levels/' + '/dialogues/' + songName + 'Dialogue');
 
 		#if MODS_ALLOWED
 		if (!FileSystem.exists(file))

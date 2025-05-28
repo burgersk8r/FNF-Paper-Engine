@@ -1,6 +1,8 @@
 package funkin.game.stages.objects;
 
+#if funkin.vis
 import funkin.vis.dsp.SpectralAnalyzer;
+#end
 
 class ABotSpeaker extends FlxSpriteGroup
 {
@@ -14,14 +16,18 @@ class ABotSpeaker extends FlxSpriteGroup
 	public var eyes:FlxAnimate;
 	public var speaker:FlxAnimate;
 
+	#if funkin.vis
 	var analyzer:SpectralAnalyzer;
+	#end
 	var volumes:Array<Float> = [];
 
 	public var snd(default, set):FlxSound;
 	function set_snd(changed:FlxSound)
 	{
 		snd = changed;
+		#if funkin.vis
 		initAnalyzer();
+		#end
 		return snd;
 	}
 
@@ -77,6 +83,7 @@ class ABotSpeaker extends FlxSpriteGroup
 		add(speaker);
 	}
 
+	#if funkin.vis
 	var levels:Array<Bar>;
 	var levelMax:Int = 0;
 	override function update(elapsed:Float):Void
@@ -84,7 +91,7 @@ class ABotSpeaker extends FlxSpriteGroup
 		super.update(elapsed);
 		if(analyzer == null) return;
 
-		// levels = analyzer.getLevels(levels);
+		levels = analyzer.getLevels(levels);
 		var oldLevelMax = levelMax;
 		levelMax = 0;
 		for (i in 0...Std.int(Math.min(vizSprites.length, levels.length)))
@@ -103,12 +110,14 @@ class ABotSpeaker extends FlxSpriteGroup
 				beatHit();
 		}
 	}
+	#end
 
 	public function beatHit()
 	{
 		speaker.anim.play('anim', true);
 	}
 
+	#if funkin.vis
 	public function initAnalyzer()
 	{
 		@:privateAccess
@@ -120,6 +129,7 @@ class ABotSpeaker extends FlxSpriteGroup
 		analyzer.fftN = 256;
 		#end
 	}
+	#end
 
 	var lookingAtRight:Bool = true;
 	public function lookLeft()

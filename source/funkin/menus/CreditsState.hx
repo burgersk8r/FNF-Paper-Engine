@@ -39,7 +39,7 @@ class CreditsState extends MusicBeatState
 
 		var defaultList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['Paper Engine'],
-			['PaigeFNF',			'paige',			'Creator of Paper Engine',		 		 					 'https://www.youtube.com/@PaigeFNF',	'7aa3ff'],
+			['burgersk8r',			'burgersk8r',			'Creator of Paper Engine',		 		 				 'https://www.youtube.com/@burgersk8r',	'7aa3ff'],
 			[''],			
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer and Head of Psych Engine',					 'https://ko-fi.com/shadowmario',		'444444'],
