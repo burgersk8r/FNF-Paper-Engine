@@ -5,7 +5,7 @@
 {"name":"flixel-ui","version":"2.5.0"},
 {"name":"flixel-tools","version":"1.5.1"},
 {"name":"hxcpp","version":"4.3.2"},
-{"name":"hxvlc","version":"hxvlc"},
+{"name":"hxvlc","version":"2.0.1"},
 {"name":"tjson","version":"1.4.0"},
 {"name":"hxdiscord_rpc","version":"1.2.4"},
 {"name":"hscript-iris","version":"1.1.3"},
