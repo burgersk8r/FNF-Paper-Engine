@@ -1389,9 +1389,9 @@ class PlayState extends MusicBeatState
 		// NEW SHIT
 		noteData = songData.notes;
 
-		var file:String = Paths.json('levels/' + songName + '/charts/' + 'events');
+		var file:String = Paths.json('levels/charts/' + songName  + '/events');
 		#if MODS_ALLOWED
-		if (FileSystem.exists(Paths.modsEventJson(songName + '/charts/' + 'events')) || FileSystem.exists(file))
+		if (FileSystem.exists(Paths.modsJson('levels/charts/' + songName + '/events')) || FileSystem.exists(file))
 		#else
 		if (OpenFlAssets.exists(file))
 		#end
@@ -2994,6 +2994,8 @@ class PlayState extends MusicBeatState
 	{
 		var result:Dynamic = callOnLuas('opponentNoteHitPre', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
 		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('opponentNoteHitPre', [note]);
+
+		camZooming = true;
 
 		var char = note.gfNote ? gf : dad;
 		char.holdTimer = 0;

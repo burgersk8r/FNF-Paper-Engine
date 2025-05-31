@@ -504,18 +504,9 @@ class Paths
 		return modFolders('fonts/' + key);
 	}
 
-	inline static public function modsJson(key:String) { //backup purposes
+	inline static public function modsJson(key:String) {
 		return modFolders('data/' + key + '.json');
 	}
-
-	inline static public function modsChartJson(key:String) {
-		return modFolders('levels/' + key + '.json');
-	}
-
-	inline static public function modsEventJson(key:String) {
-		return modFolders('levels/' + key + '.json');
-	}
-
 
 	inline static public function modsVideo(key:String) {
 		return modFolders('videos/' + key + '.' + VIDEO_EXT);
