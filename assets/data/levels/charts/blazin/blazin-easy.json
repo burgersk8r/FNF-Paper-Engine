@@ -3104,10 +3104,8 @@
 		"chartVer": "1.0",
 		"song": "Blazin'",
 		"needsVoices": false,
-		"generatedBy": "Psych Engine v1.0b - Chart Editor V-Slice Importer",
 		"stage": "phillyBlazin",
 		"bpm": 180,
-		"format": "psych_v1_convert",
 		"speed": 2,
 		"artist": "Kawai Sprite"
 	}

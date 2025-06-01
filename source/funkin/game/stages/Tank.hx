@@ -35,7 +35,7 @@ class Tank extends BaseStage
 			add(buildings);
 		}
 
-		var ruins:BGSprite = new BGSprite('tankRuins',-200,0,.35,.35);
+		var ruins:BGSprite = new BGSprite('stages/week7/tankRuins',-200,0,.35,.35);
 		ruins.setGraphicSize(Std.int(1.1 * ruins.width));
 		ruins.updateHitbox();
 		add(ruins);

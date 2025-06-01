@@ -1,6 +1,5 @@
 {
 	"song": {
-		"song": "2hot",
 		"player1": "pico-playable",
 		"gfVersion": "nene",
 		"notes": [
@@ -337,7 +336,7 @@
 						8901.0989010989,
 						5,
 						0,
-						"lightcan"
+						"weekend-1-lightcan"
 					],
 					[
 						8901.0989010989,
@@ -374,7 +373,7 @@
 						9560.43956043956,
 						2,
 						0,
-						"kickcan"
+						"weekend-1-kickcan"
 					],
 					[
 						9560.43956043956,
@@ -385,19 +384,19 @@
 						9890.10989010989,
 						3,
 						0,
-						"kneecan"
+						"weekend-1-kneecan"
 					],
 					[
 						9890.10989010989,
 						5,
 						0,
-						"cockgun"
+						"weekend-1-cockgun"
 					],
 					[
 						10219.7802197802,
 						4,
 						0,
-						"firegun"
+						"weekend-1-firegun"
 					],
 					[
 						10549,
@@ -1501,7 +1500,7 @@
 						40549.4505494506,
 						5,
 						0,
-						"lightcan"
+						"weekend-1-lightcan"
 					],
 					[
 						40714.2857142857,
@@ -1543,7 +1542,7 @@
 						41208.7912087912,
 						2,
 						0,
-						"kickcan"
+						"weekend-1-kickcan"
 					],
 					[
 						41373.6263736264,
@@ -1559,19 +1558,19 @@
 						41538.4615384615,
 						5,
 						0,
-						"cockgun"
+						"weekend-1-cockgun"
 					],
 					[
 						41538.4615384615,
 						3,
 						0,
-						"kneecan"
+						"weekend-1-kneecan"
 					],
 					[
 						41868.1318681319,
 						4,
 						0,
-						"firegun"
+						"weekend-1-firegun"
 					]
 				],
 				"mustHitSection": false
@@ -1904,7 +1903,7 @@
 						51098.9010989011,
 						5,
 						0,
-						"lightcan"
+						"weekend-1-lightcan"
 					],
 					[
 						51098.9010989011,
@@ -1946,7 +1945,7 @@
 						51758.2417582418,
 						2,
 						0,
-						"kickcan"
+						"weekend-1-kickcan"
 					],
 					[
 						51923.0769230769,
@@ -1962,19 +1961,19 @@
 						52087.9120879121,
 						3,
 						0,
-						"kneecan"
+						"weekend-1-kneecan"
 					],
 					[
 						52087.9120879121,
 						5,
 						0,
-						"cockgun"
+						"weekend-1-cockgun"
 					],
 					[
 						52417.5824175824,
 						4,
 						0,
-						"firegun"
+						"weekend-1-firegun"
 					],
 					[
 						52747,
@@ -3541,7 +3540,7 @@
 						80109.8901098901,
 						5,
 						0,
-						"lightcan"
+						"weekend-1-lightcan"
 					],
 					[
 						80109.8901098901,
@@ -3588,7 +3587,7 @@
 						80769.2307692308,
 						2,
 						0,
-						"kickcan"
+						"weekend-1-kickcan"
 					],
 					[
 						80851.6483516484,
@@ -3604,19 +3603,19 @@
 						81098.1098901099,
 						5,
 						0,
-						"cockgun"
+						"weekend-1-cockgun"
 					],
 					[
 						81098.9010989011,
 						3,
 						0,
-						"kneecan"
+						"weekend-1-kneecan"
 					],
 					[
 						81427.7802197802,
 						4,
 						0,
-						"firegun"
+						"weekend-1-firegun"
 					]
 				],
 				"mustHitSection": false
@@ -3850,7 +3849,7 @@
 						85384.6153846154,
 						5,
 						0,
-						"lightcan"
+						"weekend-1-lightcan"
 					],
 					[
 						85467.032967033,
@@ -3887,7 +3886,7 @@
 						86043.956043956,
 						2,
 						0,
-						"kickcan"
+						"weekend-1-kickcan"
 					],
 					[
 						86043.956043956,
@@ -3908,19 +3907,19 @@
 						86373.1098901099,
 						5,
 						0,
-						"cockgun"
+						"weekend-1-cockgun"
 					],
 					[
 						86373.6263736264,
 						3,
 						0,
-						"kneecan"
+						"weekend-1-kneecan"
 					],
 					[
 						86702.7802197802,
 						4,
 						0,
-						"firegun"
+						"weekend-1-firegun"
 					],
 					[
 						87032.0659340659,
@@ -5654,7 +5653,7 @@
 						117032.967032967,
 						5,
 						0,
-						"lightcan"
+						"weekend-1-lightcan"
 					],
 					[
 						117032.967032967,
@@ -5716,7 +5715,7 @@
 						117692.307692308,
 						6,
 						0,
-						"kickcan"
+						"weekend-1-kickcan"
 					],
 					[
 						117774.725274725,
@@ -5732,19 +5731,19 @@
 						118021.10989011,
 						1,
 						0,
-						"cockgun"
+						"weekend-1-cockgun"
 					],
 					[
 						118021.978021978,
 						7,
 						0,
-						"kneecan"
+						"weekend-1-kneecan"
 					],
 					[
 						118350.78021978,
 						0,
 						0,
-						"firegun"
+						"weekend-1-firegun"
 					]
 				],
 				"mustHitSection": true
@@ -5761,9 +5760,14 @@
 		],
 		"events": [],
 		"player2": "darnell",
+		"offset": 0,
+		"charter": "Jenny Crowe + Spazkid + ninjamuffin99",
+		"chartVer": "1.0",
+		"song": "2Hot",
 		"needsVoices": true,
 		"stage": "phillyStreets",
+		"bpm": 182,
 		"speed": 2.6,
-		"bpm": 182
+		"artist": "Kawai Sprite"
 	}
 }

@@ -141,7 +141,7 @@ class PhillyStreets extends BaseStage
 		var _song = PlayState.SONG;
 		if(_song.gameOverSound == null || _song.gameOverSound.trim().length < 1) GameOverSubstate.deathSoundName = 'gameover/pico/fnf_loss_sfx-pico';
 		if(_song.gameOverLoop == null || _song.gameOverLoop.trim().length < 1) GameOverSubstate.loopSoundName = 'gameover/pico/gameOver-pico';
-		if(_song.gameOverEnd == null || _song.gameOverEnd.trim().length < 1) GameOverSubstate.endSoundName = 'gameover/gameOverEnd-pico';
+		if(_song.gameOverEnd == null  || _song.gameOverEnd.trim().length < 1)  GameOverSubstate.endSoundName = 'gameover/pico/gameOverEnd-pico';
 		if(_song.gameOverChar == null || _song.gameOverChar.trim().length < 1) GameOverSubstate.characterName = 'pico-dead';
 		setDefaultGF('nene');
 		

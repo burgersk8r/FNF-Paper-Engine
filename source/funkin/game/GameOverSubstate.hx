@@ -86,7 +86,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			overlay = new FlxSprite(boyfriend.x + 205, boyfriend.y - 80);
 			overlay.frames = Paths.getSparrowAtlas('stages/weekend1/Pico_Death_Retry');
 			overlay.animation.addByPrefix('deathLoop', 'Retry Text Loop0', 24, true);
-			overlay.animation.addByPrefix('deathConfirm', 'Retry Text Confirm0', 24, false);
+			overlay.animation.addByPrefix('deathConfirm', 'Retry Text Confirm', 24, false);
 			overlay.antialiasing = ClientPrefs.data.antialiasing;
 			overlayConfirmOffsets.set(250, 200);
 			overlay.visible = false;

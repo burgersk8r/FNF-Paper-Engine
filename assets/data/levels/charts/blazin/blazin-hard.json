@@ -3212,11 +3212,9 @@
 		"song": "Blazin'",
 		"chartVer": "1.0",
 		"stage": "phillyBlazin",
-		"generatedBy": "Psych Engine v1.0b - Chart Editor V-Slice Importer",
 		"needsVoices": false,
 		"artist": "Kawai Sprite",
 		"speed": 3.2,
-		"format": "psych_v1_convert",
 		"bpm": 180
 	}
 }
