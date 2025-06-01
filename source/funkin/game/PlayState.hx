@@ -2521,11 +2521,11 @@ class PlayState extends MusicBeatState
 
 	private function cachePopUpScore()
 	{
-		var uiPrefix:String = 'ui/combos/';
+		var uiPrefix:String = 'ui/popups/';
 		var uiSuffix:String = '';
 		if (stageUI != "normal")
 		{
-			uiPrefix = '${stageUI}UI/combos/';
+			uiPrefix = '${stageUI}ui/popups/';
 			if (PlayState.isPixelStage) uiSuffix = '-pixel';
 		}
 
@@ -2535,7 +2535,7 @@ class PlayState extends MusicBeatState
 			Paths.image(uiPrefix + 'num' + i + uiSuffix);
 	}
 
-	private function popUpScore(note:Note = null):Void
+	private function popUpScore(note:Note):Void
 	{
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.data.ratingOffset);
 		vocals.volume = 1;
@@ -2573,13 +2573,13 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		var uiPrefix:String = "ui/combos/";
+		var uiPrefix:String = "ui/popups/";
 		var uiSuffix:String = '';
 		var antialias:Bool = ClientPrefs.data.antialiasing;
 
 		if (stageUI != "normal")
 		{
-			uiPrefix = '${stageUI}UI/combos/';
+			uiPrefix = '${stageUI}ui/popups/';
 			if (PlayState.isPixelStage) uiSuffix = '-pixel';
 			antialias = !isPixelStage;
 		}
@@ -2660,34 +2660,40 @@ class PlayState extends MusicBeatState
 			numScore.visible = !ClientPrefs.data.hideHud;
 			numScore.antialiasing = antialias;
 
+			daLoop++;
+			if(numScore.x > xThing) xThing = numScore.x;
+
+			comboSpr.x = xThing + 50;
+
 			if(showComboNum)
 				comboGroup.add(numScore);
 
-			FlxTween.tween(numScore, {alpha: 0}, 0.2 / playbackRate, {
-				onComplete: function(tween:FlxTween)
-				{
-					numScore.kill();
-				},
-				startDelay: Conductor.stepCrochet * 0.002 / playbackRate
-			});
-
-			daLoop++;
-			if(numScore.x > xThing) xThing = numScore.x;
-		}
-		comboSpr.x = xThing + 50;
-		FlxTween.tween(rating, {alpha: 0}, 0.2 / playbackRate, {
-			startDelay: Conductor.stepCrochet * 0.001 / playbackRate
-		});
-
-		FlxTween.tween(comboSpr, {alpha: 0}, 0.2 / playbackRate, {
+		/* Popup Animations */	
+		FlxTween.tween(numScore, {alpha: 0}, 0.2, {
 			onComplete: function(tween:FlxTween)
 			{
-				comboSpr.kill();
-				rating.kill();
+				numScore.destroy();
 			},
-			startDelay: Conductor.stepCrochet * 0.002 / playbackRate
+			startDelay: Conductor.crochet * 0.002
 		});
+
+		FlxTween.tween(rating, {alpha: 0}, 0.2, {
+			startDelay: Conductor.crochet * 0.001
+		});
+
+		FlxTween.tween(comboSpr, {alpha: 0}, 0.2, {
+			onComplete: function(tween:FlxTween)
+			{
+				comboSpr.destroy();
+
+				rating.destroy();
+			},
+			startDelay: Conductor.crochet * 0.001
+		});
+		
+	  }
 	}
+	
 	public var strumsBlocked:Array<Bool> = [];
 	private function onKeyPress(event:KeyboardEvent):Void
 	{

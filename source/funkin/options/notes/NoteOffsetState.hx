@@ -40,7 +40,7 @@ class NoteOffsetState extends MusicBeatState
 	override public function create()
 	{
 		#if DISCORD_ALLOWED
-		DiscordClient.changePresence("Ajust Note Offset Menu", null);
+		DiscordClient.changePresence("Offset Menu", null);
 		#end
 
 		// Cameras
@@ -79,7 +79,7 @@ class NoteOffsetState extends MusicBeatState
 		coolText.screenCenter();
 		coolText.x = FlxG.width * 0.35;
 
-		rating = new FlxSprite().loadGraphic(Paths.image('ui/combos/sick'));
+		rating = new FlxSprite().loadGraphic(Paths.image('ui/popups/sick'));
 		//rating.cameras = [camHUD];
 		rating.antialiasing = ClientPrefs.data.antialiasing;
 		rating.setGraphicSize(Std.int(rating.width * 0.7));
