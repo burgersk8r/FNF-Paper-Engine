@@ -38,7 +38,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		DiscordClient.changePresence(rpcTitle, null);
 		#end
 		
-		bg = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('game/menus/freeplay/menuDesat'));
 		bg.color = 0xFFea71fd;
 		bg.screenCenter();
 		add(bg);
@@ -431,7 +431,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			switch(alpha.text)
 			{
 				case '[', ']': //Square and Triangle respectively
-					letter.image = 'menus/options/alphabet_playstation';
+					letter.image = 'game/menus/options/alphabet_playstation';
 					letter.updateHitbox();
 					
 					letter.offset.x += 4;

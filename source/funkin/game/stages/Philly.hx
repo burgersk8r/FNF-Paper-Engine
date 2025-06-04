@@ -21,31 +21,31 @@ class Philly extends BaseStage
 	override function create()
 	{
 		if(!ClientPrefs.data.lowQuality) {
-			var bg:BGSprite = new BGSprite('stages/week3/philly/sky', -100, 0, 0.1, 0.1);
+			var bg:BGSprite = new BGSprite('game/stages/philly/sky', -100, 0, 0.1, 0.1);
 			add(bg);
 		}
 
-		var city:BGSprite = new BGSprite('stages/week3/philly/city', -10, 0, 0.3, 0.3);
+		var city:BGSprite = new BGSprite('game/stages/philly/city', -10, 0, 0.3, 0.3);
 		city.setGraphicSize(Std.int(city.width * 0.85));
 		city.updateHitbox();
 		add(city);
 
 		phillyLightsColors = [0xFF31A2FD, 0xFF31FD8C, 0xFFFB33F5, 0xFFFD4531, 0xFFFBA633];
-		phillyWindow = new BGSprite('stages/week3/philly/window', city.x, city.y, 0.3, 0.3);
+		phillyWindow = new BGSprite('game/stages/philly/window', city.x, city.y, 0.3, 0.3);
 		phillyWindow.setGraphicSize(Std.int(phillyWindow.width * 0.85));
 		phillyWindow.updateHitbox();
 		add(phillyWindow);
 		phillyWindow.alpha = 0;
 
 		if(!ClientPrefs.data.lowQuality) {
-			var streetBehind:BGSprite = new BGSprite('stages/week3/philly/behindTrain', -40, 50);
+			var streetBehind:BGSprite = new BGSprite('game/stages/philly/behindTrain', -40, 50);
 			add(streetBehind);
 		}
 
 		phillyTrain = new PhillyTrain(2000, 360);
 		add(phillyTrain);
 
-		phillyStreet = new BGSprite('stages/week3/philly/street', -40, 50);
+		phillyStreet = new BGSprite('game/stages/philly/street', -40, 50);
 		add(phillyStreet);
 	}
 	override function eventPushed(event:funkin.game.Note.EventNote)
@@ -57,7 +57,7 @@ class Philly extends BaseStage
 				blammedLightsBlack.visible = false;
 				insert(members.indexOf(phillyStreet), blammedLightsBlack);
 
-				phillyWindowEvent = new BGSprite('stages/week3/philly/window', phillyWindow.x, phillyWindow.y, 0.3, 0.3);
+				phillyWindowEvent = new BGSprite('game/stages/philly/window', phillyWindow.x, phillyWindow.y, 0.3, 0.3);
 				phillyWindowEvent.setGraphicSize(Std.int(phillyWindowEvent.width * 0.85));
 				phillyWindowEvent.updateHitbox();
 				phillyWindowEvent.visible = false;
@@ -69,7 +69,7 @@ class Philly extends BaseStage
 				insert(members.indexOf(blammedLightsBlack) + 1, phillyGlowGradient);
 				if(!ClientPrefs.data.flashing) phillyGlowGradient.intendedAlpha = 0.7;
 
-				Paths.image('stages/week3/philly/particle'); //precache philly glow particle image
+				Paths.image('game/stages/philly/particle'); //precache philly glow particle image
 				phillyGlowParticles = new FlxTypedGroup<PhillyGlowParticle>();
 				phillyGlowParticles.visible = false;
 				insert(members.indexOf(phillyGlowGradient) + 1, phillyGlowParticles);

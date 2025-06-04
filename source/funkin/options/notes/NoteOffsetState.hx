@@ -20,7 +20,7 @@ class NoteOffsetState extends MusicBeatState
 
 	var coolText:FlxText;
 	var rating:FlxSprite;
-	var comboSpr:FlxSprite;
+	var popupspr:FlxSprite;
 	var comboNums:FlxSpriteGroup;
 	var dumbTexts:FlxTypedGroup<FlxText>;
 
@@ -79,15 +79,15 @@ class NoteOffsetState extends MusicBeatState
 		coolText.screenCenter();
 		coolText.x = FlxG.width * 0.35;
 
-		rating = new FlxSprite().loadGraphic(Paths.image('ui/popups/sick'));
-		//rating.cameras = [camHUD];
+		rating = new FlxSprite().loadGraphic(Paths.image('game/hud/popups/perfect'));
+		rating.cameras = [camHUD];
 		rating.antialiasing = ClientPrefs.data.antialiasing;
 		rating.setGraphicSize(Std.int(rating.width * 0.7));
 		rating.updateHitbox();
 		add(rating);
 		
 		comboNums = new FlxSpriteGroup();
-		//comboNums.cameras = [camHUD];
+		comboNums.cameras = [camHUD];
 		add(comboNums);
 
 		var seperatedScore:Array<Int> = [];
@@ -99,7 +99,7 @@ class NoteOffsetState extends MusicBeatState
 		var daLoop:Int = 0;
 		for (i in seperatedScore)
 		{
-			var numScore:FlxSprite = new FlxSprite(43 * daLoop).loadGraphic(Paths.image('ui/combos/num' + i));
+			var numScore:FlxSprite = new FlxSprite(43 * daLoop).loadGraphic(Paths.image('game/hud/popups/num' + i));
 			//numScore.cameras = [camHUD];
 			numScore.antialiasing = ClientPrefs.data.antialiasing;
 			numScore.setGraphicSize(Std.int(numScore.width * 0.5));
@@ -134,7 +134,7 @@ class NoteOffsetState extends MusicBeatState
 		barPercent = ClientPrefs.data.noteOffset;
 		updateNoteDelay();
 		
-		timeBar = new HealthBar(0, timeTxt.y + (timeTxt.height / 3), 'ui/bars/health/healthBar', function() return barPercent, delayMin, delayMax);
+		timeBar = new HealthBar(0, timeTxt.y + (timeTxt.height / 3), 'game/hud/bars/health/healthBar', function() return barPercent, delayMin, delayMax);
 		timeBar.scrollFactor.set();
 		timeBar.screenCenter(X);
 		timeBar.visible = false;

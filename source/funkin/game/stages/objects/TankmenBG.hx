@@ -18,7 +18,7 @@ class TankmenBG extends FlxSprite
 		goingRight = facingRight;
 		super(x, y);
 
-		frames = Paths.getSparrowAtlas('stages/week7/tankmanKilled1');
+		frames = Paths.getSparrowAtlas('game/stages/tank/tankmanKilled1');
 		animation.addByPrefix('run', 'tankman running', 24, true);
 		animation.addByPrefix('shot', 'John Shot ' + FlxG.random.int(1, 2), 24, false);
 		animation.play('run');

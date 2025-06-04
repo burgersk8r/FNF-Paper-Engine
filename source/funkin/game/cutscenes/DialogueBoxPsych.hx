@@ -70,7 +70,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 
 		box = new FlxSprite(70, 370);
 		box.antialiasing = ClientPrefs.data.antialiasing;
-		box.frames = Paths.getSparrowAtlas('dialogue/speech_bubble');
+		box.frames = Paths.getSparrowAtlas('game/hud/dialogueAssets/speech_bubble');
 		box.scrollFactor.set();
 		box.animation.addByPrefix('normal', 'speech bubble normal', 24);
 		box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);

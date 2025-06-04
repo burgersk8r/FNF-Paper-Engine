@@ -345,7 +345,7 @@ class AlphaCharacter extends FlxSprite
 	public function new()
 	{
 		super(x, y);
-		image = 'ui/alphabet';
+		image = 'alphabet';
 	}
 	
 	public var curLetter:Letter = null;

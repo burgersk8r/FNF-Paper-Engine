@@ -68,7 +68,7 @@ class FreeplayState extends MusicBeatState
 
 		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
 
-		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
+		cursor.loadGraphic(Paths.image('game/hud/cursors/cursor'));
 		FlxG.mouse.load(cursor.pixels);
 
 		for (i in 0...WeekData.weeksList.length) {
@@ -97,7 +97,7 @@ class FreeplayState extends MusicBeatState
 		}
 		Mods.loadTopMod();
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('game/menus/freeplay/menuDesat'));
 		add(bg);
 		bg.screenCenter();
 
@@ -381,7 +381,7 @@ class FreeplayState extends MusicBeatState
 				trace('ERROR! $e');
 
 				var errorStr:String = e.toString();
-				if(errorStr.startsWith('[file_contents,assets/songs/')) errorStr = 'Missing file: ' + errorStr.substring(34, errorStr.length-1); //Missing chart
+				if(errorStr.startsWith('[file_contents,assets/data/levels/charts/')) errorStr = 'Missing file: ' + errorStr.substring(34, errorStr.length-1); //Missing chart
 				missingText.text = 'ERROR WHILE LOADING CHART:\n$errorStr';
 				missingText.screenCenter(Y);
 				missingText.visible = true;

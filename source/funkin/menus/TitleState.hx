@@ -87,7 +87,7 @@ class TitleState extends MusicBeatState
 		var cursor:FlxSprite;
 		cursor = new FlxSprite();
 		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
-		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
+		cursor.loadGraphic(Paths.image('game/hud/cursors/cursor'));
 		FlxG.mouse.load(cursor.pixels);
 
 		FlxG.save.bind('paper-engine', CoolUtil.getSavePath());
@@ -97,7 +97,7 @@ class TitleState extends MusicBeatState
 		Highscore.load();
 
 		// IGNORE THIS!!!
-		titleJSON = tjson.TJSON.parse(Paths.getTextFromFile('images/menus/titlemenu/gfDanceTitle.json'));
+		titleJSON = tjson.TJSON.parse(Paths.getTextFromFile('images/game/menus/titlemenu/gfDanceTitle.json'));
 
 		#if TITLE_SCREEN_EASTER_EGG
 		if (FlxG.save.data.psychDevsEasterEgg == null) FlxG.save.data.psychDevsEasterEgg = ''; //Crash prevention
@@ -182,7 +182,7 @@ class TitleState extends MusicBeatState
 		add(bg);
 
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
-		logoBl.frames = Paths.getSparrowAtlas('menus/titlemenu/logoBumpin');
+		logoBl.frames = Paths.getSparrowAtlas('game/menus/titlemenu/logoBumpin');
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
@@ -212,7 +212,7 @@ class TitleState extends MusicBeatState
 			#end
 
 			default:
-				gfDance.frames = Paths.getSparrowAtlas('menus/titlemenu/gfDanceTitle');
+				gfDance.frames = Paths.getSparrowAtlas('game/menus/titlemenu/gfDanceTitle');
 				gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 				gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		}
@@ -226,7 +226,7 @@ class TitleState extends MusicBeatState
 		}
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
-		titleText.frames = Paths.getSparrowAtlas('menus/titlemenu/titleEnter');
+		titleText.frames = Paths.getSparrowAtlas('game/menus/titlemenu/titleEnter');
 		var animFrames:Array<FlxFrame> = [];
 		@:privateAccess {
 			titleText.animation.findByPrefix(animFrames, "ENTER IDLE");
@@ -251,7 +251,7 @@ class TitleState extends MusicBeatState
 		// titleText.screenCenter(X);
 		add(titleText);
 
-		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menus/titlemenu/logo'));
+		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('game/menus/titlemenu/logo'));
 		logo.screenCenter();
 		// add(logo);
 
@@ -272,7 +272,7 @@ class TitleState extends MusicBeatState
 
 		credTextShit.visible = false;
 
-		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('menus/titlemenu/newgrounds_logo'));
+		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('game/menus/titlemenu/newgrounds_logo'));
 		add(ngSpr);
 		ngSpr.visible = false;
 		ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.8));

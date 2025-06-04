@@ -3,7 +3,7 @@ package funkin.game.stages.objects;
 class PhillyTrain extends BGSprite
 {
 	public var sound:FlxSound;
-	public function new(x:Float = 0, y:Float = 0, image:String = 'stages/week3/philly/train', sound:String = 'game/week3/train_passes')
+	public function new(x:Float = 0, y:Float = 0, image:String = 'game/stages/philly/train', sound:String = 'game/stages/philly/train_passes')
 	{
 		super(image, x, y);
 		active = true; //Allow update

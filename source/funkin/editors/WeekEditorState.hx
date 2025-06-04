@@ -52,14 +52,14 @@ class WeekEditorState extends MusicBeatState
 
 		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
 
-		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
+		cursor.loadGraphic(Paths.image('game/hud/cursors/cursor'));
 		FlxG.mouse.load(cursor.pixels);
 
 		txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
 		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
 		txtWeekTitle.alpha = 0.7;
 		
-		var ui_tex = Paths.getSparrowAtlas('menus/storymenu/campaign_menu_UI_assets');
+		var ui_tex = Paths.getSparrowAtlas('game/menus/storymenu/campaign_menu_UI_assets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
 		bgSprite = new FlxSprite(0, 56);
 		bgSprite.antialiasing = ClientPrefs.data.antialiasing;
@@ -99,7 +99,7 @@ class WeekEditorState extends MusicBeatState
 		add(bgSprite);
 		add(grpWeekCharacters);
 
-		var tracksSprite:FlxSprite = new FlxSprite(FlxG.width * 0.07, bgSprite.y + 435).loadGraphic(Paths.image('menus/storymenu/Menu_Tracks'));
+		var tracksSprite:FlxSprite = new FlxSprite(FlxG.width * 0.07, bgSprite.y + 435).loadGraphic(Paths.image('game/menus/storymenu/Menu_Tracks'));
 		tracksSprite.antialiasing = ClientPrefs.data.antialiasing;
 		add(tracksSprite);
 
@@ -330,9 +330,9 @@ class WeekEditorState extends MusicBeatState
 
 		var isMissing:Bool = true;
 		if(assetName != null && assetName.length > 0) {
-			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('menus/storymenu/menubackgrounds/menu_' + assetName)) || #end
-			Assets.exists(Paths.getPath('images/menus/storymenu/menubackgrounds/menu_' + assetName + '.png', IMAGE), IMAGE)) {
-				bgSprite.loadGraphic(Paths.image('menus/storymenu/menubackgrounds/menu_' + assetName));
+			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('game/menus/storymenu/menubackgrounds/menu_' + assetName)) || #end
+			Assets.exists(Paths.getPath('images/game/menus/storymenu/menubackgrounds/menu_' + assetName + '.png', IMAGE), IMAGE)) {
+				bgSprite.loadGraphic(Paths.image('game/menus/storymenu/menubackgrounds/menu_' + assetName));
 				isMissing = false;
 			}
 		}
@@ -349,9 +349,9 @@ class WeekEditorState extends MusicBeatState
 		
 		var isMissing:Bool = true;
 		if(assetName != null && assetName.length > 0) {
-			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('menus/storymenu/weekNames/' + assetName)) || #end
-			Assets.exists(Paths.getPath('images/menus/storymenu/weekNames/' + assetName + '.png', IMAGE), IMAGE)) {
-				weekThing.loadGraphic(Paths.image('menus/storymenu/weekNames/' + assetName));
+			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('game/menus/storymenu/weekNames/' + assetName)) || #end
+			Assets.exists(Paths.getPath('images/game/menus/storymenu/weekNames/' + assetName + '.png', IMAGE), IMAGE)) {
+				weekThing.loadGraphic(Paths.image('game/menus/storymenu/weekNames/' + assetName));
 				isMissing = false;
 			}
 		}
@@ -359,7 +359,7 @@ class WeekEditorState extends MusicBeatState
 		if(isMissing) {
 			weekThing.visible = false;
 			missingFileText.visible = true;
-			missingFileText.text = 'MISSING FILE: images/menus/storymenu/weekNames/' + assetName + '.png';
+			missingFileText.text = 'MISSING FILE: images/game/menus/storymenu/weekNames/' + assetName + '.png';
 		}
 		recalculateStuffPosition();
 
@@ -589,7 +589,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 	var curSelected = 0;
 
 	override function create() {
-		bg = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('game/menus/freeplay/menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.color = FlxColor.WHITE;
 		add(bg);

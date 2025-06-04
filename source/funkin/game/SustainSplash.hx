@@ -22,7 +22,7 @@ class SustainSplash extends FlxSprite {
   public function new():Void {
     super();
 
-    frames = Paths.getSparrowAtlas('noteSplashes/holdSplashes/default');
+    frames = Paths.getSparrowAtlas('game/hud/splashes/holdSplashes/default');
     animation.addByPrefix('hold', 'hold', frameRate, true);
     animation.addByPrefix('end', 'end', 24, false);
     animation.play('hold');

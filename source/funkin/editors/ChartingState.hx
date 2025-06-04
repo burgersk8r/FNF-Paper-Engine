@@ -228,7 +228,7 @@ class ChartingState extends MusicBeatState
 
 		vortex = FlxG.save.data.chart_vortex;
 		ignoreWarnings = FlxG.save.data.ignoreWarnings;
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/menuDesat'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('game/menus/freeplay/menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set();
 		bg.color = 0xFF3B268A;
@@ -240,7 +240,7 @@ class ChartingState extends MusicBeatState
 		waveformSprite = new FlxSprite(GRID_SIZE, 0).makeGraphic(1, 1, 0x00FFFFFF);
 		add(waveformSprite);
 
-		var eventIcon:FlxSprite = new FlxSprite(-GRID_SIZE - 5, -90).loadGraphic(Paths.image('ui/editors/chart/eventArrow'));
+		var eventIcon:FlxSprite = new FlxSprite(-GRID_SIZE - 5, -90).loadGraphic(Paths.image('game/hud/editors/chart/eventArrow'));
 		eventIcon.antialiasing = ClientPrefs.data.antialiasing;
 		leftIcon = new HealthIcon('bf');
 		rightIcon = new HealthIcon('dad');
@@ -275,7 +275,7 @@ class ChartingState extends MusicBeatState
 
 		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
 
-		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
+		cursor.loadGraphic(Paths.image('game/hud/cursors/cursor'));
 		FlxG.mouse.load(cursor.pixels);
 
 		updateJsonData();
@@ -293,7 +293,7 @@ class ChartingState extends MusicBeatState
 		strumLine = new FlxSprite(0, 50).makeGraphic(Std.int(GRID_SIZE * 9), 4);
 		add(strumLine);
 
-		quant = new AttachedSprite('ui/editors/chart/chart_quant','chart_quant');
+		quant = new AttachedSprite('game/hud/editors/chart/chart_quant','chart_quant');
 		quant.animation.addByPrefix('q','chart_quant',0,false);
 		quant.animation.play('q', true, false, 0);
 		quant.sprTracker = strumLine;
@@ -2827,7 +2827,7 @@ class ChartingState extends MusicBeatState
 			note.sustainLength = daSus;
 			note.noteType = i[3];
 		} else { //Event note
-			note.loadGraphic(Paths.image('ui/editors/chart/eventArrow'));
+			note.loadGraphic(Paths.image('game/hud/editors/chart/eventArrow'));
 			note.rgbShader.enabled = false;
 			note.eventName = getEventName(i[1]);
 			note.eventLength = i[1].length;

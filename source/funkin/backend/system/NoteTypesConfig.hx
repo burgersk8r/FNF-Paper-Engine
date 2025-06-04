@@ -98,11 +98,9 @@ class NoteTypesConfig
 		}
 		else if(setProp)
 		{
-			//trace('setProp: $slice');
 			Reflect.setProperty(obj, slice, valueToSet);
 			return valueToSet;
 		}
-		//trace('getting prop: $slice');
 		return Reflect.getProperty(obj, slice);
 	}
 

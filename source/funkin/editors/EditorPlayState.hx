@@ -96,7 +96,7 @@ class EditorPlayState extends MusicBeatSubstate
 		if(ClientPrefs.data.hitsoundVolume > 0) Paths.sound('game/hitsound');
 
 		/* setting up Editor PlayState stuff */
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/menuDesat'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('game/menus/freeplay/menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set();
 		bg.color = 0xFF101010;
@@ -376,7 +376,6 @@ class EditorPlayState extends MusicBeatSubstate
 				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote, this);
 				swagNote.mustPress = gottaHitNote;
 				swagNote.sustainLength = songNotes[2];
-				//swagNote.gfNote = (section.gfSection && (songNotes[1]<4));
 				swagNote.noteType = songNotes[3];
 				if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
 
@@ -522,7 +521,6 @@ class EditorPlayState extends MusicBeatSubstate
 	private function popUpScore(note:Note = null):Void
 	{
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.data.ratingOffset);
-		//trace(noteDiff, ' ' + Math.abs(note.strumTime - Conductor.songPosition));
 
 		vocals.volume = 1;
 		var placement:String = Std.string(combo);
@@ -553,7 +551,7 @@ class EditorPlayState extends MusicBeatSubstate
 			RecalculateRating(false);
 		}
 
-		var pixelShitPart1:String = "ui/popups/";
+		var pixelShitPart1:String = "game/hud/popups/";
 		var pixelShitPart2:String = '';
 
 		rating.loadGraphic(Paths.image(pixelShitPart1 + daRating.image + pixelShitPart2));

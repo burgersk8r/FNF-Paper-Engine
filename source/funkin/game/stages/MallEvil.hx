@@ -6,17 +6,17 @@ class MallEvil extends BaseStage
 {
 	override function create()
 	{
-		addOptimizedSprite('stages/week5/christmas/evilBG', -400, -500, 0.2, 0.2, 0.8);
+		addOptimizedSprite('game/stages/week5/evilBG', -400, -500, 0.2, 0.2, 0.8);
 
 		if (!ClientPrefs.data.lowQuality) {
-			add(new BGSprite('stages/week5/christmas/evilTree', 300, -300, 0.2, 0.2));
-			add(new BGSprite('stages/week5/christmas/evilSnow', -200, 700));
+			add(new BGSprite('game/stages/week5/evilTree', 300, -300, 0.2, 0.2));
+			add(new BGSprite('game/stages/week5/evilSnow', -200, 700));
 		}
 
 		setDefaultGF('gf-christmas');
 
 		// Winter Horrorland cutscene
-		if (isStoryMode && !seenCutscene && songName == 'winter-horrorland') {
+		if (isStoryMode && !seenCutscene && songName == 'winter horrorland') {
 			setStartCallback(winterHorrorlandCutscene);
 		}
 	}

@@ -20,7 +20,7 @@ class FlashingState extends MusicBeatState
 
 		warnText = new FlxText(0, 0, FlxG.width,
 "WARNING!\n
-			This engine is still in an Alpha state!\n
+			This engine is in a BETA state, there's still bugs present!\n
 			Also this game has flashing lights,feel free to disable 
 			them in the options menu!\n
 			Press ENTER or ESC to proceed.",

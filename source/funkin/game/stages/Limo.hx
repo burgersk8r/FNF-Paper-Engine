@@ -29,21 +29,21 @@ class Limo extends BaseStage
 
 	override function create()
 	{
-		add(new BGSprite('stages/week4/limo/limoSunset', -120, -50, 0.1, 0.1));
+		add(new BGSprite('game/stages/limo/limoSunset', -120, -50, 0.1, 0.1));
 
 		if(!ClientPrefs.data.lowQuality)
 		{
-			bgLimo = new BGSprite('stages/week4/limo/bgLimo', -150, 480, 0.4, 0.4, ['background limo pink'], true);
+			bgLimo = new BGSprite('game/stages/limo/bgLimo', -150, 480, 0.4, 0.4, ['background limo pink'], true);
 			add(bgLimo);
 
 			initGoreAssets();
 			initDancers();
 			initParticles();
-			Paths.sound('game/week4/dancerdeath'); // Cache
+			Paths.sound('game/limo/dancerdeath'); // Cache
 			setDefaultGF('gf-car');
 		}
 
-		fastCar = new BGSprite('stages/week4/limo/fastCarLol', -300, 160);
+		fastCar = new BGSprite('game/stages/limo/fastCarLol', -300, 160);
 		fastCar.active = true;
 	}
 
@@ -51,7 +51,7 @@ class Limo extends BaseStage
 	{
 		resetFastCar();
 		addBehindGF(fastCar);
-		addBehindGF(new BGSprite('stages/week4/limo/limoDrive', -120, 550, 1, 1, ['Limo stage'], true));
+		addBehindGF(new BGSprite('game/stages/limo/limoDrive', -120, 550, 1, 1, ['Limo stage'], true));
 	}
 
 	override function update(elapsed:Float)
@@ -100,10 +100,10 @@ class Limo extends BaseStage
 
 	function initGoreAssets()
 	{
-		limoMetalPole = new BGSprite('stages/week4/gore/metalPole', -500, 220, 0.4, 0.4);
-		limoCorpse = new BGSprite('stages/week4/gore/noooooo', -500, limoMetalPole.y - 130, 0.4, 0.4, ['Henchmen on rail'], true);
-		limoCorpseTwo = new BGSprite('stages/week4/gore/noooooo', -500, limoMetalPole.y, 0.4, 0.4, ['henchmen death'], true);
-		limoLight = new BGSprite('stages/week4/gore/coldHeartKiller', limoMetalPole.x - 180, limoMetalPole.y - 80, 0.4, 0.4);
+		limoMetalPole = new BGSprite('game/stages/limo/gore/metalPole', -500, 220, 0.4, 0.4);
+		limoCorpse = new BGSprite('game/stages/limo/gore/noooooo', -500, limoMetalPole.y - 130, 0.4, 0.4, ['Henchmen on rail'], true);
+		limoCorpseTwo = new BGSprite('game/stages/limo/gore/noooooo', -500, limoMetalPole.y, 0.4, 0.4, ['henchmen death'], true);
+		limoLight = new BGSprite('game/stages/limo/gore/coldHeartKiller', limoMetalPole.x - 180, limoMetalPole.y - 80, 0.4, 0.4);
 
 		add(limoMetalPole);
 		add(limoCorpse);
@@ -119,7 +119,7 @@ class Limo extends BaseStage
 		add(grpLimoParticles);
 
 		// Preload invisible particle to warm up pool
-		var particle = new BGSprite('stages/week4/gore/stupidBlood', -400, -400, 0.4, 0.4, ['blood'], false);
+		var particle = new BGSprite('game/stages/limo/gore/stupidBlood', -400, -400, 0.4, 0.4, ['blood'], false);
 		particle.alpha = 0.01;
 		grpLimoParticles.add(particle);
 	}
@@ -223,10 +223,10 @@ class Limo extends BaseStage
 			grpLimoParticles.add(p);
 		}
 
-		addParticle('stages/week4/gore/noooooo', 200, 0, ['hench leg spin' + diffStr + 'PINK']);
-		addParticle('stages/week4/gore/noooooo', 160, 200, ['hench arm spin' + diffStr + 'PINK']);
-		addParticle('stages/week4/gore/noooooo', 0, 50, ['hench head spin' + diffStr + 'PINK']);
-		addParticle('stages/week4/gore/stupidBlood', -110, 20, ['blood'], true, -57.5);
+		addParticle('game/stages/limo/gore/noooooo', 200, 0, ['hench leg spin' + diffStr + 'PINK']);
+		addParticle('game/stages/limo/gore/noooooo', 160, 200, ['hench arm spin' + diffStr + 'PINK']);
+		addParticle('game/stages/limo/gore/noooooo', 0, 50, ['hench head spin' + diffStr + 'PINK']);
+		addParticle('game/stages/limo/gore/stupidBlood', -110, 20, ['blood'], true, -57.5);
 	}
 
 	function resetLimoKill()

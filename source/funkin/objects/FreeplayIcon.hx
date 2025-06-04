@@ -23,9 +23,9 @@ class FreeplayIcon extends FlxSprite // this is just HealthIcon but for freeplay
 	private var iconOffsets:Array<Float> = [0, 0];
 	public function changeIcon(char:String, ?allowGPU:Bool = true) {
 		if(this.char != char) {
-			var name:String = 'menus/freeplay/icons/$char/icon';
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'menus/freeplay/icons/$char/icon';
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'menus/freeplay/icons/face/icon';
+			var name:String = 'game/menus/freeplay/icons/$char/icon';
+			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'game/menus/freeplay/icons/$char/icon';
+			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'game/menus/freeplay/icons/face/icon';
 			
 			var graphic = Paths.image(name, allowGPU);
 			loadGraphic(graphic, true, 150, 150);

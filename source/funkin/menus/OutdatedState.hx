@@ -13,7 +13,7 @@ class OutdatedState extends MusicBeatState
 		add(bg);
 
 		warnText = new FlxText(0, 0, FlxG.width,
-			"Sup bro, looks like you're running an   \n
+			"DISCLAIMER: You're running an   \n
 			outdated version of Paper Engine (" + MainMenuState.paperEngineVersion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
 			Press ESCAPE to proceed anyway.\n

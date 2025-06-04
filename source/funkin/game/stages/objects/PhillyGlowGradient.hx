@@ -10,7 +10,7 @@ class PhillyGlowGradient extends FlxSprite
 		super(x, y);
 		originalY = y;
 
-		loadGraphic(Paths.image('stages/week3/philly/gradient'));
+		loadGraphic(Paths.image('game/stages/philly/gradient'));
 		scrollFactor.set(0, 0.75);
 		setGraphicSize(2000, originalHeight);
 		updateHitbox();

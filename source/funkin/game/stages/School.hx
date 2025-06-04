@@ -28,7 +28,7 @@ class School extends BaseStage
 			GameOverSubstate.characterName = 'bf-pixel-dead';
 
 		// Sky Background
-		var bgSky = new BGSprite('stages/week6/weeb/weebSky', 0, 0, 0.1, 0.1);
+		var bgSky = new BGSprite('pixelVariant/game/stages/school/weebSky', 0, 0, 0.1, 0.1);
 		bgSky.antialiasing = false;
 		add(bgSky);
 
@@ -37,18 +37,18 @@ class School extends BaseStage
 		if (widShit <= 0) widShit = 1280; // fallback to prevent invisible graphics
 
 		// School Background
-		var bgSchool = new BGSprite('stages/week6/weeb/weebSchool', repositionShit, 0, 0.6, 0.9);
+		var bgSchool = new BGSprite('pixelVariant/game/stages/school/weebSchool', repositionShit, 0, 0.6, 0.9);
 		bgSchool.antialiasing = false;
 		add(bgSchool);
 
 		// Street
-		var bgStreet = new BGSprite('stages/week6/weeb/weebStreet', repositionShit, 0, 0.95, 0.95);
+		var bgStreet = new BGSprite('pixelVariant/game/stages/school/weebStreet', repositionShit, 0, 0.95, 0.95);
 		bgStreet.antialiasing = false;
 		add(bgStreet);
 
 		// Trees behind
 		if (!ClientPrefs.data.lowQuality) {
-			var fgTrees = new BGSprite('stages/week6/weeb/weebTreesBack', repositionShit + 170, 130, 0.9, 0.9);
+			var fgTrees = new BGSprite('pixelVariant/game/stages/school/weebTreesBack', repositionShit + 170, 130, 0.9, 0.9);
 			fgTrees.setGraphicSize(Std.int(widShit * 0.8));
 			fgTrees.updateHitbox();
 			fgTrees.antialiasing = false;
@@ -57,7 +57,7 @@ class School extends BaseStage
 
 		// Animated tree
 		var bgTrees = new FlxSprite(repositionShit - 380, -800);
-		bgTrees.frames = Paths.getPackerAtlas('stages/week6/weeb/weebTrees');
+		bgTrees.frames = Paths.getPackerAtlas('pixelVariant/game/stages/school/weebTrees');
 		if (bgTrees.frames == null) trace("ERROR: Missing atlas for weebTrees!");
 		bgTrees.animation.add('treeLoop', [for (i in 0...19) i], 12);
 		bgTrees.animation.play('treeLoop');
@@ -67,7 +67,7 @@ class School extends BaseStage
 
 		// Petals
 		if (!ClientPrefs.data.lowQuality) {
-			var treeLeaves = new BGSprite('stages/week6/weeb/petals', repositionShit, -40, 0.85, 0.85, ['PETALS ALL'], true);
+			var treeLeaves = new BGSprite('pixelVariant/game/stages/school/petals', repositionShit, -40, 0.85, 0.85, ['PETALS ALL'], true);
 			treeLeaves.setGraphicSize(widShit);
 			treeLeaves.updateHitbox();
 			treeLeaves.antialiasing = false;
@@ -139,6 +139,8 @@ class School extends BaseStage
 			startCountdown();
 			return;
 		}
+
+		FlxSprite.defaultAntialiasing = false;
 
 		doof = new DialogueBox(false, CoolUtil.coolTextFile(file));
 		doof.cameras = [camHUD];

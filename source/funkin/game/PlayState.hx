@@ -1,14 +1,5 @@
 package funkin.game;
 
-import funkin.data.Highscore;
-import funkin.data.StageData;
-import funkin.data.WeekData;
-
-import funkin.backend.Song;
-import funkin.backend.Section;
-import funkin.backend.system.Rating;
-import funkin.backend.system.NoteTypesConfig;
-
 import flixel.FlxBasic;
 import flixel.FlxObject;
 import flixel.FlxSubState;
@@ -18,10 +9,22 @@ import flixel.util.FlxStringUtil;
 import flixel.util.FlxSave;
 import flixel.input.keyboard.FlxKey;
 import flixel.animation.FlxAnimationController;
+
 import lime.utils.Assets;
+
 import openfl.utils.Assets as OpenFlAssets;
 import openfl.events.KeyboardEvent;
+
 import haxe.Json;
+
+import funkin.data.Highscore;
+import funkin.data.StageData;
+import funkin.data.WeekData;
+
+import funkin.backend.Song;
+import funkin.backend.Section;
+import funkin.backend.system.Rating;
+import funkin.backend.system.NoteTypesConfig;
 
 import funkin.game.cutscenes.CutsceneHandler;
 import funkin.game.cutscenes.DialogueBoxPsych;
@@ -313,7 +316,6 @@ class PlayState extends MusicBeatState
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay');
 		guitarHeroSustains = ClientPrefs.data.guitarHeroSustains;
 
-		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = initPsychCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
@@ -503,7 +505,7 @@ class PlayState extends MusicBeatState
 
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = "- " + SONG.song + " [" + Difficulty.getString().toUpperCase() + "] " + "-"; // formatted like Forever Engine - PaigeFNF
 
-		timeBar = new TimeBar(0, timeTxt.y + (timeTxt.height / 4), 'ui/bars/time/timeBar', function() return songPercent, 0, 1);
+		timeBar = new TimeBar(0, timeTxt.y + (timeTxt.height / 4), 'game/hud/bars/time/timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
 		timeBar.screenCenter(X);
 		timeBar.alpha = 0;
@@ -567,7 +569,7 @@ class PlayState extends MusicBeatState
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 		moveCameraSection();
 
-		healthBar = new HealthBar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.89 : 0.11), 'ui/bars/health/healthBar', function() return curHealth, 0, 2);	
+		healthBar = new HealthBar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.89 : 0.11), 'game/hud/bars/health/healthBar', function() return curHealth, 0, 2);	
 		healthBar.screenCenter(X);
 		healthBar.leftToRight = false;
 		healthBar.scrollFactor.set();
@@ -625,22 +627,22 @@ class PlayState extends MusicBeatState
 
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
-		//comboGroup.cameras = [camHUD]; - This is personal perference, I like it more when it's not in the camHUD, but if you do want it, you can remove the slashes (aka uncommenting)
+		comboGroup.cameras = [camHUD];
 
 		startingSong = true;
 
 		#if LUA_ALLOWED
 		for (notetype in noteTypes)
-			startLuasNamed('custom_notetypes/' + notetype + '.lua');
+			startLuasNamed('data/custom_notetypes/' + notetype + '.lua');
 		for (event in eventsPushed)
-			startLuasNamed('custom_events/' + event + '.lua');
+			startLuasNamed('data/custom_events/' + event + '.lua');
 		#end
 
 		#if HSCRIPT_ALLOWED
 		for (notetype in noteTypes)
-			startHScriptsNamed('custom_notetypes/' + notetype + '.hx');
+			startHScriptsNamed('data/custom_notetypes/' + notetype + '.hx');
 		for (event in eventsPushed)
-			startHScriptsNamed('custom_events/' + event + '.hx');
+			startHScriptsNamed('data/custom_events/' + event + '.hx');
 		#end
 		noteTypes = null;
 		eventsPushed = null;
@@ -676,7 +678,7 @@ class PlayState extends MusicBeatState
 
 		//PRECACHING THINGS THAT GET USED FREQUENTLY TO AVOID LAGSPIKES
 		if(ClientPrefs.data.hitsoundVolume > 0) Paths.sound('hitsound');
-		Paths.image('ui/alphabet');
+		Paths.image('alphabet');
 
 		if (PauseSubState.songName != null)
 			Paths.music(PauseSubState.songName);
@@ -999,9 +1001,9 @@ class PlayState extends MusicBeatState
 	{
 		var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 		var introImagesArray:Array<String> = switch(stageUI) {
-			case "pixel": ['${stageUI}UI/countdown/ready-pixel', '${stageUI}UI/countdown/set-pixel', '${stageUI}UI/countdown/date-pixel'];
-			case "normal": ["ui/countdown/ready", "ui/countdown/set" ,"ui/countdown/go"];
-			default: ['${stageUI}UI/ready', '${stageUI}UI/set', '${stageUI}UI/go'];
+			case "pixel": ['${stageUI}Variant/game/hud/countdown/ready-pixel', '${stageUI}Variant/game/hud/countdown/set-pixel', '${stageUI}Variant/game/hud/countdown/date-pixel'];
+			case "normal": ["game/hud/countdown/ready", "game/hud/countdown/set" ,"game/hud/countdown/go"];
+			default: ['${stageUI}game/hud/ready', '${stageUI}game/hud/set', '${stageUI}game/hud/go'];
 		}
 		introAssets.set(stageUI, introImagesArray);
 		var introAlts:Array<String> = introAssets.get(stageUI);
@@ -1061,9 +1063,9 @@ class PlayState extends MusicBeatState
 
 				var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 				var introImagesArray:Array<String> = switch(stageUI) {
-					case "pixel": ['${stageUI}UI/countdown/ready-pixel', '${stageUI}UI/countdown/set-pixel', '${stageUI}UI/countdown/date-pixel'];
-					case "normal": ["ui/countdown/ready", "ui/countdown/set" ,"ui/countdown/go"];
-					default: ['${stageUI}UI/ready', '${stageUI}UI/set', '${stageUI}UI/go'];
+					case "pixel": ['${stageUI}Variant/game/hud/countdown/ready-pixel', '${stageUI}Variant/game/hud/countdown/set-pixel', '${stageUI}Variant/game/hud/countdown/date-pixel'];
+					case "normal": ["game/hud/countdown/ready", "game/hud/countdown/set" ,"game/hud/countdown/go"];
+					default: ['${stageUI}game/hud/countdown/ready', '${stageUI}game/hud/countdown/set', '${stageUI}game/hud/countdown/go'];
 				}
 				introAssets.set(stageUI, introImagesArray);
 
@@ -2007,53 +2009,65 @@ class PlayState extends MusicBeatState
 	}
 
 	public var isDead:Bool = false; //Don't mess with this on Lua!!!
+	public var gameOverTimer:FlxTimer;
 	function doDeathCheck(?skipHealthCheck:Bool = false) {
-		if (((skipHealthCheck && instakillOnMiss) || health <= 0) && !practiceMode && !isDead)
-		{
-			var ret:Dynamic = callOnScripts('onGameOver', null, true);
-			if(ret != LuaUtils.Function_Stop) {
-				FlxG.animationTimeScale = 1;
-				boyfriend.stunned = true;
-				deathCounter++;
-
-				paused = true;
-				canResync = false;
-				canPause = false;
-				#if VIDEOS_ALLOWED
-				if(videoCutscene != null)
+		if (((skipHealthCheck && instakillOnMiss) || health <= 0) && !practiceMode && !isDead && gameOverTimer == null)
+			{
+				var ret:Dynamic = callOnScripts('onGameOver', null, true);
+				if(ret != LuaUtils.Function_Stop)
 				{
-					videoCutscene.destroy();
-					videoCutscene = null;
+					FlxG.animationTimeScale = 1;
+					boyfriend.stunned = true;
+					deathCounter++;
+	
+					paused = true;
+					canResync = false;
+					canPause = false;
+					#if VIDEOS_ALLOWED
+					if(videoCutscene != null)
+					{
+						videoCutscene.destroy();
+						videoCutscene = null;
+					}
+					#end
+	
+					persistentUpdate = false;
+					persistentDraw = false;
+					FlxTimer.globalManager.clear();
+					FlxTween.globalManager.clear();
+					FlxG.camera.setFilters([]);
+	
+					if(GameOverSubstate.deathDelay > 0)
+					{
+						gameOverTimer = new FlxTimer().start(GameOverSubstate.deathDelay, function(_)
+						{
+							vocals.stop();
+							opponentVocals.stop();
+							FlxG.sound.music.stop();
+							openSubState(new GameOverSubstate(boyfriend));
+							gameOverTimer = null;
+						});
+					}
+					else
+					{
+						vocals.stop();
+						opponentVocals.stop();
+						FlxG.sound.music.stop();
+						openSubState(new GameOverSubstate(boyfriend));
+					}
+	
+					// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+	
+					#if DISCORD_ALLOWED
+					// Game Over doesn't get his its variable because it's only used here
+					if(autoUpdateRPC) DiscordClient.changePresence("Game Over - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
+					#end
+					isDead = true;
+					return true;
 				}
-				#end
-
-				vocals.stop();
-				opponentVocals.stop();
-				FlxG.sound.music.stop();
-
-				persistentUpdate = false;
-				persistentDraw = false;
-				FlxTimer.globalManager.clear();
-				FlxTween.globalManager.clear();
-				#if LUA_ALLOWED
-				modchartTimers.clear();
-				modchartTweens.clear();
-				#end
-
-				openSubState(new GameOverSubstate());
-
-				// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
-
-				#if DISCORD_ALLOWED
-				// Game Over doesn't get his its variable because it's only used here
-				if(autoUpdateRPC) DiscordClient.changePresence("Game Over - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-				#end
-				isDead = true;
-				return true;
 			}
+			return false;
 		}
-		return false;
-	}
 
 	public function checkEventNote() {
 		while(eventNotes.length > 0) {
@@ -2350,12 +2364,14 @@ class PlayState extends MusicBeatState
 	{
 		if(isDad)
 		{
+			if(dad == null) return;
 			camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
 			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
 			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
 		}
 		else
 		{
+			if(boyfriend == null) return;
 			camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
@@ -2521,11 +2537,11 @@ class PlayState extends MusicBeatState
 
 	private function cachePopUpScore()
 	{
-		var uiPrefix:String = 'ui/popups/';
+		var uiPrefix:String = 'game/hud/popups/';
 		var uiSuffix:String = '';
 		if (stageUI != "normal")
 		{
-			uiPrefix = '${stageUI}ui/popups/';
+			uiPrefix = '${stageUI}Variant/game/hud/popups/';
 			if (PlayState.isPixelStage) uiSuffix = '-pixel';
 		}
 
@@ -2573,13 +2589,13 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		var uiPrefix:String = "ui/popups/";
+		var uiPrefix:String = "game/hud/popups/";
 		var uiSuffix:String = '';
 		var antialias:Bool = ClientPrefs.data.antialiasing;
 
 		if (stageUI != "normal")
 		{
-			uiPrefix = '${stageUI}ui/popups/';
+			uiPrefix = '${stageUI}Variant/game/hud/popups/';
 			if (PlayState.isPixelStage) uiSuffix = '-pixel';
 			antialias = !isPixelStage;
 		}
@@ -2595,6 +2611,7 @@ class PlayState extends MusicBeatState
 		rating.x += ClientPrefs.data.comboOffset[0];
 		rating.y -= ClientPrefs.data.comboOffset[1];
 		rating.antialiasing = antialias;
+		
 
 		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(uiPrefix + 'combo' + uiSuffix));
 		comboSpr.screenCenter();
@@ -2610,9 +2627,9 @@ class PlayState extends MusicBeatState
 
 		if (combo >= 20)
 			{
-				add(comboSpr);
+				comboGroup.add(comboSpr);
 			}
-	
+
 		comboGroup.add(rating);
 
 		if (!PlayState.isPixelStage)
@@ -2640,8 +2657,8 @@ class PlayState extends MusicBeatState
 
 		var daLoop:Int = 0;
 		var xThing:Float = 0;
-		if (showCombo)
-			comboGroup.add(comboSpr);
+
+
 
 		for (i in seperatedScore)
 		{
@@ -2666,7 +2683,9 @@ class PlayState extends MusicBeatState
 			comboSpr.x = xThing + 50;
 
 			if(showComboNum)
+			{
 				comboGroup.add(numScore);
+			}
 
 		/* Popup Animations */	
 		FlxTween.tween(numScore, {alpha: 0}, 0.2, {
@@ -2695,6 +2714,7 @@ class PlayState extends MusicBeatState
 	}
 	
 	public var strumsBlocked:Array<Bool> = [];
+
 	private function onKeyPress(event:KeyboardEvent):Void
 	{
 
@@ -3214,10 +3234,16 @@ class PlayState extends MusicBeatState
 
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
+
+		FlxG.camera.setFilters([]);
+
 		FlxG.animationTimeScale = 1;
 		#if FLX_PITCH FlxG.sound.music.pitch = 1; #end
+
 		Note.globalRgbShaders = [];
 		NoteTypesConfig.clearNoteTypesData();
+
+		NoteSplash.configs.clear();
 		instance = null;
 		super.kill();
 	}

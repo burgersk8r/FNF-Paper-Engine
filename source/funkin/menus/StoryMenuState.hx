@@ -57,7 +57,7 @@ class StoryMenuState extends MusicBeatState
 		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
 		txtWeekTitle.alpha = 0.7;
 
-		var ui_tex = Paths.getSparrowAtlas('menus/storymenu/campaign_menu_UI_assets');
+		var ui_tex = Paths.getSparrowAtlas('game/menus/storymenu/campaign_menu_UI_assets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
 		bgSprite = new FlxSprite(0, 56);
 
@@ -148,7 +148,7 @@ class StoryMenuState extends MusicBeatState
 		add(bgSprite);
 		add(grpWeekCharacters);
 
-		var tracksSprite:FlxSprite = new FlxSprite(FlxG.width * 0.07, bgSprite.y + 425).loadGraphic(Paths.image('menus/storymenu/Menu_Tracks'));
+		var tracksSprite:FlxSprite = new FlxSprite(FlxG.width * 0.07, bgSprite.y + 425).loadGraphic(Paths.image('game/menus/storymenu/Menu_Tracks'));
 		add(tracksSprite);
 
 		txtTracklist = new FlxText(FlxG.width * 0.05, tracksSprite.y + 60, 0, "", 32);
@@ -333,7 +333,7 @@ class StoryMenuState extends MusicBeatState
 		WeekData.setDirectoryFromWeek(loadedWeeks[curWeek]);
 
 		var diff:String = Difficulty.getString(curDifficulty);
-		var newImage:FlxGraphic = Paths.image('menus/storymenu/menudifficulties/' + Paths.formatToSongPath(diff));
+		var newImage:FlxGraphic = Paths.image('game/menus/storymenu/menudifficulties/' + Paths.formatToSongPath(diff));
 
 		if(sprDifficulty.graphic != newImage)
 		{
@@ -393,7 +393,7 @@ class StoryMenuState extends MusicBeatState
 		if(assetName == null || assetName.length < 1) {
 			bgSprite.visible = false;
 		} else {
-			bgSprite.loadGraphic(Paths.image('menus/storymenu/menubackgrounds/menu_' + assetName));
+			bgSprite.loadGraphic(Paths.image('game/menus/storymenu/menubackgrounds/menu_' + assetName));
 		}
 		PlayState.storyWeek = curWeek;
 

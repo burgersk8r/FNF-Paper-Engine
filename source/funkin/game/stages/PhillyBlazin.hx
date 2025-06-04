@@ -36,31 +36,31 @@ class PhillyBlazin extends BaseStage
 
 		if(!ClientPrefs.data.lowQuality)
 		{
-			var skyImage = Paths.image('stages/weekend1/phillyBlazin/skyBlur');
+			var skyImage = Paths.image('game/stages/phillyStreets/phillyBlazin/skyBlur');
 			scrollingSky = new FlxTiledSprite(skyImage, Std.int(skyImage.width * 1.1) + 475, Std.int(skyImage.height / 1.1), true, false);
 			scrollingSky.antialiasing = ClientPrefs.data.antialiasing;
 			scrollingSky.setPosition(-500, -120);
 			scrollingSky.scrollFactor.set();
 			add(scrollingSky);
 
-			skyAdditive = new BGSprite('stages/weekend1/phillyBlazin/skyBlur', -600, -175, 0.0, 0.0);
+			skyAdditive = new BGSprite('game/stages/phillyStreets/phillyBlazin/skyBlur', -600, -175, 0.0, 0.0);
 			setupScale(skyAdditive);
 			skyAdditive.visible = false;
 			add(skyAdditive);
 			
-			lightning = new BGSprite('stages/weekend1/phillyBlazin/lightning', -50, -300, 0.0, 0.0, ['lightning0'], false);
+			lightning = new BGSprite('game/stages/phillyStreets/phillyBlazin/lightning', -50, -300, 0.0, 0.0, ['lightning0'], false);
 			setupScale(lightning);
 			lightning.visible = false;
 			add(lightning);
 		}
 		
-		var phillyForegroundCity:BGSprite = new BGSprite('stages/weekend1/phillyBlazin/streetBlur', -600, -175, 0.0, 0.0);
+		var phillyForegroundCity:BGSprite = new BGSprite('game/stages/phillyStreets/phillyBlazin/streetBlur', -600, -175, 0.0, 0.0);
 		setupScale(phillyForegroundCity);
 		add(phillyForegroundCity);
 		
 		if(!ClientPrefs.data.lowQuality)
 		{
-			foregroundMultiply = new BGSprite('stages/weekend1/phillyBlazin/streetBlur', -600, -175, 0.0, 0.0);
+			foregroundMultiply = new BGSprite('game/stages/phillyStreets/phillyBlazin/streetBlur', -600, -175, 0.0, 0.0);
 			setupScale(foregroundMultiply);
 			foregroundMultiply.blend = MULTIPLY;
 			foregroundMultiply.visible = false;
@@ -84,7 +84,7 @@ class PhillyBlazin extends BaseStage
 		var _song = PlayState.SONG;
 		if(_song.gameOverSound == null || _song.gameOverSound.trim().length < 1) GameOverSubstate.deathSoundName = 'gameover/pico/fnf_loss_sfx-pico-gutpunch';
 		if(_song.gameOverLoop == null || _song.gameOverLoop.trim().length < 1) GameOverSubstate.loopSoundName = 'gameover/pico/gameOver-pico';
-		if(_song.gameOverEnd == null || _song.gameOverEnd.trim().length < 1) GameOverSubstate.endSoundName = 'gameover/pico/gameOverEnd-pico';
+		if(_song.gameOverEnd == null  || _song.gameOverEnd.trim().length < 1)  GameOverSubstate.endSoundName = 'gameover/pico/gameOverEnd-pico';
 		if(_song.gameOverChar == null || _song.gameOverChar.trim().length < 1) GameOverSubstate.characterName = 'pico-blazin';
 		GameOverSubstate.deathDelay = 0.15;
 
@@ -104,7 +104,7 @@ class PhillyBlazin extends BaseStage
 						FlxTransitionableState.skipNextTransIn = true;
 						FlxG.camera.visible = false;
 						camHUD.visible = false;
-						game.startVideo('weekend1/blazinCutscene');
+						game.startVideo('blazinCutscene');
 					});
 			}
 		}

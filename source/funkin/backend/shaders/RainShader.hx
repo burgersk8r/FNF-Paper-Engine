@@ -459,41 +459,11 @@ class RainShader extends FlxShader
 		time += elapsed;
 	}
 
-	/*override function __processGLData(source:String, storageType:String):Void
-	{
-		super.__processGLData(source, storageType);
-		if (storageType == 'uniform')
-		{
-			lights = [
-				for (i in 0...MAX_LIGHTS)
-				{
-					position: addFloatUniform('lights[$i].position', 2),
-					color: addFloatUniform('lights[$i].color', 3),
-					radius: addFloatUniform('lights[$i].radius', 1),
-				}
-			];
-		}
-	}*/
-
 	public function updateViewInfo(screenWidth:Float, screenHeight:Float, camera:FlxCamera):Void
 	{
 		uScreenResolution.value = [screenWidth, screenHeight];
 		uCameraBounds.value = [camera.viewLeft, camera.viewTop, camera.viewRight, camera.viewBottom];
 	}
-  
-	/*override function __createGLProgram(vertexSource:String, fragmentSource:String):GLProgram
-	{
-	  try
-	  {
-		final res = super.__createGLProgram(vertexSource, fragmentSource);
-		return res;
-	  }
-	  catch (error)
-	  {
-		Log.warn(error); // prevent the app from dying immediately
-		return null;
-	  }
-	}*/
 
 	@:access(openfl.display.ShaderParameter)
 	function addFloatUniform(name:String, length:Int):ShaderParameter<Float>

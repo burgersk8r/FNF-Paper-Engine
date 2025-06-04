@@ -39,10 +39,10 @@ class MasterEditorMenu extends MusicBeatState
 
 		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
 
-		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
+		cursor.loadGraphic(Paths.image('game/hud/cursors/cursor'));
 		FlxG.mouse.load(cursor.pixels);
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menus/options/menuDesat'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('game/menus/options/menuDesat'));
 		bg.scrollFactor.set();
 		bg.color = 0xFF353535;
 		add(bg);

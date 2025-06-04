@@ -64,11 +64,11 @@ class MainMenuState extends MusicBeatState
 
 		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
 
-		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
+		cursor.loadGraphic(Paths.image('game/hud/cursors/cursor'));
 		FlxG.mouse.load(cursor.pixels);
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menus/mainmenu/menuBG'));
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('game/menus/mainmenu/menuBG'));
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
@@ -78,7 +78,7 @@ class MainMenuState extends MusicBeatState
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menus/mainmenu/menuBGMagenta'));
+		magenta = new FlxSprite(-80).loadGraphic(Paths.image('game/menus/mainmenu/menuBGMagenta'));
 		magenta.scrollFactor.set(0, yScroll);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
 		magenta.updateHitbox();
@@ -138,7 +138,7 @@ class MainMenuState extends MusicBeatState
 	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
 		{
 			var menuItem:FlxSprite = new FlxSprite(x, y);
-			menuItem.frames = Paths.getSparrowAtlas('menus/mainmenu/$name');
+			menuItem.frames = Paths.getSparrowAtlas('game/menus/mainmenu/$name');
 			menuItem.animation.addByPrefix('idle', '$name idle', 24, true);
 			menuItem.animation.addByPrefix('selected', '$name selected', 24, true);
 			menuItem.animation.play('idle');

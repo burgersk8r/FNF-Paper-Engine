@@ -14,40 +14,39 @@ class Tank extends BaseStage
 
 	override function create()
 	{
-		var sky:BGSprite = new BGSprite('stages/week7/tankSky', -400, -400, 0, 0);
+		var sky:BGSprite = new BGSprite('game/stages/tank/tankSky', -400, -400, 0, 0);
 		add(sky);
 
 		if(!ClientPrefs.data.lowQuality)
 		{
-			var clouds:BGSprite = new BGSprite('stages/week7/tankClouds', FlxG.random.int(-700, -100), FlxG.random.int(-20, 20), 0.1, 0.1);
+			var clouds:BGSprite = new BGSprite('game/stages/tank/tankClouds', FlxG.random.int(-700, -100), FlxG.random.int(-20, 20), 0.1, 0.1);
 			clouds.active = true;
 			clouds.velocity.x = FlxG.random.float(5, 15);
 			add(clouds);
 
-			var mountains:BGSprite = new BGSprite('stages/week7/tankMountains', -300, -20, 0.2, 0.2);
+			var mountains:BGSprite = new BGSprite('game/stages/tank/tankMountains', -300, -20, 0.2, 0.2);
 			mountains.setGraphicSize(Std.int(1.2 * mountains.width));
 			mountains.updateHitbox();
 			add(mountains);
 
-			var buildings:BGSprite = new BGSprite('stages/week7/tankBuildings', -200, 0, 0.3, 0.3);
+			var buildings:BGSprite = new BGSprite('game/stages/tank/tankBuildings', -200, 0, 0.3, 0.3);
 			buildings.setGraphicSize(Std.int(1.1 * buildings.width));
 			buildings.updateHitbox();
 			add(buildings);
 		}
 
-		var ruins:BGSprite = new BGSprite('stages/week7/tankRuins',-200,0,.35,.35);
+		var ruins:BGSprite = new BGSprite('game/stages/tank/tankRuins',-200,0,.35,.35);
 		ruins.setGraphicSize(Std.int(1.1 * ruins.width));
 		ruins.updateHitbox();
 		add(ruins);
 
 		if(!ClientPrefs.data.lowQuality)
 		{
-			var smokeLeft:BGSprite = new BGSprite('stages/week7/smokeLeft', -200, -100, 0.4, 0.4, ['SmokeBlurLeft'], true);
+			var smokeLeft:BGSprite = new BGSprite('game/stages/tank/smokeLeft', -200, -100, 0.4, 0.4, ['SmokeBlurLeft'], true);
 			add(smokeLeft);
-			var smokeRight:BGSprite = new BGSprite('stages/week7/smokeRight', 1100, -100, 0.4, 0.4, ['SmokeRight'], true);
+			var smokeRight:BGSprite = new BGSprite('game/stages/tank/smokeRight', 1100, -100, 0.4, 0.4, ['SmokeRight'], true);
 			add(smokeRight);
-
-			tankWatchtower = new BGSprite('stages/week7/tankWatchtower', 100, 50, 0.5, 0.5, ['watchtower gradient color']);
+			tankWatchtower = new BGSprite('game/stages/tank/tankWatchtower', 100, 50, 0.5, 0.5, ['watchtower gradient color']);
 			add(tankWatchtower);
 		}
 
@@ -57,18 +56,18 @@ class Tank extends BaseStage
 		tankmanRun = new FlxTypedGroup<TankmenBG>();
 		add(tankmanRun);
 
-		var ground:BGSprite = new BGSprite('stages/week7/tankGround', -420, -150);
+		var ground:BGSprite = new BGSprite('game/stages/tank/tankGround', -420, -150);
 		ground.setGraphicSize(Std.int(1.15 * ground.width));
 		ground.updateHitbox();
 		add(ground);
 
 		foregroundSprites = new FlxTypedGroup<BGSprite>();
-		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('stages/week7/tank0', -500, 650, 1.7, 1.5, ['fg']));
-		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('stages/week7/tank1', -300, 750, 2, 0.2, ['fg']));
-		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('stages/week7/tank2', 450, 940, 1.5, 1.5, ['foreground']));
-		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('stages/week7/tank3', 1300, 1200, 3.5, 2.5, ['fg']));
-		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('stages/week7/tank4', 1300, 900, 1.5, 1.5, ['fg']));
-		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('stages/week7/tank5', 1620, 700, 1.5, 1.5, ['fg']));
+		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('game/stages/tank/tank0', -500, 650, 1.7, 1.5, ['fg']));
+		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('game/stages/tank/tank1', -300, 750, 2, 0.2, ['fg']));
+		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('game/stages/tank/tank2', 450, 940, 1.5, 1.5, ['foreground']));
+		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('game/stages/tank/tank3', 1300, 1200, 3.5, 2.5, ['fg']));
+		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('game/stages/tank/tank4', 1300, 900, 1.5, 1.5, ['fg']));
+		if(!ClientPrefs.data.lowQuality) foregroundSprites.add(new BGSprite('game/stages/tank/tank5', 1620, 700, 1.5, 1.5, ['fg']));
 
 
 		// Default GFs
@@ -147,7 +146,7 @@ class Tank extends BaseStage
 
 		tankman = new FlxAnimate(dad.x + 419, dad.y + 225);
 		tankman.showPivot = false;
-		Paths.loadAnimateAtlas(tankman, 'stages/week7/cutscenes/tankman');
+		Paths.loadAnimateAtlas(tankman, 'game/stages/tank/cutscenes/tankman');
 		tankman.antialiasing = ClientPrefs.data.antialiasing;
 		addBehindDad(tankman);
 		cutsceneHandler.push(tankman);
@@ -295,7 +294,7 @@ class Tank extends BaseStage
 
 		pico = new FlxAnimate(gf.x + 150, gf.y + 450);
 		pico.showPivot = false;
-		Paths.loadAnimateAtlas(pico, 'stages/week7/cutscenes/picoAppears');
+		Paths.loadAnimateAtlas(pico, 'game/stages/tank/cutscenes/picoAppears');
 		pico.antialiasing = ClientPrefs.data.antialiasing;
 		pico.anim.addBySymbol('dance', 'GF Dancing at Gunpoint', 24, true);
 		pico.anim.addBySymbol('dieBitch', 'GF Time to Die sequence', 24, false);
@@ -334,7 +333,7 @@ class Tank extends BaseStage
 
 		boyfriendCutscene = new FlxSprite(boyfriend.x + 5, boyfriend.y + 20);
 		boyfriendCutscene.antialiasing = ClientPrefs.data.antialiasing;
-		boyfriendCutscene.frames = Paths.getSparrowAtlas('characters/default/BOYFRIEND');
+		boyfriendCutscene.frames = Paths.getSparrowAtlas('game/characters/default/BOYFRIEND');
 		boyfriendCutscene.animation.addByPrefix('idle', 'BF idle dance', 24, false);
 		boyfriendCutscene.animation.play('idle', true);
 		boyfriendCutscene.animation.curAnim.finish();

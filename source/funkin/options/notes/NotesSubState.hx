@@ -54,7 +54,7 @@ class NotesSubState extends MusicBeatSubstate
 		DiscordClient.changePresence("Note Colors Menu", null);
 		#end
 		
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menus/options/menuDesat'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('game/menus/options/menuDesat'));
 		bg.color = 0xFFEA71FD;
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.data.antialiasing;
@@ -94,11 +94,11 @@ class NotesSubState extends MusicBeatSubstate
 		text.setScale(0.4);
 		add(text);
 
-		copyButton = new FlxSprite(760, 50).loadGraphic(Paths.image('ui/noteColorMenu/copy'));
+		copyButton = new FlxSprite(760, 50).loadGraphic(Paths.image('game/menus/options/noteColorMenu/copy'));
 		copyButton.alpha = 0.6;
 		add(copyButton);
 
-		pasteButton = new FlxSprite(1180, 50).loadGraphic(Paths.image('ui/noteColorMenu/paste'));
+		pasteButton = new FlxSprite(1180, 50).loadGraphic(Paths.image('game/menus/options/noteColorMenu/paste'));
 		pasteButton.alpha = 0.6;
 		add(pasteButton);
 
@@ -110,13 +110,13 @@ class NotesSubState extends MusicBeatSubstate
 		colorGradientSelector.offset.y = 5;
 		add(colorGradientSelector);
 
-		colorPalette = new FlxSprite(820, 580).loadGraphic(Paths.image('ui/noteColorMenu/palette', false));
+		colorPalette = new FlxSprite(820, 580).loadGraphic(Paths.image('game/menus/options/noteColorMenu/palette', false));
 		colorPalette.scale.set(20, 20);
 		colorPalette.updateHitbox();
 		colorPalette.antialiasing = false;
 		add(colorPalette);
 		
-		colorWheel = new FlxSprite(860, 200).loadGraphic(Paths.image('ui/noteColorMenu/colorWheel'));
+		colorWheel = new FlxSprite(860, 200).loadGraphic(Paths.image('game/menus/options/noteColorMenu/colorWheel'));
 		colorWheel.setGraphicSize(360, 360);
 		colorWheel.updateHitbox();
 		add(colorWheel);
@@ -199,7 +199,6 @@ class NotesSubState extends MusicBeatSubstate
 		var changedToController:Bool = false;
 		if(controls.controllerMode != _lastControllerMode)
 		{
-			//trace('changed controller mode');
 			FlxG.mouse.visible = !controls.controllerMode;
 			controllerPointer.visible = controls.controllerMode;
 
@@ -210,14 +209,6 @@ class NotesSubState extends MusicBeatSubstate
 				controllerPointer.y = FlxG.mouse.y;
 				changedToController = true;
 			}
-			// changed to keyboard mid state
-			/*else
-			{
-				FlxG.mouse.x = controllerPointer.x;
-				FlxG.mouse.y = controllerPointer.y;
-			}
-			// apparently theres no easy way to change mouse position that i know, oh well
-			*/
 			_lastControllerMode = controls.controllerMode;
 			updateTip();
 		}
@@ -260,7 +251,6 @@ class NotesSubState extends MusicBeatSubstate
 				hexTypeNum++;
 			else if(allowedTypeKeys.exists(keyPressed))
 			{
-				//trace('keyPressed: $keyPressed, lil str: ' + allowedTypeKeys.get(keyPressed));
 				var curColor:String = alphabetHex.text;
 				var newColor:String = curColor.substring(0, hexTypeNum) + allowedTypeKeys.get(keyPressed) + curColor.substring(hexTypeNum + 1);
 
@@ -292,7 +282,7 @@ class NotesSubState extends MusicBeatSubstate
 					centerHexTypeLine();
 					hexTypeLine.visible = true;
 				}
-				FlxG.sound.play(Paths.sound('menus/scrollMenu'), 0.6);
+				FlxG.sound.play(Paths.sound('game/menus/scrollMenu'), 0.6);
 			}
 			if(!end) hexTypeLine.visible = Math.floor(hexTypeVisibleTimer * 2) % 2 == 0;
 		}
@@ -603,7 +593,7 @@ class NotesSubState extends MusicBeatSubstate
 
 		// respawn stuff
 		var res:Int = onPixel ? 160 : 17;
-		skinNote = new FlxSprite(48, 24).loadGraphic(Paths.image('ui/noteColorMenu/' + (onPixel ? 'note' : 'notePixel')), true, res, res);
+		skinNote = new FlxSprite(48, 24).loadGraphic(Paths.image('game/menus/options/noteColorMenu/' + (onPixel ? 'note' : 'notePixel')), true, res, res);
 		skinNote.antialiasing = ClientPrefs.data.antialiasing;
 		skinNote.setGraphicSize(68);
 		skinNote.updateHitbox();
@@ -615,7 +605,7 @@ class NotesSubState extends MusicBeatSubstate
 		var res:Int = !onPixel ? 160 : 17;
 		for (i in 0...3)
 		{
-			var newNote:FlxSprite = new FlxSprite(230 + (100 * i), 100).loadGraphic(Paths.image('ui/noteColorMenu/' + (!onPixel ? 'note' : 'notePixel')), true, res, res);
+			var newNote:FlxSprite = new FlxSprite(230 + (100 * i), 100).loadGraphic(Paths.image('game/menus/options/noteColorMenu/' + (!onPixel ? 'note' : 'notePixel')), true, res, res);
 			newNote.antialiasing = ClientPrefs.data.antialiasing;
 			newNote.setGraphicSize(85);
 			newNote.updateHitbox();

@@ -33,7 +33,7 @@ class MenuCharacterEditorState extends MusicBeatState
 		};
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Menu Character Editor", "Editting: " + characterFile.image);
+		DiscordClient.changePresence("Menu Character Editor", "Editing: " + characterFile.image);
 		#end
 		
 		var cursor:FlxSprite;
@@ -42,7 +42,7 @@ class MenuCharacterEditorState extends MusicBeatState
 
 		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
 
-		cursor.loadGraphic(Paths.image('ui/cursors/cursor'));
+		cursor.loadGraphic(Paths.image('game/hud/cursors/cursor'));
 		FlxG.mouse.load(cursor.pixels);
 
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
@@ -226,7 +226,7 @@ class MenuCharacterEditorState extends MusicBeatState
 		var char:MenuCharacter = grpWeekCharacters.members[curTypeSelected];
 
 		char.alpha = 1;
-		char.frames = Paths.getSparrowAtlas('menus/storymenu/menucharacters/' + characterFile.image);
+		char.frames = Paths.getSparrowAtlas('game/menus/storymenu/menucharacters/' + characterFile.image);
 		char.animation.addByPrefix('idle', characterFile.idle_anim, 24);
 		if(curTypeSelected == 1) char.animation.addByPrefix('confirm', characterFile.confirm_anim, 24, false);
 		char.flipX = (characterFile.flipX == true);

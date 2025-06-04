@@ -13,8 +13,8 @@ class VisualsUISubState extends BaseOptionsMenu
 	var noteY:Float = 90;
 	public function new()
 	{
-		title = 'Visuals and UI';
-		rpcTitle = 'Visuals & UI Settings Menu'; //for Discord Rich Presence
+		title = 'Visuals';
+		rpcTitle = 'Visuals Menu'; //for Discord Rich Presence
 
 		// for note skins
 		notes = new FlxTypedGroup<StrumNote>();
@@ -27,9 +27,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			notes.add(note);
 		}
 
-		// options
-
-		var noteSkins:Array<String> = Mods.mergeAllTextsNamed('images/noteSkins/list.txt');
+		var noteSkins:Array<String> = Mods.mergeAllTextsNamed('images/game/hud/notes/list.txt');
 		if(noteSkins.length > 0)
 		{
 			if(!noteSkins.contains(ClientPrefs.data.noteSkin))
@@ -46,7 +44,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			noteOptionID = optionsArray.length - 1;
 		}
 		
-		var noteSplashes:Array<String> = Mods.mergeAllTextsNamed('images/noteSplashes/list.txt');
+		var noteSplashes:Array<String> = Mods.mergeAllTextsNamed('images/game/hud/splashes/noteSplashes/list.txt');
 		if(noteSplashes.length > 0)
 		{
 			if(!noteSplashes.contains(ClientPrefs.data.splashSkin))

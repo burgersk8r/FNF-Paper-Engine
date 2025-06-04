@@ -47,7 +47,7 @@ import funkin.backend.system.windows.DarkMode;
 
 class Main extends Sprite
 {
-	public static final releaseCycle:String = "Alpha";
+	public static final releaseCycle:String = "Beta";
 
 	public static final game = {
 		width: 1280, // WINDOW width

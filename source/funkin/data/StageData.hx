@@ -53,16 +53,16 @@ class StageData {
 				case 'spookeez' | 'south' | 'monster':
 					stage = 'spooky';
 
-				case 'pico' | 'blammed' | 'philly' | 'philly-nice':
+				case 'pico' | 'blammed' | 'philly' | 'philly nice':
 					stage = 'philly';
 
-				case 'milf' | 'satin-panties' | 'high':
+				case 'milf' | 'satin panties' | 'high':
 					stage = 'limo';
 					
 				case 'cocoa' | 'eggnog':
 					stage = 'mall';
 
-				case 'winter-horrorland':
+				case 'winter horrorland':
 					stage = 'mallEvil';
 
 				case 'senpai' | 'roses':
@@ -74,7 +74,7 @@ class StageData {
 				case 'ugh' | 'guns' | 'stress':
 					stage = 'tank';
 
-				case 'darnell' | 'lit-up' | '2hot':
+				case 'darnell' | 'lit up' | '2hot':
 					stage = 'phillyStreets';
 
 				case 'blazin':
@@ -126,7 +126,7 @@ class StageData {
 			case 'spookeez' | 'south' | 'monster':
 				return 'spooky';
 
-			case 'pico' | 'blammed' | 'philly' | 'philly-nice':
+			case 'pico' | 'blammed' | 'philly' | 'philly nice':
 				return 'philly';
 
 			case 'milf' | 'satin panties' | 'high':
@@ -135,7 +135,7 @@ class StageData {
 			case 'cocoa' | 'eggnog':
 				return 'mall';
 
-			case 'winter-horrorland':
+			case 'winter horrorland':
 				return 'mallEvil';
 
 			case 'senpai' | 'roses':

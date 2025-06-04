@@ -10,22 +10,22 @@ class Mall extends BaseStage
 
 	override function create()
 	{
-		addOptimizedSprite('stages/week5/christmas/bgWalls', -1000, -500, 0.2, 0.2, 0.8);
+		addOptimizedSprite('game/stages/mall/bgWalls', -1000, -500, 0.2, 0.2, 0.8);
 
 		if (!ClientPrefs.data.lowQuality)
 		{
-			upperBoppers = addOptimizedSprite('stages/week5/christmas/upperBop', -240, -90, 0.33, 0.33, 0.85, ['Upper Crowd Bob']);
-			addOptimizedSprite('stages/week5/christmas/bgEscalator', -1100, -600, 0.3, 0.3, 0.9);
+			upperBoppers = addOptimizedSprite('game/stages/mall/upperBop', -240, -90, 0.33, 0.33, 0.85, ['Upper Crowd Bob']);
+			addOptimizedSprite('game/stages/mall/bgEscalator', -1100, -600, 0.3, 0.3, 0.9);
 		}
 
-		add(new BGSprite('stages/week5/christmas/christmasTree', 370, -250, 0.40, 0.40));
+		add(new BGSprite('game/stages/mall/christmasTree', 370, -250, 0.40, 0.40));
 
 		bottomBoppers = new MallCrowd(-300, 140);
 		add(bottomBoppers);
 
-		add(new BGSprite('stages/week5/christmas/fgSnow', -600, 700));
+		add(new BGSprite('game/stages/mall/fgSnow', -600, 700));
 
-		santa = new BGSprite('stages/week5/christmas/santa', -840, 150, 1, 1, ['santa idle in fear']);
+		santa = new BGSprite('game/stages/mall/santa', -840, 150, 1, 1, ['santa idle in fear']);
 		add(santa);
 
 		Paths.sound('game/week5/Lights_Shut_off');

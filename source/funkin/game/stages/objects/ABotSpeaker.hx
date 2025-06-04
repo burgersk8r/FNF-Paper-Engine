@@ -37,13 +37,13 @@ class ABotSpeaker extends FlxSpriteGroup
 
 		var antialias = ClientPrefs.data.antialiasing;
 
-		bg = new FlxSprite(90, 20).loadGraphic(Paths.image('stages/weekend1/abot/stereoBG'));
+		bg = new FlxSprite(90, 20).loadGraphic(Paths.image('game/stages/phillyStreets/abot/stereoBG'));
 		bg.antialiasing = antialias;
 		add(bg);
 
 		var vizX:Float = 0;
 		var vizY:Float = 0;
-		var vizFrames = Paths.getSparrowAtlas('stages/weekend1/abot/aBotViz');
+		var vizFrames = Paths.getSparrowAtlas('game/stages/phillyStreets/abot/aBotViz');
 		for (i in 1...VIZ_MAX+1)
 		{
 			volumes.push(0.0);
@@ -67,7 +67,7 @@ class ABotSpeaker extends FlxSpriteGroup
 		add(eyeBg);
 
 		eyes = new FlxAnimate(-10, 230);
-		Paths.loadAnimateAtlas(eyes, 'stages/weekend1/abot/systemEyes');
+		Paths.loadAnimateAtlas(eyes, 'game/stages/phillyStreets/abot/systemEyes');
 		eyes.anim.addBySymbolIndices('lookleft', 'a bot eyes lookin', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 24, false);
 		eyes.anim.addBySymbolIndices('lookright', 'a bot eyes lookin', [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35], 24, false);
 		eyes.anim.play('lookright', true);
@@ -75,7 +75,7 @@ class ABotSpeaker extends FlxSpriteGroup
 		add(eyes);
 
 		speaker = new FlxAnimate(-65, -10);
-		Paths.loadAnimateAtlas(speaker, 'stages/weekend1/abot/abotSystem');
+		Paths.loadAnimateAtlas(speaker, 'game/stages/phillyStreets/abot/abotSystem');
 		speaker.anim.addBySymbol('anim', 'Abot System', 24, false);
 		speaker.anim.play('anim', true);
 		speaker.anim.curFrame = speaker.anim.length - 1;

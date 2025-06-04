@@ -3,7 +3,7 @@ package funkin.game.stages.objects;
 class MallCrowd extends BGSprite
 {
 	public var heyTimer:Float = 0;
-	public function new(x:Float = 0, y:Float = 0, sprite:String = 'stages/week5/christmas/bottomBop', idle:String = 'Bottom Level Boppers Idle', hey:String = 'Bottom Level Boppers HEY')
+	public function new(x:Float = 0, y:Float = 0, sprite:String = 'game/stages/mall/bottomBop', idle:String = 'Bottom Level Boppers Idle', hey:String = 'Bottom Level Boppers HEY')
 	{
 		super(sprite, x, y, 0.9, 0.9, [idle]);
 		animation.addByPrefix('hey', hey, 24, false);

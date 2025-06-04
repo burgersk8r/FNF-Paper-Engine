@@ -7,7 +7,7 @@ class MenuItem extends FlxSprite
 	public function new(x:Float, y:Float, weekName:String = '')
 	{
 		super(x, y);
-		loadGraphic(Paths.image('menus/storymenu/weekNames/' + weekName));
+		loadGraphic(Paths.image('game/menus/storymenu/weekNames/' + weekName));
 	}
 
 	public var isFlashing(default, set):Bool = false;

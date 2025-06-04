@@ -26,7 +26,7 @@ class CreditsState extends MusicBeatState
 		#end
 
 		persistentUpdate = true;
-		bg = new FlxSprite().loadGraphic(Paths.image('menus/creditsmenu/menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('game/menus/creditsmenu/menuDesat'));
 		add(bg);
 		bg.screenCenter();
 		
@@ -39,7 +39,7 @@ class CreditsState extends MusicBeatState
 
 		var defaultList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['Paper Engine'],
-			['burgersk8r',			'burgersk8r',			'Creator of Paper Engine',		 		 				 'https://www.youtube.com/@burgersk8r',	'7aa3ff'],
+			['burgersk8r',			'burgersk8r',		'Creator of Paper Engine',		 		 				     'https://www.youtube.com/@burgersk8r',	'7aa3ff'],
 			[''],			
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer and Head of Psych Engine',					 'https://ko-fi.com/shadowmario',		'444444'],
@@ -87,10 +87,10 @@ class CreditsState extends MusicBeatState
 					Mods.currentModDirectory = creditsStuff[i][5];
 				}
 
-				var str:String = 'menus/creditsmenu/icons/missing_icon';
+				var str:String = 'game/menus/creditsmenu/icons/missing_icon';
 				if(creditsStuff[i][1] != null && creditsStuff[i][1].length > 0)
 				{
-					var fileName = 'menus/creditsmenu/icons/' + creditsStuff[i][1];
+					var fileName = 'game/menus/creditsmenu/icons/' + creditsStuff[i][1];
 					if (Paths.fileExists('images/$fileName.png', IMAGE)) str = fileName;
 					else if (Paths.fileExists('images/$fileName-pixel.png', IMAGE)) str = fileName + '-pixel';
 				}
