@@ -8,7 +8,7 @@ extern #end class Memory {
 	static public function getProcessMemory(): Float;
 	#else
 	static public inline function getProcessMemory(): Float {
-		return System.totalMemory
+		return System.totalMemory;
 	}
 	#end
 	static public inline function getGCMemory(): Float {
