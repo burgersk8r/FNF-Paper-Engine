@@ -1,10 +1,10 @@
 {
 	"song": {
 		"player1": "pico-blazin",
-		"gfVersion": "nene",
+		"player2": "darnell-blazin",
+		"events": [],
 		"notes": [
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						0,
@@ -43,10 +43,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						1666.66666666667,
@@ -73,10 +73,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						2666.66666666667,
@@ -109,10 +109,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						4000,
@@ -157,10 +157,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						5666.66666666667,
@@ -193,10 +193,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						6833.33333333333,
@@ -229,10 +229,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						8000,
@@ -271,10 +271,10 @@
 						"weekend-1-dodgehigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						9666.66666666666,
@@ -301,10 +301,10 @@
 						"weekend-1-darnelluppercutprep"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						10666.6666666667,
@@ -331,10 +331,10 @@
 						"weekend-1-punchhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						12000,
@@ -367,10 +367,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						13666.6666666667,
@@ -391,10 +391,10 @@
 						"weekend-1-dodgelow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						14666.6666666667,
@@ -439,10 +439,10 @@
 						"weekend-1-picouppercut"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						16333.3333333333,
@@ -469,10 +469,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						17500,
@@ -499,10 +499,10 @@
 						"weekend-1-hitlow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						18666.6666666667,
@@ -529,10 +529,10 @@
 						"weekend-1-dodgelow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						20000,
@@ -583,10 +583,10 @@
 						"weekend-1-darnelluppercut"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						21666.6666666667,
@@ -613,10 +613,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						22666.6666666667,
@@ -643,10 +643,10 @@
 						"weekend-1-dodgelow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						24000,
@@ -673,10 +673,10 @@
 						"weekend-1-dodgelow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						25333.3333333334,
@@ -709,10 +709,10 @@
 						"weekend-1-picouppercutprep"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						26666.6666666667,
@@ -745,10 +745,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						28000,
@@ -793,10 +793,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						29500,
@@ -823,10 +823,10 @@
 						"weekend-1-punchhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						30666.6666666667,
@@ -847,10 +847,10 @@
 						"weekend-1-taunt"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						32000,
@@ -889,10 +889,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						33500,
@@ -925,10 +925,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						34666.6666666667,
@@ -961,10 +961,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						36000,
@@ -1003,10 +1003,10 @@
 						"weekend-1-dodgelow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						37666.6666666667,
@@ -1015,25 +1015,25 @@
 						"weekend-1-idle"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						42666.6666666667,
@@ -1066,10 +1066,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						44166.6666666667,
@@ -1102,10 +1102,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						45666.6666666667,
@@ -1126,10 +1126,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						46666.6666666667,
@@ -1168,10 +1168,10 @@
 						"weekend-1-punchlowblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						48333.3333333333,
@@ -1210,10 +1210,10 @@
 						"weekend-1-hithigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						49666.6666666667,
@@ -1234,10 +1234,10 @@
 						"weekend-1-hitlow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						50666.6666666667,
@@ -1270,10 +1270,10 @@
 						"weekend-1-punchlow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						52333.3333333333,
@@ -1306,10 +1306,10 @@
 						"weekend-1-hithigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						53375,
@@ -1348,10 +1348,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						54666.6666666667,
@@ -1396,10 +1396,10 @@
 						"weekend-1-punchlow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						56333.3333333333,
@@ -1432,10 +1432,10 @@
 						"weekend-1-punchlowdodged"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						57583.3333333333,
@@ -1474,10 +1474,10 @@
 						"weekend-1-punchhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						58666.6666666667,
@@ -1528,10 +1528,10 @@
 						"weekend-1-fakeout"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						60333.3333333333,
@@ -1558,10 +1558,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						61666.6666666667,
@@ -1588,10 +1588,10 @@
 						"weekend-1-punchlowdodged"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						63000,
@@ -1624,10 +1624,10 @@
 						"weekend-1-punchhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						64083.3333333333,
@@ -1660,10 +1660,10 @@
 						"weekend-1-punchlow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						65500,
@@ -1702,10 +1702,10 @@
 						"weekend-1-hithigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						67000,
@@ -1738,10 +1738,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						68250,
@@ -1786,10 +1786,10 @@
 						"weekend-1-punchlowblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						69666.6666666666,
@@ -1828,10 +1828,10 @@
 						"weekend-1-hithigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						71000,
@@ -1858,10 +1858,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						72333.3333333333,
@@ -1888,10 +1888,10 @@
 						"weekend-1-punchlow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						73666.6666666666,
@@ -1924,10 +1924,10 @@
 						"weekend-1-hithigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						74708.3333333333,
@@ -1972,10 +1972,10 @@
 						"weekend-1-dodgelow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						76166.6666666666,
@@ -2014,10 +2014,10 @@
 						"weekend-1-punchlow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						77666.6666666666,
@@ -2050,10 +2050,10 @@
 						"weekend-1-punchlowdodged"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						78916.6666666666,
@@ -2086,10 +2086,10 @@
 						"weekend-1-punchhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						80000,
@@ -2140,10 +2140,10 @@
 						"weekend-1-fakeout"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						81666.6666666666,
@@ -2170,10 +2170,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						83000,
@@ -2194,10 +2194,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						84000,
@@ -2236,10 +2236,10 @@
 						"weekend-1-punchhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						85416.6666666667,
@@ -2272,10 +2272,10 @@
 						"weekend-1-punchlow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						86833.3333333333,
@@ -2308,10 +2308,10 @@
 						"weekend-1-picouppercut"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						88000,
@@ -2344,10 +2344,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						89333.3333333333,
@@ -2398,10 +2398,10 @@
 						"weekend-1-darnelluppercutprep"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						90666.6666666667,
@@ -2428,10 +2428,10 @@
 						"weekend-1-punchhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						92000,
@@ -2458,10 +2458,10 @@
 						"weekend-1-dodgelow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						93333.3333333333,
@@ -2488,10 +2488,10 @@
 						"weekend-1-dodgelow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						94666.6666666667,
@@ -2530,10 +2530,10 @@
 						"weekend-1-picouppercutprep"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						96000,
@@ -2560,10 +2560,10 @@
 						"weekend-1-punchhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						97333.3333333333,
@@ -2596,10 +2596,10 @@
 						"weekend-1-hitlow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						98666.6666666667,
@@ -2626,10 +2626,10 @@
 						"weekend-1-dodgelow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						100000,
@@ -2680,10 +2680,10 @@
 						"weekend-1-darnelluppercut"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						101666.666666667,
@@ -2710,10 +2710,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						102666.666666667,
@@ -2740,10 +2740,10 @@
 						"weekend-1-dodgelow"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						104000,
@@ -2776,10 +2776,10 @@
 						"weekend-1-punchlowdodged"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						105666.666666667,
@@ -2806,10 +2806,10 @@
 						"weekend-1-picouppercutprep"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						106666.666666667,
@@ -2842,10 +2842,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						108000,
@@ -2890,10 +2890,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						109500,
@@ -2920,10 +2920,10 @@
 						"weekend-1-punchhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						110666.666666667,
@@ -2944,10 +2944,10 @@
 						"weekend-1-taunt"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						112000,
@@ -2986,10 +2986,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						113666.666666667,
@@ -3016,10 +3016,10 @@
 						"weekend-1-punchhighblocked"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						114666.666666667,
@@ -3052,10 +3052,10 @@
 						"weekend-1-blockhigh"
 					]
 				],
+				"sectionBeats": 4,
 				"mustHitSection": false
 			},
 			{
-				"sectionBeats": 4,
 				"sectionNotes": [
 					[
 						116000,
@@ -3082,6 +3082,34 @@
 						"weekend-1-picouppercut"
 					]
 				],
+				"sectionBeats": 4,
+				"mustHitSection": false
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": false,
+				"changeBPM": false,
+				"bpm": 180
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": false,
+				"changeBPM": false,
+				"bpm": 180
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"sectionNotes": [],
+				"bpm": 180,
+				"sectionBeats": 4,
+				"changeBPM": false,
 				"mustHitSection": false
 			},
 			{
@@ -3091,28 +3119,18 @@
 				"bpm": 180,
 				"sectionBeats": 4,
 				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"gfSection": false,
-				"altAnim": false,
-				"sectionNotes": [],
-				"bpm": 180,
-				"sectionBeats": 4,
-				"changeBPM": false,
-				"mustHitSection": true
+				"mustHitSection": false
 			}
 		],
-		"events": [],
-		"player2": "darnell-blazin",
-		"offset": 0,
+		"gfVersion": "nene",
 		"charter": "fabs + PhantomArcade",
-		"chartVer": "1.0",
+		"offset": 0,
 		"song": "Blazin'",
-		"needsVoices": false,
+		"chartVer": "1.0",
 		"stage": "phillyBlazin",
-		"bpm": 180,
+		"needsVoices": false,
+		"artist": "Kawai Sprite",
 		"speed": 2.4,
-		"artist": "Kawai Sprite"
+		"bpm": 180
 	}
 }
