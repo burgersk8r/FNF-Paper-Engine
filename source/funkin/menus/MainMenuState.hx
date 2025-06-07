@@ -161,11 +161,6 @@ class MainMenuState extends MusicBeatState
 			if (FreeplayState.vocals != null)
 				FreeplayState.vocals.volume += 0.5 * elapsed;
 		}
-	if (FlxG.keys.justPressed.ONE)
-			{
-				PlayState.SONG = Song.loadFromJson('test');
-				LoadingState.loadAndSwitchState(new PlayState());
-			}
 		if (!selectedSomethin)
 		{
 			if (controls.UI_UP_P)
