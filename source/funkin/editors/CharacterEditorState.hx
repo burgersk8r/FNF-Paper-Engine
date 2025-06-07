@@ -1048,10 +1048,10 @@ class CharacterEditorState extends MusicBeatState
 		/////////////
 		// bg data //
 		/////////////
-		var bg:BGSprite = new BGSprite('stages/default/stageback', -600, -200, 0.9, 0.9);
+		var bg:BGSprite = new BGSprite('game/stages/default/stageback', -600, -200, 0.9, 0.9);
 		add(bg);
 
-		var stageFront:BGSprite = new BGSprite('stages/default/stagefront', -650, 600, 0.9, 0.9);
+		var stageFront:BGSprite = new BGSprite('game/stages/default/stagefront', -650, 600, 0.9, 0.9);
 		stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 		stageFront.updateHitbox();
 		add(stageFront);
@@ -1195,7 +1195,7 @@ class CharacterEditorState extends MusicBeatState
 	var characterList:Array<String> = [];
 	function reloadCharacterDropDown() {
 		#if sys
-		characterList = Mods.mergeAllTextsNamed('data/characterList.txt', Paths.getSharedPath());
+		characterList = Mods.mergeAllTextsNamed('data/chartEditor/characterList.txt', Paths.getSharedPath());
 		var foldersToCheck:Array<String> = Mods.directoriesWithFile(Paths.getSharedPath(), 'data/characters/');
 		for (folder in foldersToCheck)
 			for (file in FileSystem.readDirectory(folder))
