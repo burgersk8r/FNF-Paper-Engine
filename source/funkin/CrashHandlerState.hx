@@ -5,7 +5,9 @@ import flixel.FlxSprite;
 import flixel.util.FlxGradient;
 
 /*
-	State that is displayed when the game crashes
+	State that is displayed when the game crashes.
+
+    PLEASE NOTE!!!! THIS IS RIPPED STRAIGHT FROM DOIDO AND WILL ONLY BE USED IN HTML5 TESTING!
 */
 
 class CrashHandlerState extends MusicBeatState
@@ -21,7 +23,10 @@ class CrashHandlerState extends MusicBeatState
     override function create()
     {
         super.create();
-
+        var bg = new FlxSprite().loadGraphic(Paths.image('game/menus/mainmenu/menuBGBlue'));
+        bg.screenCenter();
+        bg.alpha = 0.3;
+        add(bg);
 
         var titleTxt = new FlxText(0, 16, 0, "THE GAME HAS CRASHED!!");
         titleTxt.setFormat('vcr.ttf', 36, 0xFFFFFFFF, CENTER);
@@ -32,35 +37,21 @@ class CrashHandlerState extends MusicBeatState
         errorTxt.setFormat('vcr.ttf', 24, 0xFFFFFFFF, LEFT);
         add(errorTxt);
 
-        var infoTxt = new FlxText(24, 0, 'Press ESCAPE to return to main menu\nPress ENTER to open github issues');
+        var infoTxt = new FlxText(24, 0, 'Press ESCAPE to return to main menu');
         infoTxt.setFormat('vcr.ttf', 24, 0xFFFFFFFF, RIGHT);
         infoTxt.x = FlxG.width - infoTxt.width - 16;
         infoTxt.y = FlxG.height- infoTxt.height - 16;
         add(infoTxt);
-
-        var buddy = new FlxSprite().loadGraphic(Paths.image('crash'));
-        buddy.x = FlxG.width - buddy.width - 16;
-        buddy.y = infoTxt.y - buddy.height - 16;
-        add(buddy);
-
-        //FlxG.sound.play(Paths.sound('crash'));
     }
 
     override function update(elapsed:Float)
     {
         super.update(elapsed);
-        if(FlxG.keys.justPressed.ANY)
+        
+        if(controls.ACCEPT || controls.BACK)
         {
-            if(FlxG.keys.justPressed.ESCAPE)
-            {
-                //Main.skipTrans = true;
-                				MusicBeatState.switchState(new funkin.menus.MainMenuState());
-
-            }
-            if(FlxG.keys.justPressed.ENTER)
-            {
-                //FlxG.openURL('https://github.com/DoidoTeam/FNF-Doido-Engine/issues');
-            }
+            FlxG.switchState(new funkin.menus.MainMenuState());
         }
+         
     }
 }

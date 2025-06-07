@@ -150,9 +150,9 @@ class Main extends Sprite
 		
 		#if CRASH_HANDLER
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
+		#elseif html5
+		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onUncaughtError);
 		#end
-				Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onUncaughtError);
-
 
 		#if DISCORD_ALLOWED
 		DiscordClient.prepare();
@@ -222,6 +222,8 @@ class Main extends Sprite
 		Sys.exit(1);
 	}
 	#end
+	//RIPPED STRAIGHT FROM DOIDO ENGINE FOR BETTER CRASH HANDLING!!!!
+	//WILL BE REMOVED ONCE HTML5 IS MORE STABLE!!
 	function onUncaughtError(e:UncaughtErrorEvent):Void
 	{
 		e.preventDefault();

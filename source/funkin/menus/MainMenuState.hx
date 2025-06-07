@@ -331,7 +331,7 @@ class MainMenuState extends MusicBeatState
 								#end
 		
 								case 'credits':
-									FlxG.switchState(new HTML5Testing());
+									FlxG.switchState(new CreditsState());
 								case 'options':
 									FlxG.switchState(new OptionsState());
 									OptionsState.onPlayState = false;
