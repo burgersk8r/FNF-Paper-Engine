@@ -1,4 +1,4 @@
-package funkin.game;
+/* package funkin.game;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -82,4 +82,4 @@ class SustainSplash extends FlxSprite {
       end.extraData['default'] = null;
     }
   }
-}
+} */

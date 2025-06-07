@@ -26,11 +26,11 @@ typedef NoteSplashData = {
 	disabled:Bool,
 	texture:String,
 	useGlobalShader:Bool, //breaks r/g/b but makes it copy default colors for your custom note
-	useRGBShader:Bool,
+	//useRGBShader:Bool,
 	antialiasing:Bool,
-	r:FlxColor,
+	/*r:FlxColor,
 	g:FlxColor,
-	b:FlxColor,
+	b:FlxColor,*/
 	a:Float
 }
 
@@ -106,10 +106,10 @@ class Note extends FlxSprite
 		texture: null,
 		antialiasing: !PlayState.isPixelStage,
 		useGlobalShader: false,
-		useRGBShader: (PlayState.SONG != null) ? !(PlayState.SONG.disableNoteRGB == true) : true,
+		/* useRGBShader: (PlayState.SONG != null) ? !(PlayState.SONG.disableNoteRGB == true) : true,
 		r: -1,
 		g: -1,
-		b: -1,
+		b: -1, */
 		a: ClientPrefs.data.splashAlpha
 	};
 
@@ -175,7 +175,7 @@ class Note extends FlxSprite
 		return value;
 	}
 
-	public function defaultRGB()
+	/*public function defaultRGB()
 	{
 		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
 		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
@@ -192,28 +192,26 @@ class Note extends FlxSprite
 			rgbShader.g = 0xFF00FF00;
 			rgbShader.b = 0xFF0000FF;
 		}
-	}
+	}*/
 
 	private function set_noteType(value:String):String {
 		noteSplashData.texture = PlayState.SONG != null ? PlayState.SONG.splashSkin : 'game/hud/splashes/noteSplashes/splashes';
-		defaultRGB();
+		//defaultRGB();
 
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
 				case 'Hurt Note':
 					ignoreNote = mustPress;
-					//reloadNote('HURTNOTE_assets');
-					//this used to change the note texture to HURTNOTE_assets.png,
-					//but i've changed it to something more optimized with the implementation of RGBPalette:
+					reloadNote('game/hud/notes/noteTypes/' + 'HURTNOTE_assets');
 
-					// note colors
+					/* // note colors
 					rgbShader.r = 0xFF101010;
 					rgbShader.g = 0xFFFF0000;
 					rgbShader.b = 0xFF990022;
 
 					// splash data and colors
 					noteSplashData.r = 0xFFFF0000;
-					noteSplashData.g = 0xFF101010;
+					noteSplashData.g = 0xFF101010; */
 					noteSplashData.texture = 'game/hud/splashes/noteSplashes/splashes-electric';
 
 					// gameplay data
@@ -264,8 +262,8 @@ class Note extends FlxSprite
 
 		if(noteData > -1)
 		{
-			rgbShader = new RGBShaderReference(this, initializeGlobalRGBShader(noteData));
-			if(PlayState.SONG != null && PlayState.SONG.disableNoteRGB) rgbShader.enabled = false;
+			/*rgbShader = new RGBShaderReference(this, initializeGlobalRGBShader(noteData));
+			if(PlayState.SONG != null && PlayState.SONG.disableNoteRGB) rgbShader.enabled = false;*/
 			texture = '';
 
 			x += swagWidth * (noteData);
@@ -330,7 +328,7 @@ class Note extends FlxSprite
 		x += offsetX;
 	}
 
-	public static function initializeGlobalRGBShader(noteData:Int)
+	/*public static function initializeGlobalRGBShader(noteData:Int)
 	{
 		if(globalRgbShaders[noteData] == null)
 		{
@@ -353,7 +351,7 @@ class Note extends FlxSprite
 			globalRgbShaders[noteData] = newRGB;
 		}
 		return globalRgbShaders[noteData];
-	}
+	}*/
 
 	var _lastNoteOffX:Float = 0;
 	static var _lastValidChecked:String; //optimization
@@ -370,7 +368,7 @@ class Note extends FlxSprite
 			if(skin == null || skin.length < 1)
 				skin = defaultNoteSkin + postfix;
 		}
-		else rgbShader.enabled = false;
+		//else rgbShader.enabled = false;
 
 		var animName:String = null;
 		if(animation.curAnim != null) {

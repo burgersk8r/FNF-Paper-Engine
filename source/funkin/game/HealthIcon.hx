@@ -28,8 +28,8 @@ class HealthIcon extends FlxSprite
 	public function changeIcon(char:String, ?allowGPU:Bool = true) {
 		if(this.char != char) {
 			var name:String = 'game/hud/icons/$char/icon'; //formatted like codename engine
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'game/huds/icons/$char/icon';
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'game/huds/icons/face/icon';
+			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'game/hud/icons/$char/icon';
+			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'game/hud/icons/face/icon';
 			
 			var graphic = Paths.image(name, allowGPU);
 			loadGraphic(graphic, true, Math.floor(graphic.width / 2), Math.floor(graphic.height));
