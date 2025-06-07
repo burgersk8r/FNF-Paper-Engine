@@ -19,7 +19,7 @@ import funkin.backend.system.Main;
 	public var noteSkin:String = 'Default';
 	public var splashSkin:String = 'Default';
 	public var splashAlpha:Float = 1;
-	public var holdSplashAlpha:Float = 1;
+	//public var holdSplashAlpha:Float = 1;
 	public var lowQuality:Bool = false;
 	public var shaders:Bool = true;
 	public var cacheOnGPU:Bool = true;

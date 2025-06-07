@@ -3,7 +3,7 @@ package funkin.options;
 import funkin.menus.MainMenuState;
 import funkin.data.StageData;
 
-import funkin.options.notes.NotesSubState;
+//import funkin.options.notes.NotesSubState;
 import funkin.options.ControlsSubState;
 import funkin.options.visuals.GraphicsSettingsSubState;
 import funkin.options.visuals.VisualsUISubState;
@@ -12,7 +12,7 @@ import funkin.options.notes.NoteOffsetState;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Note Colors', 'Controls', 'Offset and Combo', 'Graphics', 'Visuals', 'Gameplay'];
+	var options:Array<String> = [/* 'Note Colors', */ 'Controls', 'Offset', 'Graphics', 'Visuals', 'Gameplay'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -20,8 +20,8 @@ class OptionsState extends MusicBeatState
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
-			case 'Note Colors':
-				openSubState(new NotesSubState());
+			/* case 'Note Colors':
+				openSubState(new NotesSubState()); */
 			case 'Controls':
 				openSubState(new ControlsSubState());
 			case 'Graphics':
@@ -30,7 +30,7 @@ class OptionsState extends MusicBeatState
 				openSubState(new VisualsUISubState());
 			case 'Gameplay':
 				openSubState(new GameplaySettingsSubState());
-			case 'Offset and Combo':
+			case 'Offset':
 				MusicBeatState.switchState(new NoteOffsetState());
 		}
 	}

@@ -71,7 +71,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.decimals = 1;
 		addOption(option);
 
-		var option:Option = new Option('Hold Splash Opacity',
+		/*var option:Option = new Option('Hold Splash Opacity',
 			'How much transparent should the Hold Splashes be.',
 			'holdSplashAlpha',
 			'percent');
@@ -80,7 +80,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.maxValue = 1;
 		option.changeValue = 0.1;
 		option.decimals = 1;
-		addOption(option);
+		addOption(option);*/
 
 		var option:Option = new Option('Hide HUD',
 			'If checked, hides most HUD elements.',

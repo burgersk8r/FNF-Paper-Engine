@@ -1,4 +1,6 @@
-package funkin.options.notes;
+/*package funkin.options.notes;
+
+This is going unused since RGB is disabled, if you want to, you can remove this comment and uncomment the RGB code
 
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
@@ -619,7 +621,7 @@ class NotesSubState extends MusicBeatSubstate
 		Note.globalRgbShaders = [];
 		for (i in 0...dataArray.length)
 		{
-			Note.initializeGlobalRGBShader(i);
+			//Note.initializeGlobalRGBShader(i);
 			var newNote:StrumNote = new StrumNote(150 + (480 / dataArray.length * i), 200, i, 0);
 			newNote.useRGBShader = true;
 			newNote.setGraphicSize(102);
@@ -632,7 +634,7 @@ class NotesSubState extends MusicBeatSubstate
 		bigNote.setPosition(250, 325);
 		bigNote.setGraphicSize(250);
 		bigNote.updateHitbox();
-		bigNote.rgbShader.parent = Note.globalRgbShaders[curSelectedNote];
+		/*bigNote.rgbShader.parent = Note.globalRgbShaders[curSelectedNote];
 		bigNote.shader = Note.globalRgbShaders[curSelectedNote].shader;
 		for (i in 0...Note.colArray.length)
 		{
@@ -640,7 +642,7 @@ class NotesSubState extends MusicBeatSubstate
 			else bigNote.animation.add('note$i', [i + 4], 24, true);
 		}
 		insert(members.indexOf(myNotes) + 1, bigNote);
-		_storedColor = getShaderColor();
+		//_storedColor = getShaderColor();
 		PlayState.stageUI = "normal";
 	}
 
@@ -696,3 +698,4 @@ class NotesSubState extends MusicBeatSubstate
 	function getShaderColor() return dataArray[curSelectedNote][curSelectedMode];
 	function getShader() return Note.globalRgbShaders[curSelectedNote];
 }
+*/

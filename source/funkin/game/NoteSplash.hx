@@ -38,7 +38,6 @@ class NoteSplash extends FlxSprite
 		precacheConfig(skin);
 		_configLoaded = skin;
 		scrollFactor.set();
-		//setupNoteSplash(x, y, 0);
 	}
 
 	override function destroy()
@@ -64,7 +63,7 @@ class NoteSplash extends FlxSprite
 			config = precacheConfig(_configLoaded);
 
 		var tempShader:RGBPalette = null;
-		if((note == null || note.noteSplashData.useRGBShader) && (PlayState.SONG == null || !PlayState.SONG.disableNoteRGB))
+		/*if((note == null || note.noteSplashData.useRGBShader) && (PlayState.SONG == null || !PlayState.SONG.disableNoteRGB))
 		{
 			// If Note RGB is enabled:
 			if(note != null && !note.noteSplashData.useGlobalShader)
@@ -76,7 +75,7 @@ class NoteSplash extends FlxSprite
 				tempShader = note.rgbShader.parent;
 			}
 			else tempShader = Note.globalRgbShaders[direction];
-		}
+		}*/
 
 		alpha = ClientPrefs.data.splashAlpha;
 		if(note != null) alpha = note.noteSplashData.a;
@@ -96,7 +95,6 @@ class NoteSplash extends FlxSprite
 		if(config != null)
 		{
 			var animID:Int = direction + ((animNum - 1) * Note.colArray.length);
-			//trace('anim: ${animation.curAnim.name}, $animID');
 			var offs:Array<Float> = config.offsets[FlxMath.wrap(animID, 0, config.offsets.length-1)];
 			offset.x += offs[0];
 			offset.y += offs[1];
@@ -145,12 +143,10 @@ class NoteSplash extends FlxSprite
 			var animID:Int = maxAnims + 1;
 			for (i in 0...Note.colArray.length) {
 				if (!addAnimAndCheck('note$i-$animID', '$animName ${Note.colArray[i]} $animID', 24, false)) {
-					//trace('maxAnims: $maxAnims');
 					return config;
 				}
 			}
 			maxAnims++;
-			//trace('currently: $maxAnims');
 		}
 	}
 
