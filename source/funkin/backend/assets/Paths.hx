@@ -567,7 +567,7 @@ class Paths
 			changedAnimJson = true;
 			animationJson = File.getContent(animationJson);
 		}
-		#end
+	
 
 		// is folder or image path
 		if(Std.isOfType(folderOrImg, String))
@@ -614,7 +614,8 @@ class Paths
 			}
 		}
 		
-		spr.loadAtlas(folderOrImg);
+		spr.loadAtlasEx(folderOrImg, spriteJson, animationJson);
+			#end
 	}
 	#end
 }

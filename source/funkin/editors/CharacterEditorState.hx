@@ -1208,8 +1208,7 @@ class CharacterEditorState extends MusicBeatState
 
 		if(characterList.length < 1) characterList.push('');
 		charDropDown.setData(FlxUIDropDownMenu.makeStrIdLabelArray(characterList, true));
-		char
-		DropDown.selectedLabel = _char;
+		charDropDown.selectedLabel = _char;
 		#end
 	}
 
