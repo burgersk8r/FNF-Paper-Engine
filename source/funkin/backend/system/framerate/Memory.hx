@@ -6,9 +6,9 @@ extern #end class Memory {
 	#if cpp
 	@:native("get_memory_usage")
 	static public function getProcessMemory(): Float;
-	#else
+	#else 
 	static public inline function getProcessMemory(): Float {
-		return System.totalMemory;
+		return -1;
 	}
 	#end
 	static public inline function getGCMemory(): Float {

@@ -1,5 +1,6 @@
 package funkin.menus;
 
+import funkin.backend.Song;
 import flixel.FlxObject;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
@@ -160,7 +161,6 @@ class MainMenuState extends MusicBeatState
 			if (FreeplayState.vocals != null)
 				FreeplayState.vocals.volume += 0.5 * elapsed;
 		}
-
 		if (!selectedSomethin)
 		{
 			if (controls.UI_UP_P)
@@ -355,13 +355,11 @@ class MainMenuState extends MusicBeatState
 							FlxTween.tween(memb, {alpha: 0}, 0.4, {ease: FlxEase.quadOut});
 						}
 					}
-					#if desktop
-					if (controls.justPressed('debug_1'))
+					if (FlxG.keys.justPressed.P)
 					{
 						selectedSomethin = true;
 						FlxG.switchState(new MasterEditorMenu());
 					}
-					#end
 				}
 				super.update(elapsed);
 			}

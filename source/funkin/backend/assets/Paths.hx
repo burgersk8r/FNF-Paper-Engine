@@ -32,7 +32,7 @@ class Paths
 			dumpExclusions.push(key);
 	}
 
-	public static var dumpExclusions:Array<String> = ['assets/music/freakyMenu.$SOUND_EXT'];
+	public static var dumpExclusions:Array<String> = ['assets/menus/music/freakyMenu.$SOUND_EXT'];
 	/// haya I love you for the base cache dump I took to the max
 	public static function clearUnusedMemory() {
 		// clear non local assets in the tracked assets list
@@ -555,7 +555,7 @@ class Paths
 		var changedAnimJson = false;
 		var changedAtlasJson = false;
 		var changedImage = false;
-		
+		#if !html5
 		if(spriteJson != null)
 		{
 			changedAtlasJson = true;
@@ -567,6 +567,7 @@ class Paths
 			changedAnimJson = true;
 			animationJson = File.getContent(animationJson);
 		}
+	
 
 		// is folder or image path
 		if(Std.isOfType(folderOrImg, String))
@@ -612,7 +613,9 @@ class Paths
 				animationJson = getTextFromFile('images/$originalPath/Animation.json');
 			}
 		}
+		
 		spr.loadAtlasEx(folderOrImg, spriteJson, animationJson);
+			#end
 	}
 	#end
 }

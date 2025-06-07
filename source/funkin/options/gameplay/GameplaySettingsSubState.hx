@@ -6,7 +6,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 	{
 		title = 'Gameplay Settings';
 		rpcTitle = 'Gameplay Settings Menu'; //for Discord Rich Presence
-
+		#if !html5
 		//I'd suggest using "Downscroll" as an example for making your own option since it is the simplest here
 		var option:Option = new Option('Downscroll', //Name
 			'If checked, notes go Down instead of Up, simple enough.', //Description
@@ -136,7 +136,9 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'guitarHeroSustains',
 			'bool');
 		addOption(option);
-		super();
+		#end
+				super();
+
 	}
 
 	var changedMusic:Bool = false;

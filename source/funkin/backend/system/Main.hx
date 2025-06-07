@@ -26,11 +26,11 @@ import lime.graphics.Image;
 #if LUA_ALLOWED
 import funkin.backend.scripting.lua.CallbackHandler;
 #end
+import openfl.events.UncaughtErrorEvent;
+import haxe.CallStack;
 
 //crash handler stuff
 #if CRASH_HANDLER
-import openfl.events.UncaughtErrorEvent;
-import haxe.CallStack;
 import haxe.io.Path;
 #end
 
@@ -150,6 +150,8 @@ class Main extends Sprite
 		
 		#if CRASH_HANDLER
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
+		#elseif html5
+		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onUncaughtError);
 		#end
 
 		#if DISCORD_ALLOWED
@@ -220,4 +222,41 @@ class Main extends Sprite
 		Sys.exit(1);
 	}
 	#end
+	//RIPPED STRAIGHT FROM DOIDO ENGINE FOR BETTER CRASH HANDLING!!!!
+	//WILL BE REMOVED ONCE HTML5 IS MORE STABLE!!
+	function onUncaughtError(e:UncaughtErrorEvent):Void
+	{
+		e.preventDefault();
+		e.stopImmediatePropagation();
+
+		var path:String;
+		var exception:String = 'Exception: ${e.error}\n';
+		var stackTraceString = exception + StringTools.trim(CallStack.toString(CallStack.exceptionStack(true)));
+		var dateNow:String = Date.now().toString().replace(" ", "_").replace(":", "'");
+
+		path = 'crash/DoidoEngine_${dateNow}.txt';
+
+		#if sys
+		if (!FileSystem.exists("crash/"))
+			FileSystem.createDirectory("crash/");
+		File.saveContent(path, '${stackTraceString}\n');
+		#end
+
+		var normalPath:String = Path.normalize(path);
+
+		//Logs.print(stackTraceString, ERROR, true, true, false, false);
+		//Logs.print('Crash dump saved in $normalPath', WARNING, true, true, false, false);
+
+		// byebye
+		#if (flixel < "6.0.0")
+		FlxG.bitmap.dumpCache();
+		#end
+
+		FlxG.bitmap.clearCache();
+		//CoolUtil.playMusic();
+
+		//Main.skipTrans = true;
+											FlxG.switchState(new CrashHandlerState(stackTraceString + '\n\nCrash log created at: "${normalPath}"'));
+
+	}
 }
