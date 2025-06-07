@@ -79,7 +79,7 @@ class NoteOffsetState extends MusicBeatState
 		coolText.screenCenter();
 		coolText.x = FlxG.width * 0.35;
 
-		rating = new FlxSprite().loadGraphic(Paths.image('game/hud/popups/perfect'));
+		/*rating = new FlxSprite().loadGraphic(Paths.image('game/hud/popups/perfect'));
 		rating.cameras = [camHUD];
 		rating.antialiasing = ClientPrefs.data.antialiasing;
 		rating.setGraphicSize(Std.int(rating.width * 0.7));
@@ -113,7 +113,7 @@ class NoteOffsetState extends MusicBeatState
 		add(dumbTexts);
 		createTexts();
 
-		repositionCombo();
+		repositionCombo();*/
 
 		// Note delay stuff
 		beatText = new Alphabet(0, 0, 'Beat Hit!', true);
@@ -175,7 +175,7 @@ class NoteOffsetState extends MusicBeatState
 	}
 
 	var holdTime:Float = 0;
-	var onComboMenu:Bool = true;
+	var onComboMenu:Bool = false;
 	var holdingObjectType:Null<Bool> = null;
 
 	var startMousePos:FlxPoint = new FlxPoint();
@@ -183,14 +183,14 @@ class NoteOffsetState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		var addNum:Int = 1;
+		/*var addNum:Int = 1;
 		if(FlxG.keys.pressed.SHIFT || FlxG.gamepads.anyPressed(LEFT_SHOULDER))
 		{
 			if(onComboMenu)
 				addNum = 10;
 			else
 				addNum = 3;
-		}
+		}*/
 
 		if(FlxG.gamepads.anyJustPressed(ANY)) controls.controllerMode = true;
 		else if(FlxG.mouse.justPressed) controls.controllerMode = false;
@@ -212,7 +212,7 @@ class NoteOffsetState extends MusicBeatState
 			_lastControllerMode = controls.controllerMode;
 		}
 
-		if(onComboMenu)
+		/*if(onComboMenu)
 		{
 			if(FlxG.keys.justPressed.ANY || FlxG.gamepads.anyJustPressed(ANY))
 			{
@@ -355,7 +355,7 @@ class NoteOffsetState extends MusicBeatState
 				}
 				repositionCombo();
 			}
-		}
+		}*/
 		else
 		{
 			if(controls.UI_LEFT_P)
@@ -380,7 +380,7 @@ class NoteOffsetState extends MusicBeatState
 
 			if(holdTime > 0.5)
 			{
-				barPercent += 100 * addNum * elapsed * mult;
+				barPercent += 100 * /* addNum * */ elapsed * mult;
 				barPercent = Math.max(delayMin, Math.min(barPercent, delayMax));
 				updateNoteDelay();
 			}
@@ -393,12 +393,12 @@ class NoteOffsetState extends MusicBeatState
 			}
 		}
 
-		if((!controls.controllerMode && controls.ACCEPT) ||
+		/*if((!controls.controllerMode && controls.ACCEPT) ||
 		(controls.controllerMode && FlxG.gamepads.anyJustPressed(START)))
 		{
 			onComboMenu = !onComboMenu;
 			updateMode();
-		}
+		}*/
 
 		if(controls.BACK)
 		{
@@ -464,7 +464,7 @@ class NoteOffsetState extends MusicBeatState
 		lastBeatHit = curBeat;
 	}
 
-	function repositionCombo()
+	/*function repositionCombo()
 	{
 		rating.screenCenter();
 		rating.x = coolText.x - 40 + ClientPrefs.data.comboOffset[0];
@@ -474,7 +474,7 @@ class NoteOffsetState extends MusicBeatState
 		comboNums.x = coolText.x - 90 + ClientPrefs.data.comboOffset[2];
 		comboNums.y += 80 - ClientPrefs.data.comboOffset[3];
 		reloadTexts();
-	}
+	}*/
 
 	function createTexts()
 	{
@@ -494,7 +494,7 @@ class NoteOffsetState extends MusicBeatState
 		}
 	}
 
-	function reloadTexts()
+	/*function reloadTexts()
 	{
 		for (i in 0...dumbTexts.length)
 		{
@@ -506,7 +506,7 @@ class NoteOffsetState extends MusicBeatState
 				case 3: dumbTexts.members[i].text = '[' + ClientPrefs.data.comboOffset[2] + ', ' + ClientPrefs.data.comboOffset[3] + ']';
 			}
 		}
-	}
+	}*/
 
 	function updateNoteDelay()
 	{
@@ -516,9 +516,9 @@ class NoteOffsetState extends MusicBeatState
 
 	function updateMode()
 	{
-		rating.visible = onComboMenu;
+		/*rating.visible = onComboMenu;
 		comboNums.visible = onComboMenu;
-		dumbTexts.visible = onComboMenu;
+		dumbTexts.visible = onComboMenu;*/
 		
 		timeBar.visible = !onComboMenu;
 		timeTxt.visible = !onComboMenu;
@@ -534,16 +534,8 @@ class NoteOffsetState extends MusicBeatState
 
 		var str:String;
 		var str2:String;
-		if(onComboMenu)
-			str = 'Combo Offset';
-		else
-			str = 'Note/Beat Delay';
+		str = 'Note/Beat Delay';
 
-		if(!controls.controllerMode)
-			str2 = '(Press Accept to Switch)';
-		else
-			str2 = '(Press Start to Switch)';
-
-		changeModeText.text = '< ${str.toUpperCase()} ${str2.toUpperCase()} >';
+		changeModeText.text = '< ${str.toUpperCase()} >';
 	}
 }

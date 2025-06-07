@@ -28,7 +28,7 @@ class StrumNote extends FlxSprite
 	public function new(x:Float, y:Float, leData:Int, player:Int) {
 		animation = new PsychAnimationController(this);
 
-		rgbShader = new RGBShaderReference(this, Note.initializeGlobalRGBShader(leData));
+		/*rgbShader = new RGBShaderReference(this, Note.initializeGlobalRGBShader(leData));
 		rgbShader.enabled = false;
 		if (PlayState.SONG != null && PlayState.SONG.disableNoteRGB) useRGBShader = false;
 
@@ -42,7 +42,7 @@ class StrumNote extends FlxSprite
 				rgbShader.g = arr[1];
 				rgbShader.b = arr[2];
 			}
-		}
+		}*/
 
 		noteData = leData;
 		this.player = player;
@@ -167,7 +167,7 @@ class StrumNote extends FlxSprite
 			centerOffsets();
 			centerOrigin();
 		}
-		if (useRGBShader)
-			rgbShader.enabled = (animation.curAnim != null && animation.curAnim.name != 'static');
+		/*if (useRGBShader)
+			rgbShader.enabled = (animation.curAnim != null && animation.curAnim.name != 'static');*/
 	}
 }

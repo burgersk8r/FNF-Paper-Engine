@@ -65,7 +65,7 @@ class ChartingState extends MusicBeatState
 	var curNoteTypes:Array<String> = [];
 	var undos = [];
 	var redos = [];
-	var eventStuff:Array<Dynamic> =
+	var eventDescription:Array<Dynamic> =
 	[
 		['', "Nothing. Yep, that's right."],
 		['Dadbattle Spotlight', "Used in Dad Battle,\nValue 1: 0/1 = ON/OFF,\n2 = Target Dad\n3 = Target BF"],
@@ -228,10 +228,10 @@ class ChartingState extends MusicBeatState
 
 		vortex = FlxG.save.data.chart_vortex;
 		ignoreWarnings = FlxG.save.data.ignoreWarnings;
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('game/menus/freeplay/menuDesat'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('game/menus/mainmenu/menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set();
-		bg.color = 0xFF3B268A;
+		bg.color = 0xFF252525;
 		add(bg);
 
 		gridLayer = new FlxTypedGroup<FlxSprite>();
@@ -331,6 +331,7 @@ class ChartingState extends MusicBeatState
 		UI_box = new FlxUITabMenu(null, tabs, true);
 
 		UI_box.resize(300, 400);
+		UI_box.color = FlxColor.BLACK;
 		UI_box.x = 640 + GRID_SIZE / 2;
 		UI_box.y = 100;
 		UI_box.scrollFactor.set();
@@ -344,7 +345,6 @@ class ChartingState extends MusicBeatState
 		addDataUI();
 		updateHeads();
 		updateWaveform();
-		//UI_box.selected_tab = 4;
 
 		add(curRenderedSustains);
 		add(curRenderedNotes);
@@ -479,7 +479,7 @@ class ChartingState extends MusicBeatState
 		#end
 
 		var tempArray:Array<String> = [];
-		var characters:Array<String> = Mods.mergeAllTextsNamed('data/characterList.txt', Paths.getSharedPath());
+		var characters:Array<String> = Mods.mergeAllTextsNamed('data/chartEditor/characterList.txt', Paths.getSharedPath());
 		for (character in characters)
 		{
 			if(character.trim().length > 0)
@@ -976,7 +976,7 @@ class ChartingState extends MusicBeatState
 						var fileToCheck:String = file.substr(0, file.length - 4);
 						if(!eventPushedMap.exists(fileToCheck)) {
 							eventPushedMap.set(fileToCheck, true);
-							eventStuff.push([fileToCheck, File.getContent(path)]);
+							eventDescription.push([fileToCheck, File.getContent(path)]);
 						}
 					}
 				}
@@ -986,21 +986,21 @@ class ChartingState extends MusicBeatState
 		eventPushedMap = null;
 		#end
 
-		descText = new FlxText(20, 200, 0, eventStuff[0][0]);
+		descText = new FlxText(20, 200, 0, eventDescription[0][0]);
 
 		var leEvents:Array<String> = [];
-		for (i in 0...eventStuff.length) {
-			leEvents.push(eventStuff[i][0]);
+		for (i in 0...eventDescription.length) {
+			leEvents.push(eventDescription[i][0]);
 		}
 
 		var text:FlxText = new FlxText(20, 30, 0, "Event:");
 		tab_group_event.add(text);
 		eventDropDown = new FlxUIDropDownMenu(20, 50, FlxUIDropDownMenu.makeStrIdLabelArray(leEvents, true), function(pressed:String) {
 			var selectedEvent:Int = Std.parseInt(pressed);
-			descText.text = eventStuff[selectedEvent][1];
-				if (curSelectedNote != null &&  eventStuff != null) {
+			descText.text = eventDescription[selectedEvent][1];
+				if (curSelectedNote != null &&  eventDescription != null) {
 				if (curSelectedNote != null && curSelectedNote[2] == null){
-				curSelectedNote[1][curEventSelected][0] = eventStuff[selectedEvent][0];
+				curSelectedNote[1][curEventSelected][0] = eventDescription[selectedEvent][0];
 
 				}
 				updateGrid();
@@ -1357,14 +1357,14 @@ class ChartingState extends MusicBeatState
 		blockPressWhileTypingOn.push(gameOverEndInputText);
 		//
 
-		var check_disableNoteRGB:FlxUICheckBox = new FlxUICheckBox(10, 170, null, null, "Disable Note RGB", 100);
+		/*var check_disableNoteRGB:FlxUICheckBox = new FlxUICheckBox(10, 170, null, null, "Disable Note RGB", 100);
 		check_disableNoteRGB.checked = (_song.disableNoteRGB == true);
 		check_disableNoteRGB.callback = function()
 		{
 			_song.disableNoteRGB = check_disableNoteRGB.checked;
 			updateGrid();
 			//trace('CHECKED!');
-		};
+		};*/
 
 		//
 		noteSkinInputText = new FlxUIInputText(10, 280, 150, _song.arrowSkin != null ? _song.arrowSkin : '', 8);
@@ -1384,7 +1384,7 @@ class ChartingState extends MusicBeatState
 		tab_group_data.add(gameOverLoopInputText);
 		tab_group_data.add(gameOverEndInputText);
 
-		tab_group_data.add(check_disableNoteRGB);
+		//tab_group_data.add(check_disableNoteRGB);
 		
 		tab_group_data.add(reloadNotesButton);
 		tab_group_data.add(noteSkinInputText);
@@ -2153,7 +2153,7 @@ class ChartingState extends MusicBeatState
 				{
 					colorSine += elapsed;
 					var colorVal:Float = 0.7 + Math.sin(Math.PI * colorSine) * 0.3;
-					note.color = FlxColor.fromRGBFloat(colorVal, colorVal, colorVal, 0.999); //Alpha can't be 100% or the color won't be updated for some reason, guess i will die
+					//note.color = FlxColor.fromRGBFloat(colorVal, colorVal, colorVal, 0.999); //Alpha can't be 100% or the color won't be updated for some reason, guess i will die
 				}
 			}
 
@@ -2232,7 +2232,7 @@ class ChartingState extends MusicBeatState
 
 	override function destroy()
 	{
-		Note.globalRgbShaders = [];
+		//Note.globalRgbShaders = [];
 		NoteTypesConfig.clearNoteTypesData();
 		super.destroy();
 	}
@@ -2689,8 +2689,8 @@ class ChartingState extends MusicBeatState
 			} else {
 				eventDropDown.selectedLabel = curSelectedNote[1][curEventSelected][0];
 				var selected:Int = Std.parseInt(eventDropDown.selectedId);
-				if(selected > 0 && selected < eventStuff.length) {
-					descText.text = eventStuff[selected][1];
+				if(selected > 0 && selected < eventDescription.length) {
+					descText.text = eventDescription[selected][1];
 				}
 				value1InputText.text = curSelectedNote[1][curEventSelected][1];
 				value2InputText.text = curSelectedNote[1][curEventSelected][2];
@@ -2828,7 +2828,7 @@ class ChartingState extends MusicBeatState
 			note.noteType = i[3];
 		} else { //Event note
 			note.loadGraphic(Paths.image('game/hud/editors/chart/eventArrow'));
-			note.rgbShader.enabled = false;
+			//note.rgbShader.enabled = false;
 			note.eventName = getEventName(i[1]);
 			note.eventLength = i[1].length;
 			if(i[1].length < 2)
@@ -3020,7 +3020,7 @@ class ChartingState extends MusicBeatState
 		}
 		else
 		{
-			var event = eventStuff[Std.parseInt(eventDropDown.selectedId)][0];
+			var event = eventDescription[Std.parseInt(eventDropDown.selectedId)][0];
 			var text1 = value1InputText.text;
 			var text2 = value2InputText.text;
 			_song.events.push([noteStrum, [[event, text1, text2]]]);
