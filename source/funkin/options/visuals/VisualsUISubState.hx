@@ -7,6 +7,8 @@ import funkin.backend.system.Main;
 
 class VisualsUISubState extends BaseOptionsMenu
 {
+			#if !html5
+
 	var noteOptionID:Int = -1;
 	var notes:FlxTypedGroup<StrumNote>;
 	var notesTween:Array<FlxTween> = [];
@@ -15,7 +17,6 @@ class VisualsUISubState extends BaseOptionsMenu
 	{
 		title = 'Visuals';
 		rpcTitle = 'Visuals Menu'; //for Discord Rich Presence
-
 		// for note skins
 		notes = new FlxTypedGroup<StrumNote>();
 		for (i in 0...Note.colArray.length)
@@ -127,7 +128,6 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);
-		
 		#if !mobile
 		var option:Option = new Option('Show Debug Info',
 			'If unchecked, hides the FPS & Memory Counter.',
@@ -197,6 +197,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		note.reloadNote();
 		note.playAnim('static');
 	}
+	#end
 
 	#if !mobile
 	function onChangeFPSCounter()

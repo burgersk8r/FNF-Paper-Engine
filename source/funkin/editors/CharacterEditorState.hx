@@ -1194,6 +1194,7 @@ class CharacterEditorState extends MusicBeatState
 
 	var characterList:Array<String> = [];
 	function reloadCharacterDropDown() {
+		#if sys
 		characterList = Mods.mergeAllTextsNamed('data/characterList.txt', Paths.getSharedPath());
 		var foldersToCheck:Array<String> = Mods.directoriesWithFile(Paths.getSharedPath(), 'data/characters/');
 		for (folder in foldersToCheck)
@@ -1207,7 +1208,9 @@ class CharacterEditorState extends MusicBeatState
 
 		if(characterList.length < 1) characterList.push('');
 		charDropDown.setData(FlxUIDropDownMenu.makeStrIdLabelArray(characterList, true));
-		charDropDown.selectedLabel = _char;
+		char
+		DropDown.selectedLabel = _char;
+		#end
 	}
 
 	function reloadAnimationDropDown() {

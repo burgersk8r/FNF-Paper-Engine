@@ -44,9 +44,10 @@ import funkin.game.LoadingState;
 
 #if flxanimate
 import flxanimate.*;
+#end
+#if !html5
 import funkin.backend.animation.flxanimate.PsychFlxAnimate as FlxAnimate;
 #end
-
 //Flixel
 import flixel.sound.FlxSound;
 import flixel.FlxG;

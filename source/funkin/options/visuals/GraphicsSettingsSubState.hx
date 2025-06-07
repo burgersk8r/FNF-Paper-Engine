@@ -4,10 +4,12 @@ import funkin.game.Character;
 
 class GraphicsSettingsSubState extends BaseOptionsMenu
 {
+
 	var antialiasingOption:Int;
 	var boyfriend:Character = null;
 	public function new()
 	{
+			#if !html5
 		title = 'Graphics';
 		rpcTitle = 'Graphics Settings Menu'; //for Discord Rich Presence
 
@@ -45,7 +47,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			'bool');
 		addOption(option);
 
-		#if !html5 //Apparently other framerates isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
+		 //Apparently other framerates isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		var option:Option = new Option('Framerate',
 			"Pretty self explanatory, isn't it?",
 			'framerate',

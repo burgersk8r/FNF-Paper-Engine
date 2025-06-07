@@ -1,5 +1,6 @@
 package funkin.menus;
 
+import funkin.backend.Song;
 import flixel.FlxObject;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
@@ -160,7 +161,11 @@ class MainMenuState extends MusicBeatState
 			if (FreeplayState.vocals != null)
 				FreeplayState.vocals.volume += 0.5 * elapsed;
 		}
-
+	if (FlxG.keys.justPressed.ONE)
+			{
+				PlayState.SONG = Song.loadFromJson('test');
+				LoadingState.loadAndSwitchState(new PlayState());
+			}
 		if (!selectedSomethin)
 		{
 			if (controls.UI_UP_P)
@@ -313,7 +318,7 @@ class MainMenuState extends MusicBeatState
 								case 'story_mode':
 									FlxG.switchState(new StoryMenuState());
 								case 'freeplay':
-									FlxG.switchState(new FreeplayState());
+									FlxG.switchState(new HTML5Testing());
 		
 								#if MODS_ALLOWED
 								case 'mods':
@@ -326,7 +331,7 @@ class MainMenuState extends MusicBeatState
 								#end
 		
 								case 'credits':
-									FlxG.switchState(new CreditsState());
+									FlxG.switchState(new HTML5Testing());
 								case 'options':
 									FlxG.switchState(new OptionsState());
 									OptionsState.onPlayState = false;
@@ -355,13 +360,11 @@ class MainMenuState extends MusicBeatState
 							FlxTween.tween(memb, {alpha: 0}, 0.4, {ease: FlxEase.quadOut});
 						}
 					}
-					#if desktop
-					if (controls.justPressed('debug_1'))
+					if (FlxG.keys.justPressed.P)
 					{
 						selectedSomethin = true;
 						FlxG.switchState(new MasterEditorMenu());
 					}
-					#end
 				}
 				super.update(elapsed);
 			}
