@@ -669,8 +669,14 @@ class PlayState extends MusicBeatState
 				#end
 			}
 		#end
-
+		switch(songName)
+		{
+			case 'tutorial':
+				startVideo("soap");
+			default:
 		startCallback();
+
+		}
 		RecalculateRating();
 
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
@@ -734,7 +740,7 @@ class PlayState extends MusicBeatState
 		playbackRate = value;
 		FlxG.animationTimeScale = value;
 		Conductor.safeZoneOffset = (ClientPrefs.data.safeFrames / 60) * 1000 * value;
-		#if VIDEOS_ALLOWED
+		#if hxvlc
 		if(videoCutscene != null && videoCutscene.videoSprite != null) videoCutscene.videoSprite.bitmap.rate = value;
 		#end
 		setOnScripts('playbackRate', playbackRate);
@@ -908,8 +914,9 @@ class PlayState extends MusicBeatState
 		if (foundFile)
 		{
 			videoCutscene = new VideoSprite(fileName, forMidSong, canSkip, loop);
+			#if hxvlc
 			if(forMidSong) videoCutscene.videoSprite.bitmap.rate = playbackRate;
-
+			#end
 			// Finish callback
 			if (!forMidSong)
 			{
@@ -930,9 +937,11 @@ class PlayState extends MusicBeatState
 			}
 			if (GameOverSubstate.instance != null && isDead) GameOverSubstate.instance.add(videoCutscene);
 			else add(videoCutscene);
+			#if hxvlc
 
 			if (playOnLoad)
 				videoCutscene.play();
+			#end
 			return videoCutscene;
 		}
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
