@@ -669,12 +669,13 @@ class PlayState extends MusicBeatState
 				#end
 			}
 		#end
+		
 		switch(songName)
 		{
 			case 'tutorial':
-				startVideo("soap");
+				//startVideo("test");
 			default:
-		startCallback();
+			startCallback();
 
 		}
 		RecalculateRating();
