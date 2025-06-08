@@ -3591,10 +3591,9 @@ class PlayState extends MusicBeatState
 			spr = playerStrums.members[id];
 		}
 
-		if(spr != null) {
+		if(spr != null) { // opponent & botplay
 			spr.playAnim('confirm', true);
-			spr.resetAnim = 0.25; // base game style
-			//spr.resetAnim = 0.40; // old base game style
+			spr.resetAnim = 0.25; 
 		}
 	}
 

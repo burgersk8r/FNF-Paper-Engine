@@ -1,0 +1,19 @@
+[List of things to do during the beta phase]
+
+[If an item has a [HELP NEEDED] tag, it means I need help to implement/fix]
+
+[This will be updated if I can think of anything elses]
+
+-------- TODO --------
+
+- Reorganize/Clean Up Source Code (again)
+
+- Fixed engine freezing and crashing when playing for a certain time [HELP NEEDED]
+
+- Find a better way to reduce memory usage instead of having gpu cache option enable [HELP NEEDED]
+
+- Better HScript Support [HELP NEEDED]
+
+- Update Hold Splashes Code [HELP NEEDED]
+
+- Rework on the Notes Code (hence the "strumline" "notes" and "holds" assets in the notes folder) [HELP NEEDED]
