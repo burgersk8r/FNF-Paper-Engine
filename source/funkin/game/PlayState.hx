@@ -672,7 +672,7 @@ class PlayState extends MusicBeatState
 		
 		switch(songName)
 		{
-			case 'tutorial':
+			//case 'tutorial':
 				//startVideo("test");
 			default:
 			startCallback();
