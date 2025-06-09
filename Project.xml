@@ -80,8 +80,6 @@
 	<library name="images" preload="true" />
 	<library name="videos" preload="true" if="VIDEOS_ALLOWED" />
 
-	<assets path="assets/music/songs" library="songs" exclude="*.ogg" if="web" />
-	<assets path="assets/music/songs" library="songs" exclude="*.mp3" unless="web" />
 
 	<section if="MODS_ALLOWED">
 		<assets path='content' embed='false' />

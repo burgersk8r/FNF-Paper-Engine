@@ -9,7 +9,8 @@ enum SpraycanState
 }
 
 class SpraycanAtlasSprite extends FlxSpriteGroup
-{
+{	
+	#if flxanimate
 	public var currentState:SpraycanState = WAITING;
 
 	public var canAtlas:FlxAnimate;
@@ -85,4 +86,5 @@ class SpraycanAtlasSprite extends FlxSpriteGroup
 		canAtlas.anim.play(name, true);
 		playingAnim = name;
 	}
+	#end
 }

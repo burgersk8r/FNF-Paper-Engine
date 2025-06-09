@@ -13,9 +13,11 @@ class ABotSpeaker extends FlxSpriteGroup
 	public var bg:FlxSprite;
 	public var vizSprites:Array<FlxSprite> = [];
 	public var eyeBg:FlxSprite;
+			#if flxanimate
+
 	public var eyes:FlxAnimate;
 	public var speaker:FlxAnimate;
-
+#end
 	#if funkin.vis
 	var analyzer:SpectralAnalyzer;
 	#end
@@ -65,7 +67,7 @@ class ABotSpeaker extends FlxSpriteGroup
 		eyeBg.scale.set(160, 60);
 		eyeBg.updateHitbox();
 		add(eyeBg);
-
+		#if flxanimate
 		eyes = new FlxAnimate(-10, 230);
 		Paths.loadAnimateAtlas(eyes, 'game/stages/phillyStreets/abot/systemEyes');
 		eyes.anim.addBySymbolIndices('lookleft', 'a bot eyes lookin', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 24, false);
@@ -81,6 +83,7 @@ class ABotSpeaker extends FlxSpriteGroup
 		speaker.anim.curFrame = speaker.anim.length - 1;
 		speaker.antialiasing = antialias;
 		add(speaker);
+		#end
 	}
 
 	#if funkin.vis
