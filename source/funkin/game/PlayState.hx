@@ -1774,10 +1774,12 @@ class PlayState extends MusicBeatState
 
 		if(!endingSong && !inCutscene && allowDebugKeys)
 		{
+			#if ALLOW_EDITORS
 			if (controls.justPressed('debug_1'))
 				openChartEditor();
 			else if (controls.justPressed('debug_2'))
 				openCharacterEditor();
+			#end
 		}
 
 		if (healthBar.bounds.max != null && health > healthBar.bounds.max)

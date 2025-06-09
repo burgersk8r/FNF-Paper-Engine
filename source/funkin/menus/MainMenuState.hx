@@ -355,11 +355,13 @@ class MainMenuState extends MusicBeatState
 							FlxTween.tween(memb, {alpha: 0}, 0.4, {ease: FlxEase.quadOut});
 						}
 					}
+				#if ALLOW_EDITORS
 				if (controls.justPressed('debug_1'))
 				{
 						selectedSomethin = true;
 						FlxG.switchState(new MasterEditorMenu());
 				}
+				#end
 			}
 				super.update(elapsed);
 		}

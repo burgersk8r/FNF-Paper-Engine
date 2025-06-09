@@ -34,6 +34,7 @@
 	<define name="ACHIEVEMENTS_ALLOWED" />
 	<define name="CUSTOM_SHADERS_ALLOWED" if="LUA_ALLOWED"/>
 	<define name="DARK_MODE_WINDOW" if="windows" />
+	<define name="ALLOW_EDITORS" unless="html5" />
 
 	<!-- ____________________________ Window Settings ___________________________ -->
 
