@@ -355,15 +355,17 @@ class MainMenuState extends MusicBeatState
 							FlxTween.tween(memb, {alpha: 0}, 0.4, {ease: FlxEase.quadOut});
 						}
 					}
-					if (FlxG.keys.justPressed.P)
-					{
+				#if ALLOW_EDITORS
+				if (controls.justPressed('debug_1'))
+				{
 						selectedSomethin = true;
 						FlxG.switchState(new MasterEditorMenu());
-					}
 				}
-				super.update(elapsed);
+				#end
 			}
+				super.update(elapsed);
 		}
+	}
 	
 	function changeItem(change:Int = 0)
 		{

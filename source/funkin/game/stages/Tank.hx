@@ -129,7 +129,7 @@ class Tank extends BaseStage
 			spr.dance();
 		});
 	}
-
+	#if flxanimate
 	// Cutscenes
 	var cutsceneHandler:CutsceneHandler;
 	var tankman:FlxAnimate;
@@ -398,7 +398,7 @@ class Tank extends BaseStage
 			zoomBack();
 		});
 	}
-
+	#end
 	function zoomBack()
 	{
 		var calledTimes:Int = 0;

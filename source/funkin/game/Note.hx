@@ -151,7 +151,7 @@ class Note extends FlxSprite
 			return ClientPrefs.data.hitsoundVolume;
 		return hitsoundForce ? hitsoundVolume : 0.0;
 	}
-	public var hitsound:String = 'hitsound';
+	public var hitsound:String = 'game/hitsound';
 
 	private function set_multSpeed(value:Float):Float {
 		resizeByRatio(value / multSpeed);

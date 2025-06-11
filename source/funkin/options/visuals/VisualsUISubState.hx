@@ -4,10 +4,10 @@ import funkin.game.Note;
 import funkin.game.StrumNote;
 import funkin.objects.Alphabet;
 import funkin.backend.system.Main;
+import funkin.options.Option;
 
 class VisualsUISubState extends BaseOptionsMenu
 {
-			#if !html5
 
 	var noteOptionID:Int = -1;
 	var notes:FlxTypedGroup<StrumNote>;
@@ -197,7 +197,6 @@ class VisualsUISubState extends BaseOptionsMenu
 		note.reloadNote();
 		note.playAnim('static');
 	}
-	#end
 
 	#if !mobile
 	function onChangeFPSCounter()

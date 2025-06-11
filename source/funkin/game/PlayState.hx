@@ -669,15 +669,22 @@ class PlayState extends MusicBeatState
 				#end
 			}
 		#end
+		
+		switch(songName)
+		{
+			//case 'tutorial':
+				//startVideo("test");
+			default:
+			startCallback();
 
-		startCallback();
+		}
 		RecalculateRating();
 
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 
 		//PRECACHING THINGS THAT GET USED FREQUENTLY TO AVOID LAGSPIKES
-		if(ClientPrefs.data.hitsoundVolume > 0) Paths.sound('hitsound');
+		if(ClientPrefs.data.hitsoundVolume > 0) Paths.sound('game/hitsound');
 		Paths.image('alphabet');
 
 		if (PauseSubState.songName != null)
@@ -734,7 +741,7 @@ class PlayState extends MusicBeatState
 		playbackRate = value;
 		FlxG.animationTimeScale = value;
 		Conductor.safeZoneOffset = (ClientPrefs.data.safeFrames / 60) * 1000 * value;
-		#if VIDEOS_ALLOWED
+		#if hxvlc
 		if(videoCutscene != null && videoCutscene.videoSprite != null) videoCutscene.videoSprite.bitmap.rate = value;
 		#end
 		setOnScripts('playbackRate', playbackRate);
@@ -908,8 +915,9 @@ class PlayState extends MusicBeatState
 		if (foundFile)
 		{
 			videoCutscene = new VideoSprite(fileName, forMidSong, canSkip, loop);
+			#if hxvlc
 			if(forMidSong) videoCutscene.videoSprite.bitmap.rate = playbackRate;
-
+			#end
 			// Finish callback
 			if (!forMidSong)
 			{
@@ -930,9 +938,11 @@ class PlayState extends MusicBeatState
 			}
 			if (GameOverSubstate.instance != null && isDead) GameOverSubstate.instance.add(videoCutscene);
 			else add(videoCutscene);
+			#if hxvlc
 
 			if (playOnLoad)
 				videoCutscene.play();
+			#end
 			return videoCutscene;
 		}
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
@@ -1764,10 +1774,12 @@ class PlayState extends MusicBeatState
 
 		if(!endingSong && !inCutscene && allowDebugKeys)
 		{
+			#if ALLOW_EDITORS
 			if (controls.justPressed('debug_1'))
 				openChartEditor();
 			else if (controls.justPressed('debug_2'))
 				openCharacterEditor();
+			#end
 		}
 
 		if (healthBar.bounds.max != null && health > healthBar.bounds.max)

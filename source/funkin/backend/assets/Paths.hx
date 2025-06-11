@@ -24,7 +24,7 @@ import funkin.backend.assets.Mods;
 
 class Paths
 {
-	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
+	inline public static var SOUND_EXT = "ogg"; //CHANGE THIS TO MP3, IF YOU WANT ALL BROWSERS TO SUPPORT
 	inline public static var VIDEO_EXT = "mp4";
 
 	public static function excludeAsset(key:String) {
@@ -549,23 +549,29 @@ class Paths
 	}
 	#end
 
+	public static function getContent(key:String):String
+	#if sys
+	return openfl.Assets.getText(getPath(key));
+	#else
+	return openfl.Assets.getText(getPath(key));
+	#end
+
 	#if flxanimate
 	public static function loadAnimateAtlas(spr:FlxAnimate, folderOrImg:Dynamic, spriteJson:Dynamic = null, animationJson:Dynamic = null)
 	{
 		var changedAnimJson = false;
 		var changedAtlasJson = false;
 		var changedImage = false;
-		#if !html5
 		if(spriteJson != null)
 		{
 			changedAtlasJson = true;
-			spriteJson = File.getContent(spriteJson);
+			spriteJson = getContent(spriteJson);
 		}
 
 		if(animationJson != null) 
 		{
 			changedAnimJson = true;
-			animationJson = File.getContent(animationJson);
+			animationJson = getContent(animationJson);
 		}
 	
 
@@ -592,7 +598,7 @@ class Paths
 				}
 				else if(Paths.fileExists('images/$originalPath/spritemap$st.png', IMAGE))
 				{
-					//trace('found Sprite PNG');
+					trace('found Sprite PNG');
 					changedImage = true;
 					folderOrImg = Paths.image('$originalPath/spritemap$st');
 					break;
@@ -615,7 +621,6 @@ class Paths
 		}
 		
 		spr.loadAtlasEx(folderOrImg, spriteJson, animationJson);
-			#end
 	}
 	#end
 }

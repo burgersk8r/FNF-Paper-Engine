@@ -1,6 +1,7 @@
 package funkin.options.visuals;
 
 import funkin.game.Character;
+import funkin.options.Option;
 
 class GraphicsSettingsSubState extends BaseOptionsMenu
 {
@@ -9,7 +10,6 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 	var boyfriend:Character = null;
 	public function new()
 	{
-			#if !html5
 		title = 'Graphics';
 		rpcTitle = 'Graphics Settings Menu'; //for Discord Rich Presence
 
@@ -60,7 +60,6 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		option.defaultValue = Std.int(FlxMath.bound(refreshRate, option.minValue, option.maxValue));
 		option.displayFormat = '%v FPS';
 		option.onChange = onChangeFramerate;
-		#end
 
 		super();
 		insert(1, boyfriend);

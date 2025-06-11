@@ -39,9 +39,11 @@ class ControlsSubState extends MusicBeatSubstate
 		[false, 'Up', 'volume_up', 'Volume Up'],
 		[false, 'Down', 'volume_down', 'Volume Down'],
 		[false],
+		#if ALLOW_EDITORS
 		[false, 'DEBUG'],
 		[false, 'Key 1', 'debug_1', 'Debug Key #1'],
 		[false, 'Key 2', 'debug_2', 'Debug Key #2']
+		#end
 	];
 	var curOptions:Array<Int>;
 	var curOptionsValid:Array<Int>;
