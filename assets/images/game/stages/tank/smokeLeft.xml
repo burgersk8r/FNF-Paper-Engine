@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
 <TextureAtlas imagePath="smokeLeft.png" width="7005" height="761">
 	<SubTexture name="SmokeBlurLeft instance 10000" x="421" y="0" width="416" height="591" frameX="-57" frameY="-212" frameWidth="511" frameHeight="843"/>
 	<SubTexture name="SmokeBlurLeft instance 10001" x="421" y="0" width="416" height="591" frameX="-57" frameY="-212" frameWidth="511" frameHeight="843"/>

@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
 <TextureAtlas imagePath="achievements.png" width="2288" height="240">
 	<SubTexture name="achievements idle0000" x="1725" y="0" width="188" height="188" frameX="-0" frameY="-0" frameWidth="188" frameHeight="189"/>
 	<SubTexture name="achievements idle0001" x="1725" y="0" width="188" height="188" frameX="-0" frameY="-0" frameWidth="188" frameHeight="189"/>

@@ -43,7 +43,7 @@ class MenuCharacter extends FlxSprite
 				visible = false;
 				dontPlayAnim = true;
 			default:
-				var characterPath:String = 'images/game/menus/storymenu/menucharacters/' + character + '.json';
+				var characterPath:String = 'images/game/menus/storymenu/characters/' + character + '.json';
 				var rawJson = null;
 
 				#if MODS_ALLOWED
@@ -53,20 +53,20 @@ class MenuCharacter extends FlxSprite
 				}
 
 				if(!FileSystem.exists(path)) {
-					path = Paths.getSharedPath('images/game/menus/menucharacters/' + DEFAULT_CHARACTER + '.json');
+					path = Paths.getSharedPath('images/game/menus/characters/' + DEFAULT_CHARACTER + '.json');
 				}
 				rawJson = File.getContent(path);
 
 				#else
 				var path:String = Paths.getSharedPath(characterPath);
 				if(!Assets.exists(path)) {
-					path = Paths.getSharedPath('images/game/menus/storymenu/menucharacters/' + DEFAULT_CHARACTER + '.json');
+					path = Paths.getSharedPath('images/game/menus/storymenu/characters/' + DEFAULT_CHARACTER + '.json');
 				}
 				rawJson = Assets.getText(path);
 				#end
 				
 				var charFile:MenuCharacterFile = cast Json.parse(rawJson);
-				frames = Paths.getSparrowAtlas('game/menus/storymenu/menucharacters/' + charFile.image);
+				frames = Paths.getSparrowAtlas('game/menus/storymenu/characters/' + charFile.image);
 				animation.addByPrefix('idle', charFile.idle_anim, 24);
 
 				var confirmAnim:String = charFile.confirm_anim;

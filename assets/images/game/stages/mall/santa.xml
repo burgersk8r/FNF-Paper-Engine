@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
 <TextureAtlas imagePath="santa.png" width="7836" height="747">
 	<SubTexture name="santa idle in fear0000" x="0" y="0" width="663" height="721" frameX="-0" frameY="-26" frameWidth="663" frameHeight="748"/>
 	<SubTexture name="santa idle in fear0001" x="663" y="0" width="662" height="721" frameX="-1" frameY="-26" frameWidth="663" frameHeight="748"/>

@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
 <TextureAtlas imagePath="Menu_Parents.png" width="846" height="1124">
 	<SubTexture name="M Parents Idle0000" x="1" y="1" width="420" height="373" frameX="-2" frameY="-2" frameWidth="424" frameHeight="375"/>
 	<SubTexture name="M Parents Idle0001" x="1" y="1" width="420" height="373" frameX="-2" frameY="-2" frameWidth="424" frameHeight="375"/>

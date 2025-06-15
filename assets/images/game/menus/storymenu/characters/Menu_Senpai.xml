@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
 <TextureAtlas imagePath="Menu_Senpai.png" width="1699" height="290">
 	<SubTexture name="M Senpai Idle0000" x="1" y="1" width="337" height="288" frameX="-0" frameY="-0" frameWidth="337" frameHeight="288"/>
 	<SubTexture name="M Senpai Idle0001" x="1" y="1" width="337" height="288" frameX="-0" frameY="-0" frameWidth="337" frameHeight="288"/>

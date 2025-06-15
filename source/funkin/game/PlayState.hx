@@ -3260,7 +3260,7 @@ class PlayState extends MusicBeatState
 		FlxG.animationTimeScale = 1;
 		#if FLX_PITCH FlxG.sound.music.pitch = 1; #end
 
-		Note.globalRgbShaders = [];
+		//Note.globalRgbShaders = [];
 		NoteTypesConfig.clearNoteTypesData();
 
 		NoteSplash.configs.clear();

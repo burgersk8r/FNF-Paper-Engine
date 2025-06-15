@@ -21,6 +21,12 @@ import sys.io.*;
 import js.html.*;
 #end
 
+#if flxanimate
+import flxanimate.*;
+import funkin.backend.animation.flxanimate.PsychFlxAnimate as FlxAnimate;
+#end
+
+//Funkin
 import funkin.backend.assets.Paths;
 import funkin.backend.system.Controls;
 import funkin.backend.system.Achievements;
@@ -42,10 +48,6 @@ import funkin.objects.BGSprite;
 import funkin.game.PlayState;
 import funkin.game.LoadingState;
 
-#if flxanimate
-import flxanimate.*;
-import funkin.backend.animation.flxanimate.PsychFlxAnimate as FlxAnimate;
-#end
 //Flixel
 import flixel.sound.FlxSound;
 import flixel.FlxG;

@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
 <TextureAtlas imagePath="bfPixelsDEAD.png" width="480" height="527">
 	<SubTexture name="BF Dies pixel0000" x="130" y="0" width="60" height="64" rotated="true" frameX="-10" frameY="-11" frameWidth="90" frameHeight="81"/>
 	<SubTexture name="BF Dies pixel0001" x="0" y="0" width="72" height="60" frameX="-8" frameY="-11" frameWidth="90" frameHeight="81"/>

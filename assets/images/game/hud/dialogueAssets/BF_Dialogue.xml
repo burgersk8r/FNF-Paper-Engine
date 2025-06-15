@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
 <TextureAtlas imagePath="BF_Dialogue.png" width="2431" height="1657">
 	<SubTexture name="BF0000" x="790" y="421" width="402" height="407" frameX="-0" frameY="-0" frameWidth="402" frameHeight="407"/>
 	<SubTexture name="BF0001" x="790" y="421" width="402" height="407" frameX="-0" frameY="-0" frameWidth="402" frameHeight="407"/>
