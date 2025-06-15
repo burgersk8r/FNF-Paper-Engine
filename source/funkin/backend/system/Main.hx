@@ -123,7 +123,12 @@ class Main extends Sprite
 		FlxG.save.bind('paper-engine', CoolUtil.getSavePath());
 		Highscore.load();
 
-		var game:FlxGame = new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
+		Controls.instance = new Controls();
+		ClientPrefs.loadDefaultKeys();
+		#if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
+
+		var game:FlxGame = new FlxGame(game.width, game.height, game.initialState, game.framerate, game.framerate, game.skipSplash, game.startFullscreen);
+		
 		@:privateAccess
 		game._customSoundTray = FunkinSoundTray;
 		addChild(game);
@@ -256,7 +261,6 @@ class Main extends Sprite
 		//CoolUtil.playMusic();
 
 		//Main.skipTrans = true;
-											FlxG.switchState(new CrashHandlerState(stackTraceString + '\n\nCrash log created at: "${normalPath}"'));
-
+		FlxG.switchState(new CrashHandlerState(stackTraceString + '\n\nCrash log created at: "${normalPath}"'));
 	}
 }
